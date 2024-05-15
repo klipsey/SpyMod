@@ -6,7 +6,7 @@ using RoR2;
 
 namespace SpyMod.Spy.Components
 {
-    internal class SyncStabExplosion : INetMessage
+    public class SyncStabExplosion : INetMessage
     {
         private NetworkInstanceId netId;
         private GameObject target;

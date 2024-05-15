@@ -45,13 +45,14 @@ namespace SpyMod.Spy.SkillStates
             impactSound = SpyAssets.knifeImpactSoundDef.index;
 
             base.OnEnter();
+            if (characterBody.hasCloakBuff) spyController.ExitStealth();
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            this.FindModelChild("Revolver").gameObject.SetActive(true);
             this.FindModelChild("Knife").gameObject.SetActive(false);
+            this.FindModelChild("Revolver").gameObject.SetActive(true);
         }
         protected override void OnHitEnemyAuthority()
         {

@@ -1,5 +1,9 @@
 # Spy
 
+[![SpyIcon.png](https://i.postimg.cc/y6Q6Sr4G/SpyIcon.png)](https://postimg.cc/7bzrF9L1)
+
+[![Screenshot-2024-05-15-025234.png](https://i.postimg.cc/SRcx8c0K/Screenshot-2024-05-15-025234.png)](https://postimg.cc/4HNGR7xC)
+
 # Overview
 
 # Skills
@@ -7,8 +11,6 @@
 ## Passive: **Backstab**
 
 - Spy can Backstab enemies with his Knife Critically Striking and instantly killing weaker enemies.
-
-[![]()]()
 
 ## Primary: **Revolver**
 

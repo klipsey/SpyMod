@@ -52,14 +52,13 @@ namespace SpyMod.Spy.Components
             this.childLocator.FindChild("Watch").gameObject.SetActive(true);
             this.animator.SetLayerWeight(this.animator.GetLayerIndex("LeftArm, Override"), 1f);
             stopwatchOut = true;
-            if (NetworkServer.active) characterBody.AddBuff(SpyBuffs.spyWatchDebuff);
         }
         public void EnterStealth()
         {
             cloakTimer = 5f;
             isCloaked = true;
             Util.PlaySound("sfx_spy_cloak", base.gameObject);
-            characterBody.skillLocator.special.ExecuteIfReady();
+            DisableWatchLayer();
             characterBody.skillLocator.special.stock--;
         }
         public void ExitStealth()
@@ -68,7 +67,7 @@ namespace SpyMod.Spy.Components
             isCloaked = false;
             if (NetworkServer.active)
             {
-                Util.PlaySound("sfx_spy_unkcloak", base.gameObject);
+                Util.PlaySound("sfx_spy_uncloak", base.gameObject);
                 characterBody.RemoveBuff(RoR2Content.Buffs.Cloak);
                 characterBody.RemoveBuff(RoR2Content.Buffs.CloakSpeed);
             }
@@ -80,7 +79,6 @@ namespace SpyMod.Spy.Components
             this.childLocator.FindChild("Watch").gameObject.SetActive(false);
             this.animator.SetLayerWeight(this.animator.GetLayerIndex("LeftArm, Override"), 0f);
             stopwatchOut = false;
-            if (NetworkServer.active) characterBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
         }
 
         private void OnDestroy()

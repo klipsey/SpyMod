@@ -18,10 +18,12 @@ namespace SpyMod.Spy.SkillStates
             
             if (!this.spyController.stopwatchOut)
             {
+                if (NetworkServer.active) characterBody.AddBuff(SpyBuffs.spyWatchDebuff);
                 this.spyController.EnableWatchLayer();
             }
             else
             {
+                if (NetworkServer.active) characterBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
                 this.spyController.DisableWatchLayer();
             }
 

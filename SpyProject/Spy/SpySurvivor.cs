@@ -18,6 +18,7 @@ using SpyMod.Spy.SkillStates;
 using HG;
 using EntityStates;
 using R2API.Networking.Interfaces;
+using System.Security.Principal;
 
 namespace SpyMod.Spy
 {
@@ -123,7 +124,6 @@ namespace SpyMod.Spy
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
             childLocator.FindChild("Knife").gameObject.SetActive(false);
             childLocator.FindChild("Watch").gameObject.SetActive(false);
-
             DamageTypes.Init();
 
             SpyStates.Init();
@@ -266,11 +266,11 @@ namespace SpyMod.Spy
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ChargeKnife)),
 
-                activationStateMachineName = "Weapon2",
+                activationStateMachineName = "Weapon",
                 interruptPriority = InterruptPriority.Skill,
 
                 baseMaxStock = 1,
-                baseRechargeInterval = 5f,
+                baseRechargeInterval = 7f,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
@@ -292,7 +292,7 @@ namespace SpyMod.Spy
 
         private void AddUtilitySkills()
         {
-            SkillDef atomicBlast = Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef flip = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "Flip",
                 skillNameToken = SPY_PREFIX + "UTILITY_FLIP_NAME",
@@ -324,7 +324,7 @@ namespace SpyMod.Spy
 
             });
 
-            Skills.AddUtilitySkills(bodyPrefab, atomicBlast);
+            Skills.AddUtilitySkills(bodyPrefab, flip);
         }
 
         private void AddSpecialSkills()
@@ -339,9 +339,9 @@ namespace SpyMod.Spy
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SwapWatch)),
                 activationStateMachineName = "Watch",
-                interruptPriority = EntityStates.InterruptPriority.Skill,
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
-                baseRechargeInterval = 12f,
+                baseRechargeInterval = 16f,
                 baseMaxStock = 1,
 
                 rechargeStock = 1,
@@ -456,6 +456,7 @@ namespace SpyMod.Spy
             On.RoR2.UI.LoadoutPanelController.Rebuild += LoadoutPanelController_Rebuild;
             On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
         }
 
         private static void LoadoutPanelController_Rebuild(On.RoR2.UI.LoadoutPanelController.orig_Rebuild orig, LoadoutPanelController self)
@@ -478,7 +479,7 @@ namespace SpyMod.Spy
             {
                 if (self.HasBuff(SpyBuffs.spyWatchDebuff))
                 {
-                    self.attackSpeed -= 0.6f;
+                    self.attackSpeed -= 0.3f;
                 }
             }
         }
@@ -492,6 +493,7 @@ namespace SpyMod.Spy
             CharacterBody attackerBody = null;
             TeamIndex teamIndex = TeamIndex.None;
             Vector3 vector = Vector3.zero;
+            bool flag = false;
             if (damageInfo.attacker)
             {
                 attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
@@ -511,12 +513,15 @@ namespace SpyMod.Spy
                     {
                         if (spyController.stopwatchOut)
                         {
-                            spyController.DisableWatchLayer();
-                            damageInfo.damage = victimBody.healthComponent.health * 0.5f;
+                            if (self.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
+                            {
+                                new SyncStealth(identity.netId, self.gameObject).Send(NetworkDestination.Clients);
+                            }
+                            damageInfo.damage = victimBody.healthComponent.health * 0.25f;
+                            victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
                             victimBody.AddBuff(RoR2Content.Buffs.Cloak);
                             victimBody.AddBuff(RoR2Content.Buffs.CloakSpeed);
-                            spyController.EnterStealth();
-
+                            flag = true;
                         }
                     }
                 }
@@ -550,6 +555,7 @@ namespace SpyMod.Spy
                 }
             }
             orig.Invoke(self, damageInfo);
+            if(flag) victimBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 1f);
         }
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {

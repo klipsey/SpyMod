@@ -38,6 +38,7 @@ namespace SpyMod
             instance = this;
 
             NetworkingAPI.RegisterMessageType<Spy.Components.SyncStabExplosion>();
+            NetworkingAPI.RegisterMessageType<Spy.Components.SyncStealth>();
 
             //easy to use logger
             Log.Init(Logger);

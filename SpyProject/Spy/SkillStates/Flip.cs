@@ -12,7 +12,7 @@ namespace SpyMod.Spy.SkillStates
 {
     public class Flip : BaseSpySkillState
     {
-        public static float jumpDuration = 0.6f;
+        public static float jumpDuration = 0.8f;
         public static float inAirDuration = 0f;
         public static float jumpPower = 15f;
         public static float minDampingStrength = 0.2f;
@@ -45,16 +45,7 @@ namespace SpyMod.Spy.SkillStates
         {
             base.FixedUpdate();
 
-            if (base.fixedAge >= jumpDuration)
-            {
-                stopwatch += Time.fixedDeltaTime;
-                if (base.characterMotor.velocity.y <= 0f)
-                {
-                    base.characterMotor.velocity.y *= 0.2f;
-                }
-            }
-
-            if (stopwatch >= jumpDuration || characterMotor.isGrounded && base.isAuthority)
+            if (base.fixedAge >= jumpDuration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
             }

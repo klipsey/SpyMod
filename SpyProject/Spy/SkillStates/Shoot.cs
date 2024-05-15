@@ -31,6 +31,7 @@ namespace SpyMod.Spy.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
+            if (characterBody.hasCloakBuff) spyController.ExitStealth();
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
             this.characterBody.isSprinting = false;
 
@@ -46,7 +47,7 @@ namespace SpyMod.Spy.SkillStates
 
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
 
-            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", this.duration);
+            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", 1.2f / this.attackSpeedStat);
         }
 
         public override void OnExit()
