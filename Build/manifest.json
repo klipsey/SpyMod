@@ -1,8 +1,8 @@
 {
-    "name": "Scout",
+    "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "0.7.4",
-    "website_url": "https://github.com/klipsey/ScoutMod",
+    "version_number": "0.5.0",
+    "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Say goodbye to your kneecaps chucklehead! Multiplayer compatible!",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",
@@ -17,6 +17,7 @@
         "RiskofThunder-R2API_Orb-1.0.1",
         "RiskofThunder-R2API_Deployable-1.0.1",
 	"RiskofThunder-R2API_DamageType-1.0.4",
-	"RiskofThunder-R2API_Networking-1.0.2"
+	"RiskofThunder-R2API_Networking-1.0.2",
+	"Smooth_Salad-ShaderSwapper-1.0.1"
     ]
 }
