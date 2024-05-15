@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3019837226
+CRC: 2128482903
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9da048ed88bb4d57f6922875e869b804
+    Hash: b2194dea9fb06b6e928133421b150845
   TypeTreeHash:
     serializedVersion: 2
     Hash: b3da3c2cb4ff8225402d41f23b052dac
@@ -85,13 +85,15 @@ Assets:
 - Assets/Spy/HUD/ChargeBar.prefab
 - Assets/Spy/Animations/ChargeStab.anim
 - Assets/Spy/VFX/matShockwave.mat
+- Assets/Spy/Projectiles/meshSapper.mesh
 - Assets/Spy/VFX/Badass/BigExplosion.prefab
+- Assets/Spy/VFX/CritLightning.prefab
 - Assets/Spy/VFX/Badass/MetalHitEffect.prefab
+- Assets/Spy/Animations/Sprint.anim
 - Assets/Spy/Projectiles/CoinImpactHit.prefab
 - Assets/Spy/Animations/TrickStab.anim
 - Assets/Spy/HUD/Textures/texBulletIndicator.png
 - Assets/Spy/Animations/Shoot.anim
-- Assets/Spy/Animations/Sprint.anim
 - Assets/Spy/Animations/AimYaw.anim
 - Assets/Spy/VFX/matShockwave2.mat
 - Assets/Spy/VFX/Badass/StoneHitEffect.prefab
@@ -99,6 +101,7 @@ Assets:
 - Assets/Spy/Animations/maskSpyAim.mask
 - Assets/Spy/Icons/Skill/texSpyWatch.png
 - Assets/Spy/Projectiles/CoinProjectile.prefab
+- Assets/Spy/Animations/DashR.anim
 - Assets/Spy/Animations/IdleIn.anim
 - Assets/Spy/mdlSpy.prefab
 - Assets/Spy/Icons/texSpyIcon.png
@@ -107,38 +110,45 @@ Assets:
 - Assets/Spy/Animations/SprintFast.anim
 - Assets/Spy/Animations/animSpy.controller
 - Assets/Spy/Textures/texSpyNormal.png
+- Assets/Spy/Animations/DashL.anim
 - Assets/Spy/Textures/texSpy.png
-- Assets/Spy/Animations/WatchOut.anim
 - Assets/Spy/Icons/Skill/texSpyStab.png
 - Assets/Spy/VFX/texShockwave.png
 - Assets/Spy/Projectiles/CoinOrbEffect.prefab
 - Assets/Spy/Animations/RunB.anim
 - Assets/Spy/Animations/CSSIdle.anim
 - Assets/Spy/Projectiles/texAlphaGradient6Mask.png
+- Assets/Spy/Materials/matVisor.mat
 - Assets/Spy/Animations/RunR.anim
+- Assets/Spy/Animations/WatchOut.anim
 - Assets/Spy/HUD/WeaponChargeBar.prefab
 - Assets/Spy/Animations/Idle.anim
 - Assets/Spy/Icons/texDefaultSkin.png
 - Assets/Spy/VFX/Badass/TinyExplosion.prefab
 - Assets/Spy/VFX/Badass/SandHitEffect.prefab
 - Assets/Spy/HUD/ChargeRing.prefab
+- Assets/Spy/Animations/DashB.anim
 - Assets/Spy/Textures/texSpyEmission.png
 - Assets/Spy/Projectiles/texRampCoin.png
 - Assets/Spy/Animations/AimPitch.anim
 - Assets/Spy/Projectiles/CoinProjectileGhost.prefab
+- Assets/Spy/Textures/texSapper.png
 - Assets/Spy/Projectiles/coin.asset
+- Assets/Spy/Animations/JumpSprint.anim
 - Assets/Spy/Animations/maskSpyLeftArm.mask
 - Assets/Spy/Animations/Jump.anim
-- Assets/Spy/Animations/JumpSprint.anim
+- Assets/Spy/Animations/DashF.anim
 - Assets/Spy/Animations/Stab.anim
 - Assets/Spy/HUD/Textures/texChargeRing.png
 - Assets/Spy/Projectiles/DriverStunGrenadeImpact.prefab
 - Assets/Spy/Animations/LightImpact.anim
 - Assets/Spy/Icons/Skill/texSpyPassive.png
 - Assets/Spy/SpyDisplay.prefab
+- Assets/Spy/Projectiles/mdlSapper.prefab
 - Assets/Spy/Projectiles/DriverStunGrenadeGhost.prefab
 - Assets/Spy/Icons/Skill/texSpyRevolver.png
 - Assets/Spy/Projectiles/texRampCoin2.png
+- Assets/Spy/Materials/matSapper.mat
 - Assets/Spy/VFX/Badass/WoodHitEffect.prefab
 - Assets/Spy/VFX/Badass/SmallExplosion.prefab
 - Assets/Spy/Animations/RunL.anim

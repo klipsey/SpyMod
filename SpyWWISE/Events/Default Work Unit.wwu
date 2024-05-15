@@ -1224,6 +1224,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sfx_spy_crit" ID="{116487E3-22D6-4D3F-B3AD-6200A4FADCDC}">
+					<ChildrenList>
+						<Action Name="" ID="{5FA0E326-9EA4-448B-AA56-EB301731003A}" ShortID="582605972">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_crit" ID="{B247F4CA-5AED-4145-B622-62E55CC89F15}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_spy_sapper_loop" ID="{6BED8C55-A0C0-46B4-AA06-CD7D6A06E450}">
+					<ChildrenList>
+						<Action Name="" ID="{877C815E-9934-499D-896A-8C47F1A888BB}" ShortID="106985892">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_sapper_loop" ID="{DF86F91E-7DC8-4837-812D-00BCB777907C}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_spy_sapper_plant" ID="{655B295D-81E7-459C-A895-42EC8C6A3305}">
+					<ChildrenList>
+						<Action Name="" ID="{C934A7C7-2CB0-49AC-A1A9-AC8B706E9BBA}" ShortID="753980667">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_sapper_plant" ID="{ECB5ED7F-2A43-4433-AFA5-D6B194762EF9}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_spy_sapper_remove" ID="{5753227B-E1C6-4CB9-A1F8-CA982D14FCF0}">
+					<ChildrenList>
+						<Action Name="" ID="{84AAF8D4-622C-421D-9C1A-2304ED9AEC84}" ShortID="622549792">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_sapper_remove" ID="{64DF3D76-5E2E-4FF1-A699-FE6277C41C70}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

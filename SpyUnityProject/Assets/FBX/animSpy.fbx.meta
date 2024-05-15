@@ -250,6 +250,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: matSpy
     second: {fileID: 2100000, guid: ae6eb3b411d89ec47b311b55fcead9ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matVisor
+    second: {fileID: 2100000, guid: 0da7c1970708f174b99242d3379ace25, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

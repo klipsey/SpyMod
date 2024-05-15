@@ -535,6 +535,8 @@ namespace SpyMod.Spy
                         {
                             damageInfo.crit = true;
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
+                            damageInfo.damageType |= DamageType.BypassArmor;
+                            Util.PlaySound("sfx_spy_crit", attackerBody.gameObject);
                             if (victimBody.isBoss)
                             {
                                 damageInfo.damage *= 3f;

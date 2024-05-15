@@ -17,7 +17,7 @@ namespace SpyMod.Spy.Content
 
         //Materials
         internal static Material commandoMat;
-
+        internal static Material sapperMat;
         //Shader
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
 
@@ -35,7 +35,13 @@ namespace SpyMod.Spy.Content
 
         internal static GameObject knifeSwingEffect;
         internal static GameObject knifeHitEffect;
+
+        internal static GameObject lightningEffect;
         //Models
+        internal static Mesh sapperMesh;
+        //Projectiles
+        internal static GameObject sapperPrefab;
+        internal static GameObject sapperPrefabGhost;
         //Sounds
         internal static NetworkSoundEventDef knifeImpactSoundDef;
 
@@ -73,15 +79,18 @@ namespace SpyMod.Spy.Content
 
         private static void CreateMaterials()
         {
+            sapperMat = mainAssetBundle.LoadAsset<Material>("matSapper");
         }
 
         private static void CreateModels()
         {
-
+            sapperMesh = mainAssetBundle.LoadAsset<Mesh>("meshSapper");
         }
         #region effects
         private static void CreateEffects()
         {
+            lightningEffect = mainAssetBundle.LoadAsset<GameObject>("CritLightning");
+
             bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
 
             Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
@@ -103,7 +112,7 @@ namespace SpyMod.Spy.Content
             bloodSpurtEffect.transform.Find("Blood").GetComponent<ParticleSystemRenderer>().material = bloodMat2;
             bloodSpurtEffect.transform.Find("Trails").GetComponent<ParticleSystemRenderer>().trailMaterial = bloodMat2;
 
-            knifeHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Loader/OmniImpactVFXLoader.prefab").WaitForCompletion().InstantiateClone("KnifeHitEffect");
+            knifeHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("KnifeHitEffect");
             knifeHitEffect.AddComponent<NetworkIdentity>();
             SpyMod.Modules.Content.CreateAndAddEffectDef(knifeHitEffect);
             knifeSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SpyBatSwing", false);
@@ -194,6 +203,14 @@ namespace SpyMod.Spy.Content
         #region projectiles
         private static void CreateProjectiles()
         {
+            sapperPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/StickyBomb/StickyBomb.prefab").WaitForCompletion().InstantiateClone("SpySapper");
+            sapperPrefab.AddComponent<NetworkIdentity>();
+            Component.DestroyImmediate(sapperPrefab.GetComponent<ProjectileImpactExplosion>());
+            sapperPrefab.GetComponent<LoopSound>().akSoundString = "sfx_spy_sapper_loop";
+            sapperPrefab.GetComponent<RTPCController>().rtpcString = string.Empty;
+            sapperPrefabGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/StickyBomb/StickyBombGhost.prefab").WaitForCompletion().InstantiateClone("SpySapperGhost");
+
+            Modules.Content.AddProjectilePrefab(sapperPrefab);
         }
         #endregion
 
