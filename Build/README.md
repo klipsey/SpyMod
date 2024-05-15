@@ -18,16 +18,11 @@
 
 ## Secondary: **Stab**
 
-- Agile. Throw your cleaver Blighting and dealing 350% damage. Crits and Poisons stunned enemies.
-
-## Secondary Swap: **Knife**
-
 - Prepare your Knife. Release to swing dealing damage.
 
 ## Utility: **Flip**
 
 - Flip into the air.
-
 
 ## Special: **Deadman's Watch**
 
@@ -35,7 +30,7 @@
 
 This character was also made in 24 hours! This release was made afterward with some polishing.
 
-[![Spy Video]()](https://www.youtube.com/watch?v=-vVGdieXHz8)
+[![Spy Video](https://img.youtube.com/vi/nZi6LV0rCrE/0.jpg)](https://youtube.com/watch?v=nZi6LV0rCrE)
 
 Download other tf2 akin characters: 
 
