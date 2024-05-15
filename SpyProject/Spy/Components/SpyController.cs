@@ -23,6 +23,10 @@ namespace SpyMod.Spy.Components
         private bool isCloaked = false;
         public bool stopwatchOut = false;
 
+        private uint playID1;
+
+        private ParticleSystem handElectricityEffect;
+
         private void Awake()
         {
             this.characterBody = this.GetComponent<CharacterBody>();
@@ -32,6 +36,7 @@ namespace SpyMod.Spy.Components
             this.characterModel = modelLocator.modelBaseTransform.GetComponentInChildren<CharacterModel>();
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
+            this.handElectricityEffect = this.childLocator.FindChild("HandElectricity").gameObject.GetComponent<ParticleSystem>();
         }
         private void Start()
         {
@@ -72,6 +77,18 @@ namespace SpyMod.Spy.Components
                 characterBody.RemoveBuff(RoR2Content.Buffs.CloakSpeed);
             }
         }
+
+        public void ActivateCritLightning(bool turnOnSound = false)
+        {
+            if (!this.handElectricityEffect.isPlaying) this.handElectricityEffect.Play();
+            if (!characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff) || turnOnSound) this.playID1 = Util.PlaySound("sfx_scout_atomic_on", this.gameObject);
+        }
+        
+        public void DeactivateCritLightning()
+        {
+            if (this.handElectricityEffect.isPlaying) this.handElectricityEffect.Stop();
+            AkSoundEngine.StopPlayingID(this.playID1);
+        }
         public void DisableWatchLayer()
         {
             if (!this.animator || !this.childLocator) return;
@@ -83,6 +100,7 @@ namespace SpyMod.Spy.Components
 
         private void OnDestroy()
         {
+            AkSoundEngine.StopPlayingID(this.playID1);
         }
     }
 }

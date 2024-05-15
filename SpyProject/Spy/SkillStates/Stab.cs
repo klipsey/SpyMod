@@ -53,6 +53,10 @@ namespace SpyMod.Spy.SkillStates
             base.OnExit();
             this.FindModelChild("Knife").gameObject.SetActive(false);
             this.FindModelChild("Revolver").gameObject.SetActive(true);
+            if (this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
+            {
+                this.spyController.ActivateCritLightning(true);
+            }
         }
         protected override void OnHitEnemyAuthority()
         {

@@ -224,10 +224,10 @@ namespace SpyMod.Spy
         {
             SkillDef Shoot = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "Revolver",
+                skillName = "The Diamondback",
                 skillNameToken = SPY_PREFIX + "PRIMARY_REVOLVER_NAME",
                 skillDescriptionToken = SPY_PREFIX + "PRIMARY_REVOLVER_DESCRIPTION",
-                keywordTokens = new string[] { Tokens.agileKeyword },
+                keywordTokens = new string[] { Tokens.spyCritKeyword },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyRevolver"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Shoot)),
@@ -519,7 +519,7 @@ namespace SpyMod.Spy
                             {
                                 new SyncStealth(identity.netId, self.gameObject).Send(NetworkDestination.Clients);
                             }
-                            damageInfo.damage = victimBody.healthComponent.health * 0.25f;
+                            damageInfo.damage = victimBody.healthComponent.health * 0.4f;
                             victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
                             victimBody.AddBuff(RoR2Content.Buffs.Cloak);
                             victimBody.AddBuff(RoR2Content.Buffs.CloakSpeed);
@@ -566,6 +566,13 @@ namespace SpyMod.Spy
                 if (damageReport.attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
                 damageReport.damageInfo.HasModdedDamageType(DamageTypes.BackStab) && damageReport.damageInfo.procChainMask.HasProc(ProcType.Backstab))
                 {
+                    SpyController spy = damageReport.attackerBody.GetComponent<SpyController>();
+                    if (spy) spy.ActivateCritLightning();
+                    if (NetworkServer.active)
+                    {
+                        damageReport.attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                    }
+
                     if (damageReport.victim.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
                     {
                         new SyncStabExplosion(identity.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);

@@ -7,11 +7,14 @@ namespace SpyMod.Spy.Content
     public static class SpyBuffs
     {
         public static BuffDef spyWatchDebuff;
+        public static BuffDef spyDiamondbackBuff;
 
         public static void Init(AssetBundle assetBundle)
         {
             spyWatchDebuff = Modules.Content.CreateAndAddBuff("SpyWatchBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/texBuffSlow50Icon.tif").WaitForCompletion(),
                 SpyAssets.spyColor, false, true, false);
+            spyDiamondbackBuff = Modules.Content.CreateAndAddBuff("SpyCritBuff", Addressables.LoadAssetAsync<Sprite>("RoR2/Base/CritOnUse/texBuffFullCritIcon.tif").WaitForCompletion(),
+                SpyAssets.spyColor, true, false, false);
         }
     }
 }

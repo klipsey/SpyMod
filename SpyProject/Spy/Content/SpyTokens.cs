@@ -50,8 +50,8 @@ namespace SpyMod.Spy.Content
             #endregion
 
             #region Primary
-            Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "Revolver");
-            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.revolverDamageCoefficient}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "The Diamondback");
+            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", Tokens.spyCritPrefix + $". Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.revolverDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
@@ -69,7 +69,7 @@ namespace SpyMod.Spy.Content
             #region Special
             Language.Add(prefix + "SPECIAL_WATCH_NAME", "Deadman's Watch");
             Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy's</color>  <style=cIsDamage>attack speed</style> is slower " +
-                $"but taking <style=cIsDamage>damage</style> turns <color=#62746f>Spy</color> invisible at the cost of <style=cIsHealth>current health</style>.");
+                $"but taking <style=cIsDamage>damage</style> turns <color=#62746f>Spy</color> invisible at the cost of <style=cIsHealth>40% HP</style>.");
             #endregion
 
             #region Achievements

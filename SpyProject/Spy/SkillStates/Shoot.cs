@@ -5,12 +5,13 @@ using R2API;
 using SpyMod.Modules.BaseStates;
 using SpyMod.Spy.Content;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Networking;
 
 namespace SpyMod.Spy.SkillStates
 {
     public class Shoot : BaseSpySkillState
     {
-        public static float damageCoefficient = SpyStaticValues.revolverDamageCoefficient;
+        public float damageCoefficient = SpyStaticValues.revolverDamageCoefficient;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.7f;
         public static float force = 200f;
@@ -22,16 +23,16 @@ namespace SpyMod.Spy.SkillStates
         private float duration;
         private string muzzleString;
         private bool isCrit;
+        private int diamondbackStacks;
 
-        protected virtual float _damageCoefficient => Shoot.damageCoefficient;
         protected virtual GameObject tracerPrefab => this.isCrit ? Shoot.critTracerEffectPrefab : Shoot.tracerEffectPrefab;
-        public virtual string shootSoundString => "Play_bandit2_R_fire";
+        public string shootSoundString = "Play_bandit2_R_fire";
         public virtual BulletAttack.FalloffModel falloff => BulletAttack.FalloffModel.DefaultBullet;
 
         public override void OnEnter()
         {
             base.OnEnter();
-            if (characterBody.hasCloakBuff) spyController.ExitStealth();
+            if (this.characterBody.hasCloakBuff) spyController.ExitStealth();
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
             this.characterBody.isSprinting = false;
 
@@ -40,6 +41,17 @@ namespace SpyMod.Spy.SkillStates
 
             this.isCrit = base.RollCrit();
 
+            this.diamondbackStacks = this.characterBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff);
+
+            if(this.diamondbackStacks > 0)
+            {
+                if(diamondbackStacks == 1) spyController.DeactivateCritLightning();
+                if (NetworkServer.active) this.characterBody.RemoveBuff(SpyBuffs.spyDiamondbackBuff);
+                if (this.isCrit) damageCoefficient *= 1.5f;
+                else this.isCrit = true;
+            }
+
+            this.shootSoundString = this.isCrit ? "Play_bandit2_R_alt_kill" : "Play_bandit2_R_fire";
             if (base.isAuthority)
             {
                 this.Fire();
@@ -72,7 +84,7 @@ namespace SpyMod.Spy.SkillStates
                     bulletCount = 1,
                     aimVector = aimRay.direction,
                     origin = aimRay.origin,
-                    damage = this._damageCoefficient * this.damageStat,
+                    damage = this.damageCoefficient * this.damageStat,
                     damageColorIndex = DamageColorIndex.Default,
                     falloffModel = this.falloff,
                     maxDistance = Shoot.range,

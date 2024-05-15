@@ -2,6 +2,7 @@
 using RoR2;
 using EntityStates;
 using SpyMod.Modules.BaseStates;
+using SpyMod.Spy.Content;
 
 namespace SpyMod.Spy.SkillStates
 {
@@ -15,6 +16,7 @@ namespace SpyMod.Spy.SkillStates
             Util.PlaySound("sfx_spy_knife_equip", this.gameObject);
             this.FindModelChild("Revolver").gameObject.SetActive(false);
             this.FindModelChild("Knife").gameObject.SetActive(true);
+            if(this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff)) this.spyController.DeactivateCritLightning();
         }
 
         public override void FixedUpdate()

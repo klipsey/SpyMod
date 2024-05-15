@@ -15,7 +15,7 @@ namespace SpyMod.Spy.Components
                 {
                     origin = this.transform.position,
                     rotation = Quaternion.identity,
-                    scale = 1f
+                    scale = 0.5f
                 }, false);
 
                 GameObject.Instantiate(Content.SpyAssets.bloodSpurtEffect, this.transform);
