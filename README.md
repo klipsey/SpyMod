@@ -1,75 +1,54 @@
-# Scout
+# Spy
 
-[![](https://i.postimg.cc/qRX8gj2q/Screenshot-2024-05-01-002255.png)]()
+[![SpyIcon.png](https://i.postimg.cc/y6Q6Sr4G/SpyIcon.png)](https://postimg.cc/7bzrF9L1)
 
-[![](https://i.postimg.cc/g2nq4ybt/icon.png)]()
-
-Original Concept by vo1dstud1os - discord https://codenamecrisis.carrd.co/ - carrd
-[![](https://i.postimg.cc/TPcwDSNz/scoutconcept.png)]()
+[![Screenshot-2024-05-15-025234.png](https://i.postimg.cc/SRcx8c0K/Screenshot-2024-05-15-025234.png)](https://postimg.cc/4HNGR7xC)
 
 # Overview
 
-[![](https://i.postimg.cc/7LXH6zfD/Abyssal-Wars.png)]()
-
 # Skills
 
-## Passive: **Atomic Core**
+## Passive: **Backstab**
 
-- Scout can double jump. Deal damage to build up Atomic Core. Taking damage reduces Atomic Core. Atomic Core increases movement speed.
+- Spy can Backstab enemies with his Knife Critically Striking and instantly killing weaker enemies.
 
-## Primary: **Splattergun**
+## Primary: **Revolver**
 
-- Agile. Fire a scattergun burst for 12x50% damage.
+- Fire a bullet dealing damage.
 
-[![](https://i.postimg.cc/x8VgkXkj/Scout-Shotgun.gif)]()
+## Secondary: **Stab**
 
-## Primary Swap: **Bonk**
+- Prepare your Knife. Release to swing dealing damage.
 
-- Agile. Swing your bat for 320% damage.
+## Utility: **Flip**
 
-[![](https://i.postimg.cc/VsTmh1xf/Scout-Swapandbat.gif)]()
+- Flip into the air.
 
-## Secondary: **Toxic Cleaver**
+## Special: **Deadman's Watch**
 
-- Agile. Throw your cleaver blighting and dealing 350% damage. Crits and poisons stunned enemies.
+- Take out your Deadman's Watch. While your Deadman's Watch is out, Spy's attack speed is slower but taking damage turns Spy invisible at the cost of current health.
 
-## Secondary Swap: **Spike Ball**
+This character was also made in 24 hours! This release was made afterward with some polishing.
 
-- Agile. Hit your baseball stunning and dealing 240% damage. Stun duration scales with distance traveled.
+[![Spy Video](https://img.youtube.com/vi/nZi6LV0rCrE/0.jpg)](https://youtube.com/watch?v=nZi6LV0rCrE)
 
-[![](https://i.postimg.cc/XqYQbTt4/Scout-Ball-Cleaver.gif)]()
+Download other tf2 akin characters: 
 
-## Utility: **Atomic Blast**
+https://thunderstore.io/package/tsuyoikenko/Scout/
 
-- Agile. Drain your Atomic Core gaining mini crits, attack speed, and movement speed. If drained at max charge, deal 1500% damage around you.
+https://thunderstore.io/package/EnforcerGang/SniperClassic/
 
-[![](https://i.postimg.cc/bNtpcWPQ/Scout-Atomic-Minicrits.gif)]()
+https://thunderstore.io/package/EnforcerGang/Rocket/
 
-## Special: **Swap**
+https://thunderstore.io/package/EnforcerGang/Enforcer/ (Nemforcer)
 
-- Agile. Swap to your bat.
-
-# Keywords
-
-## **Mini Crits**:
-
-- Damage is increased by 150%.
-
-This character was made in 24 hours! This release was made afterward with some polishing.
-
-Will add proper secondary icon and polished animations eventually.
-
-Not sure if it's networked but it should be.
-
-[![Scout Video](https://img.youtube.com/vi/-vVGdieXHz8/0.jpg)](https://www.youtube.com/watch?v=-vVGdieXHz8)
+https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/ 
 
 Contact me on Discord: https://discord.gg/3NaMEsvYeD
 
 # Credits
 
 tsuyoikenko - Code, model, animations.
-
-vo1dstud1os - Concept art.
 
 TheTimeSweeper - Incredible new Henry template.
 
