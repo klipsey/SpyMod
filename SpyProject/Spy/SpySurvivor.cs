@@ -119,6 +119,8 @@ namespace SpyMod.Spy
 
             SpyUnlockables.Init();
 
+            SpyCrosshair.Init(assetBundle);
+
             base.InitializeCharacter();
 
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
