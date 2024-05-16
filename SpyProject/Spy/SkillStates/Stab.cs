@@ -39,7 +39,7 @@ namespace SpyMod.Spy.SkillStates
             playbackRateParam = "Swing.playbackRate";
             swingEffectPrefab = SpyAssets.knifeSwingEffect;
             
-            moddedDamageTypeHolder.Add(DamageTypes.BackStab);
+            moddedDamageTypeHolder.Add(DamageTypes.SpyBackStab);
             hitEffectPrefab = SpyAssets.knifeHitEffect;
 
             impactSound = SpyAssets.knifeImpactSoundDef.index;
@@ -53,10 +53,7 @@ namespace SpyMod.Spy.SkillStates
             base.OnExit();
             this.FindModelChild("Knife").gameObject.SetActive(false);
             this.FindModelChild("Revolver").gameObject.SetActive(true);
-            if (this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
-            {
-                this.spyController.ActivateCritLightning(true);
-            }
+            this.spyController.ActivateCritLightning();
         }
         protected override void OnHitEnemyAuthority()
         {

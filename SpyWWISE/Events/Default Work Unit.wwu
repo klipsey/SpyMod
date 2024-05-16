@@ -1268,6 +1268,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sfx_spy_revolver_shoot_crit" ID="{C31ACFA3-79FC-487A-BB75-3174DDC4269A}">
+					<ChildrenList>
+						<Action Name="" ID="{3F1E28A5-E876-4E65-87A5-A44810013A65}" ShortID="307826832">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_revolver_shoot_crit" ID="{41372A92-A9F1-4E8F-8BD4-F7E275B21653}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_spy_revolver_shoot" ID="{E94EF6C8-171E-4B8B-BCAF-A7B638C4F21F}">
+					<ChildrenList>
+						<Action Name="" ID="{0D21DAFF-2B48-47D8-8BE4-C255E6734F7E}" ShortID="915770442">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_spy_revolver_shoot" ID="{BA36D2E4-1CFC-48D3-8855-858CE7FC33CB}" WorkUnitID="{FE3FA7C5-9E89-40FE-8C7C-97CE0994E519}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

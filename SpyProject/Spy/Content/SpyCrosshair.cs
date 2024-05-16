@@ -25,21 +25,17 @@ namespace SpyMod.Spy.Content
         private static void CreateCrosshair()
         {
             spyCrosshair = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageCrosshair.prefab").WaitForCompletion().InstantiateClone("SpyCrosshair", false);
-            spyCrosshair.transform.GetChild(5).GetChild(0).gameObject.GetComponent<RectTransform>().position = new Vector2(-24f, -20f);
-            spyCrosshair.transform.GetChild(5).GetChild(0).gameObject.GetComponent<RectTransform>().localScale *= 0.5f;
+            spyCrosshair.transform.GetChild(5).GetChild(0).gameObject.GetComponent<RectTransform>().position = new Vector2(-24f, -30f);
             spyCrosshair.transform.GetChild(5).GetChild(0).gameObject.GetComponent<Image>().color = SpyAssets.spyColor;
-            spyCrosshair.transform.GetChild(5).GetChild(1).gameObject.GetComponent<RectTransform>().position = new Vector2(-12f, -20f);
-            spyCrosshair.transform.GetChild(5).GetChild(1).gameObject.GetComponent<RectTransform>().localScale *= 0.5f;
+            spyCrosshair.transform.GetChild(5).GetChild(1).gameObject.GetComponent<RectTransform>().position = new Vector2(-12f, -30f);
             spyCrosshair.transform.GetChild(5).GetChild(1).gameObject.GetComponent<Image>().color = SpyAssets.spyColor;
-            spyCrosshair.transform.GetChild(5).GetChild(2).gameObject.GetComponent<RectTransform>().position = new Vector2(0f, -20f);
-            spyCrosshair.transform.GetChild(5).GetChild(2).gameObject.GetComponent<RectTransform>().localScale *= 0.5f;
+            spyCrosshair.transform.GetChild(5).GetChild(2).gameObject.GetComponent<RectTransform>().position = new Vector2(0f, -30f);
             spyCrosshair.transform.GetChild(5).GetChild(2).gameObject.GetComponent<Image>().color = SpyAssets.spyColor;
-            spyCrosshair.transform.GetChild(5).GetChild(3).gameObject.GetComponent<RectTransform>().position = new Vector2(12f, -20f);
-            spyCrosshair.transform.GetChild(5).GetChild(3).gameObject.GetComponent<RectTransform>().localScale *= 0.5f;
+            spyCrosshair.transform.GetChild(5).GetChild(3).gameObject.GetComponent<RectTransform>().position = new Vector2(12f, -30f);
             spyCrosshair.transform.GetChild(5).GetChild(3).gameObject.GetComponent<Image>().color = SpyAssets.spyColor;
             GameObject stock5 = spyCrosshair.transform.GetChild(5).GetChild(3).gameObject.InstantiateClone("Stock, 5", false);
             stock5.transform.SetParent(spyCrosshair.transform.GetChild(5));
-            spyCrosshair.transform.GetChild(5).GetChild(4).gameObject.GetComponent<RectTransform>().position = new Vector2(24f, -20f);
+            spyCrosshair.transform.GetChild(5).GetChild(4).gameObject.GetComponent<RectTransform>().position = new Vector2(24f, -30f);
             spyCrosshair.transform.GetChild(5).GetChild(4).gameObject.GetComponent<Image>().color = SpyAssets.spyColor;
             DiamondbackController diamondbackController = spyCrosshair.gameObject.AddComponent<DiamondbackController>();
             DiamondbackController.CritSpriteDisplay one = new DiamondbackController.CritSpriteDisplay();

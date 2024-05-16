@@ -21,7 +21,9 @@ namespace SpyMod.Spy.Components
 
         private float cloakTimer = 0f;
         private bool isCloaked = false;
-        public bool stopwatchOut = false;
+        private bool stopwatchOut = false;
+
+        public bool hasPlayed = false;
 
         private uint playID1;
 
@@ -36,7 +38,7 @@ namespace SpyMod.Spy.Components
             this.characterModel = modelLocator.modelBaseTransform.GetComponentInChildren<CharacterModel>();
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
-            this.handElectricityEffect = this.childLocator.FindChild("HandElectricity").gameObject.GetComponent<ParticleSystem>();
+            this.handElectricityEffect = this.childLocator.FindChild("CritLightning").gameObject.GetComponent<ParticleSystem>();
         }
         private void Start()
         {
@@ -49,6 +51,17 @@ namespace SpyMod.Spy.Components
             {
                 ExitStealth();
             }
+
+            if(!this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
+            {
+                DeactivateCritLightning();
+                hasPlayed = false;
+            }
+        }
+        public bool IsStopWatchOut()
+        {
+            if (characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility)) return true;
+            return stopwatchOut;
         }
         public void EnableWatchLayer()
         {
@@ -75,13 +88,18 @@ namespace SpyMod.Spy.Components
                 Util.PlaySound("sfx_spy_uncloak", base.gameObject);
                 characterBody.RemoveBuff(RoR2Content.Buffs.Cloak);
                 characterBody.RemoveBuff(RoR2Content.Buffs.CloakSpeed);
+                characterBody.RemoveBuff(SpyBuffs.armorBuff);
             }
         }
 
-        public void ActivateCritLightning(bool turnOnSound = false)
+        public void ActivateCritLightning()
         {
             if (!this.handElectricityEffect.isPlaying) this.handElectricityEffect.Play();
-            if (!characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff) || turnOnSound) this.playID1 = Util.PlaySound("sfx_scout_atomic_on", this.gameObject);
+            if (!hasPlayed)
+            {
+                this.playID1 = Util.PlaySound("sfx_scout_atomic_duration", this.gameObject);
+                hasPlayed = true;
+            }
         }
         
         public void DeactivateCritLightning()

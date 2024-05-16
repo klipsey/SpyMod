@@ -24,10 +24,10 @@ namespace SpyMod.Spy.Content
             string prefix = SpySurvivor.SPY_PREFIX;
 
             string desc = "The Spy is a squishy melee assassin who excels at killing high priority targets with ease.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Use your revolver to engage from range." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Stab can be held down while using other skills so make sure to time it right." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Flip can be a great tool to get into Backstab range." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Your Deadman's Watch is a powerful tool but holding it out lowers your attackspeed." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Build up stacks of Espionage with Spy's knife and unleash crits with The Diamondback." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Stab is a devestating ability that can instantly kill weaker enemies." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Sap can be a great tool to get into Backstab range while stunning nearby enemies." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Your Deadman's Watch is a powerful tool but be careful to not hold it out for too long." + Environment.NewLine + Environment.NewLine;
 
             string lore = "Your Mother!";
             string outro = "Seduce me.";
@@ -46,7 +46,7 @@ namespace SpyMod.Spy.Content
 
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "Backstab");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"Spy can <style=cIsHealth>Backstab</style> enemies with his <color=#62746f>Knife</color> <style=cIsDamage>Critically Striking</style> and instantly <style=cIsHealth>killing</style> weaker enemies.");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#62746f>Spy</color> can <style=cIsHealth>Backstab</style> enemies with his <color=#62746f>Knife</color> <style=cIsDamage>Critically Striking</style> and instantly <style=cIsHealth>killing</style> weaker enemies.");
             #endregion
 
             #region Primary
@@ -61,15 +61,16 @@ namespace SpyMod.Spy.Content
             #endregion
 
             #region Utility 
-            Language.Add(prefix + "UTILITY_FLIP_NAME", "Flip");
-            Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Flip</style> into the air.");
+            Language.Add(prefix + "UTILITY_FLIP_NAME", "Sap");
+            Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. Plant a <color=#62746f>Sapper</color> on a nearby " +
+                $"enemy, <style=cIsUtility>shocking</style> them for 5 seconds and nearby enemies for 2.5 seconds.");
 
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_WATCH_NAME", "Deadman's Watch");
-            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy's</color>  <style=cIsDamage>attack speed</style> is slower " +
-                $"but taking <style=cIsDamage>damage</style> turns <color=#62746f>Spy</color> invisible at the cost of <style=cIsHealth>40% HP</style>.");
+            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> turns <color=#62746f>Spy</color> invisible at the cost of <style=cIsHealth>40% HP</style>. " +
+                $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot.");
             #endregion
 
             #region Achievements

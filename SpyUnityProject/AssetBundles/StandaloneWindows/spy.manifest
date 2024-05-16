@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2128482903
+CRC: 3628421766
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b2194dea9fb06b6e928133421b150845
+    Hash: a689f806c469297efd5862b2e7e779ea
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b3da3c2cb4ff8225402d41f23b052dac
+    Hash: 42d2694ece3e6464c0822cad42100938
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,9 +42,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 67079b849227b734694872d8810229b8, type: 3}
 - Class: 114
@@ -94,7 +94,6 @@ Assets:
 - Assets/Spy/Animations/TrickStab.anim
 - Assets/Spy/HUD/Textures/texBulletIndicator.png
 - Assets/Spy/Animations/Shoot.anim
-- Assets/Spy/Animations/AimYaw.anim
 - Assets/Spy/VFX/matShockwave2.mat
 - Assets/Spy/VFX/Badass/StoneHitEffect.prefab
 - Assets/Spy/Projectiles/CoinTracer.prefab
@@ -114,6 +113,7 @@ Assets:
 - Assets/Spy/Textures/texSpy.png
 - Assets/Spy/Icons/Skill/texSpyStab.png
 - Assets/Spy/VFX/texShockwave.png
+- Assets/Spy/Animations/AimPitch.anim
 - Assets/Spy/Projectiles/CoinOrbEffect.prefab
 - Assets/Spy/Animations/RunB.anim
 - Assets/Spy/Animations/CSSIdle.anim
@@ -123,6 +123,7 @@ Assets:
 - Assets/Spy/Animations/WatchOut.anim
 - Assets/Spy/HUD/WeaponChargeBar.prefab
 - Assets/Spy/Animations/Idle.anim
+- Assets/Spy/Animations/AimYaw.anim
 - Assets/Spy/Icons/texDefaultSkin.png
 - Assets/Spy/VFX/Badass/TinyExplosion.prefab
 - Assets/Spy/VFX/Badass/SandHitEffect.prefab
@@ -130,7 +131,6 @@ Assets:
 - Assets/Spy/Animations/DashB.anim
 - Assets/Spy/Textures/texSpyEmission.png
 - Assets/Spy/Projectiles/texRampCoin.png
-- Assets/Spy/Animations/AimPitch.anim
 - Assets/Spy/Projectiles/CoinProjectileGhost.prefab
 - Assets/Spy/Textures/texSapper.png
 - Assets/Spy/Projectiles/coin.asset

@@ -16,7 +16,11 @@ namespace SpyMod.Spy.SkillStates
             Util.PlaySound("sfx_spy_knife_equip", this.gameObject);
             this.FindModelChild("Revolver").gameObject.SetActive(false);
             this.FindModelChild("Knife").gameObject.SetActive(true);
-            if(this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff)) this.spyController.DeactivateCritLightning();
+            if (this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
+            {
+                this.spyController.hasPlayed = false;
+                this.spyController.DeactivateCritLightning();
+            }
         }
 
         public override void FixedUpdate()

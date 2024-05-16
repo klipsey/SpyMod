@@ -6,7 +6,7 @@ namespace SpyMod.Spy.Components
 {
     public class SpyPassive : MonoBehaviour
     {
-        public SkillDef doubleJumpPassive;
+        public SkillDef spyPassive;
 
         public GenericSkill passiveSkillSlot;
 
@@ -14,9 +14,9 @@ namespace SpyMod.Spy.Components
         {
             get
             {
-                if (doubleJumpPassive && passiveSkillSlot)
+                if (spyPassive && passiveSkillSlot)
                 {
-                    return passiveSkillSlot.skillDef == doubleJumpPassive;
+                    return passiveSkillSlot.skillDef == spyPassive;
                 }
 
                 return false;

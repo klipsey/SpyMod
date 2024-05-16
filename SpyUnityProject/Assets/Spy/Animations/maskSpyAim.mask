@@ -175,5 +175,7 @@ AvatarMask:
     m_Weight: 0
   - m_Path: meshTie
     m_Weight: 0
+  - m_Path: meshVisor
+    m_Weight: 0
   - m_Path: meshWatch
     m_Weight: 0

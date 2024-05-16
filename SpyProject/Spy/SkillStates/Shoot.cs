@@ -45,13 +45,12 @@ namespace SpyMod.Spy.SkillStates
 
             if(this.diamondbackStacks > 0)
             {
-                if(diamondbackStacks == 1) spyController.DeactivateCritLightning();
                 if (NetworkServer.active) this.characterBody.RemoveBuff(SpyBuffs.spyDiamondbackBuff);
                 if (this.isCrit) damageCoefficient *= 1.5f;
                 else this.isCrit = true;
             }
 
-            this.shootSoundString = this.isCrit ? "Play_bandit2_R_alt_kill" : "Play_bandit2_R_fire";
+            this.shootSoundString = this.isCrit ? "sfx_spy_revolver_shoot_crit" : "sfx_spy_revolver_shoot";
             if (base.isAuthority)
             {
                 this.Fire();

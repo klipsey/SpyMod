@@ -36,6 +36,8 @@ namespace SpyMod.Spy.Content
         internal static GameObject knifeSwingEffect;
         internal static GameObject knifeHitEffect;
 
+        internal static GameObject sapperExpiredEffect;
+
         internal static GameObject lightningEffect;
         //Models
         internal static Mesh sapperMesh;
@@ -114,8 +116,14 @@ namespace SpyMod.Spy.Content
 
             knifeHitEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("KnifeHitEffect");
             knifeHitEffect.AddComponent<NetworkIdentity>();
-            SpyMod.Modules.Content.CreateAndAddEffectDef(knifeHitEffect);
-            knifeSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SpyBatSwing", false);
+            Modules.Content.CreateAndAddEffectDef(knifeHitEffect);
+
+            sapperExpiredEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("SapperExpiredEffect");
+            sapperExpiredEffect.AddComponent<NetworkIdentity>();
+            sapperExpiredEffect.GetComponent<EffectComponent>().soundName = "sfx_spy_sapper_remove";
+            Modules.Content.CreateAndAddEffectDef(sapperExpiredEffect);
+
+            knifeSwingEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SpyKnifeSwing", false);
             knifeSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Huntress/matHuntressSwingTrail.mat").WaitForCompletion();
             var swing = knifeSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
             swing.startLifetimeMultiplier *= 2f;
@@ -203,12 +211,38 @@ namespace SpyMod.Spy.Content
         #region projectiles
         private static void CreateProjectiles()
         {
+            sapperPrefabGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/StickyBomb/StickyBombGhost.prefab").WaitForCompletion().InstantiateClone("SpySapperGhost", false);
+
+            Material[] mat = new Material[1];
+            mat[0] = sapperMat;
+            sapperPrefabGhost.transform.Find("Cylinder").gameObject.GetComponent<MeshRenderer>().materials = mat;
+            sapperPrefabGhost.transform.Find("Cylinder").gameObject.GetComponent<MeshFilter>().mesh = sapperMesh;
+            sapperPrefabGhost.transform.Find("Cylinder").gameObject.GetComponent<Light>().color = spyColor;
+            GameObject.DestroyImmediate(sapperPrefabGhost.transform.Find("Pulse").gameObject);
+            lightningEffect.transform.SetParent(sapperPrefabGhost.transform, false);
+
             sapperPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/StickyBomb/StickyBomb.prefab").WaitForCompletion().InstantiateClone("SpySapper");
             sapperPrefab.AddComponent<NetworkIdentity>();
             Component.DestroyImmediate(sapperPrefab.GetComponent<ProjectileImpactExplosion>());
-            sapperPrefab.GetComponent<LoopSound>().akSoundString = "sfx_spy_sapper_loop";
+            Component.DestroyImmediate(sapperPrefab.GetComponent<LoopSound>());
             sapperPrefab.GetComponent<RTPCController>().rtpcString = string.Empty;
-            sapperPrefabGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/StickyBomb/StickyBombGhost.prefab").WaitForCompletion().InstantiateClone("SpySapperGhost");
+            sapperPrefab.gameObject.GetComponent<ProjectileController>().ghostPrefab = sapperPrefabGhost;
+            sapperPrefab.gameObject.GetComponent<ProjectileController>().startSound = "sfx_spy_sapper_loop";
+            sapperPrefab.gameObject.GetComponent<ProjectileDamage>().damageType |= DamageType.Shock5s;
+            sapperPrefab.gameObject.GetComponent<ProjectileSimple>().lifetimeExpiredEffect = sapperExpiredEffect;
+            ProjectileProximityBeamController projectileProximityBeamController = sapperPrefab.AddComponent<ProjectileProximityBeamController>();
+            projectileProximityBeamController.enabled = true;
+            projectileProximityBeamController.attackFireCount = 6;
+            projectileProximityBeamController.attackInterval = 0.2f;
+            projectileProximityBeamController.listClearInterval = 6f;
+            projectileProximityBeamController.minAngleFilter = 0f;
+            projectileProximityBeamController.maxAngleFilter = 180f;
+            projectileProximityBeamController.attackRange = 20f;
+            projectileProximityBeamController.inheritDamageType = true;
+            projectileProximityBeamController.damageCoefficient = 1.2f;
+            projectileProximityBeamController.procCoefficient = 0.5f;
+            projectileProximityBeamController.bounces = 0;
+            projectileProximityBeamController.lightningType = RoR2.Orbs.LightningOrb.LightningType.Ukulele;
 
             Modules.Content.AddProjectilePrefab(sapperPrefab);
         }

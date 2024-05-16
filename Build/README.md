@@ -12,21 +12,25 @@
 
 - Spy can Backstab enemies with his Knife Critically Striking and instantly killing weaker enemies.
 
-## Primary: **Revolver**
+## Primary: **The Diamondback**
 
-- Fire a bullet dealing damage.
+- Espionage. Fire a bullet dealing damage.
 
 ## Secondary: **Stab**
 
 - Prepare your Knife. Release to swing dealing damage.
 
-## Utility: **Flip**
+## Utility: **Sap**
 
-- Flip into the air.
+- Dash in a direction or Flip in the air. Plant a Sapper on a nearby enemy, shocking them for 5 seconds and nearby enemies for 2.5 seconds.
 
 ## Special: **Deadman's Watch**
 
-- Take out your Deadman's Watch. While your Deadman's Watch is out, Spy's attack speed is slower but taking damage turns Spy invisible at the cost of current health.
+- Take out your Deadman's Watch. Taking damage turns Spy invisible at the cost of 40% HP. While your Deadman's Watch is out, Spy cannot shoot.
+
+## Keywords: **Espionage**
+
+- Backstab kills with your Knife guarantee a Critical Strike for The Diamondback. Getting a Critical Strike with an Espionage stack increases the damage by 50% instead. Max 5 stacks.
 
 This character was also made in 24 hours! This release was made afterward with some polishing.
 

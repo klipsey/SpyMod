@@ -16,7 +16,7 @@ namespace SpyMod.Spy.SkillStates
             base.OnEnter();
             Util.PlaySound("sfx_scout_swap_weapon", this.gameObject);
             
-            if (!this.spyController.stopwatchOut)
+            if (!this.spyController.IsStopWatchOut())
             {
                 if (NetworkServer.active) characterBody.AddBuff(SpyBuffs.spyWatchDebuff);
                 this.spyController.EnableWatchLayer();

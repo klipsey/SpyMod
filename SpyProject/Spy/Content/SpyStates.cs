@@ -14,7 +14,7 @@ namespace SpyMod.Spy.Content
             Modules.Content.AddEntityState(typeof(ChargeKnife));
             Modules.Content.AddEntityState(typeof(Stab));
             Modules.Content.AddEntityState(typeof(SwapWatch));
-            Modules.Content.AddEntityState(typeof(Flip));
+            Modules.Content.AddEntityState(typeof(Sap));
         }
     }
 }

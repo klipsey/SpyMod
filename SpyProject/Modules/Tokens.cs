@@ -10,7 +10,7 @@ namespace SpyMod.Modules
 
         public static string agileKeyword = KeywordText("Agile", "The skill can be used while sprinting.");
 
-        public static string spyCritKeyword = KeywordText("Espionage", "<color=#62746f>Backstab</color> kills with your <color=#62746f>Knife</color> guarentee a <style=cIsDamage>Critical Strike</style> for <color=#62746f>The Diamondback</color>. " +
+        public static string spyCritKeyword = KeywordText("Espionage", "<style=cIsDamage>Backstab</style> kills with your <color=#62746f>Knife</color> guarantee a <style=cIsDamage>Critical Strike</style> for <color=#62746f>The Diamondback</color>. " +
             " Getting a <style=cIsDamage>Critical Strike</style> with an <color=#62746f>Espionage</color> stack increases the <style=cIsDamage>damage</style> by 50% instead. Max 5 stacks.");
 
         public static string DamageText(string text)
