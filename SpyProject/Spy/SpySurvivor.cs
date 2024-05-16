@@ -491,6 +491,10 @@ namespace SpyMod.Spy
             {
                 return;
             }
+            if (!self.alive || self.godMode || self.ospTimer > 0f)
+            {
+                return;
+            }
             CharacterBody victimBody = self.body;
             CharacterBody attackerBody = null;
             TeamIndex teamIndex = TeamIndex.None;
@@ -499,7 +503,7 @@ namespace SpyMod.Spy
             if (damageInfo.attacker)
             {
                 attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                if ((bool)attackerBody)
+                if (attackerBody)
                 {
                     teamIndex = attackerBody.teamComponent.teamIndex;
                     vector = attackerBody.corePosition - damageInfo.position;
@@ -507,7 +511,6 @@ namespace SpyMod.Spy
             }
             if (damageInfo.damage > 0)
             {
-                EntityStateMachine victimMachine = victimBody.GetComponent<EntityStateMachine>();
                 if (victimBody && victimBody.baseNameToken == "KENKO_SPY_NAME")
                 {
                     SpyController spyController = victimBody.GetComponent<SpyController>();
@@ -545,7 +548,7 @@ namespace SpyMod.Spy
                         }
                     }
                 }
-                if (attackerBody)
+                if (attackerBody && attackerBody.baseNameToken == "KENKO_SPY_NAME" && victimBody)
                 {
                     if (attackerBody.canPerformBackstab && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT && (damageInfo.procChainMask.HasProc(ProcType.Backstab) || BackstabManager.IsBackstab(-vector, victimBody)))
                     {
@@ -595,7 +598,7 @@ namespace SpyMod.Spy
                 }
             }
             orig.Invoke(self, damageInfo);
-            if(flag) victimBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 1f);
+            if(flag && victimBody) victimBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 1f);
         }
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {

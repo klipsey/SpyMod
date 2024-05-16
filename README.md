@@ -6,27 +6,45 @@
 
 # Overview
 
+### The Spy is a squishy melee assassin who excels at killing high priority targets with ease.
+
 # Skills
 
 ## Passive: **Backstab**
 
 - Spy can Backstab enemies with his Knife Critically Striking and instantly killing weaker enemies.
 
-## Primary: **Revolver**
+[![Spy-Passive.gif](https://i.postimg.cc/gjHtZ584/Spy-Passive.gif)](https://postimg.cc/9wzB3Lxq)
 
-- Fire a bullet dealing damage.
+## Primary: **The Diamondback**
+
+- Espionage. Fire a bullet dealing damage.
+
+[![Spy-Primary.gif](https://i.postimg.cc/CK92TbwC/Spy-Primary.gif)](https://postimg.cc/VSBgXrr5)
 
 ## Secondary: **Stab**
 
 - Prepare your Knife. Release to swing dealing damage.
 
-## Utility: **Flip**
+[![Spy-Secondary.gif](https://i.postimg.cc/xCH40qdw/Spy-Secondary.gif)](https://postimg.cc/jwxXcxPc)
 
-- Flip into the air.
+## Utility: **Sap**
+
+- Dash in a direction or Flip in the air. Plant a Sapper on a nearby enemy, shocking them and nearby enemies for 5 seconds.
+
+[![Spy-Utility.gif](https://i.postimg.cc/9MD0n5Jg/Spy-Utility.gif)](https://postimg.cc/S2pmn50c)
 
 ## Special: **Deadman's Watch**
 
-- Take out your Deadman's Watch. While your Deadman's Watch is out, Spy's attack speed is slower but taking damage turns Spy invisible at the cost of current health.
+- Take out your Deadman's Watch. Taking damage turns Spy invisible at the cost of 40% HP. While your Deadman's Watch is out, Spy cannot shoot.
+
+[![Spy-Special.gif](https://i.postimg.cc/P5HLr75N/Spy-Special.gif)](https://postimg.cc/1fWRvJ6Z)
+
+## Keywords: **Espionage**
+
+- Backstab kills with your Knife guarantee a Critical Strike for The Diamondback. Getting a Critical Strike with an Espionage stack increases the damage by 50% instead. Max 5 stacks.
+
+[![SpyEsp.gif](https://i.postimg.cc/Dy6hLpcS/SpyEsp.gif)](https://postimg.cc/D8SRKgHh)
 
 This character was also made in 24 hours! This release was made afterward with some polishing.
 

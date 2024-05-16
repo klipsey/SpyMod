@@ -1,7 +1,7 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "0.6.0",
+    "version_number": "0.6.1",
     "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Your mother! Multiplayer compatible?",
     "dependencies": [

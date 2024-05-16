@@ -63,7 +63,7 @@ namespace SpyMod.Spy.Content
             #region Utility 
             Language.Add(prefix + "UTILITY_FLIP_NAME", "Sap");
             Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. Plant a <color=#62746f>Sapper</color> on a nearby " +
-                $"enemy, <style=cIsUtility>shocking</style> them for 5 seconds and nearby enemies for 2.5 seconds.");
+                $"enemy, <style=cIsUtility>shocking</style> them and nearby enemies for 5 seconds.");
 
             #endregion
 

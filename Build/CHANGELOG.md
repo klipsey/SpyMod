@@ -1,3 +1,7 @@
+# 0.6.1
+
+- ReadMe and bug fixes
+
 # 0.6.0
 
 - Flip is now Sap

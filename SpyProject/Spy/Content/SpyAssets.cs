@@ -240,7 +240,7 @@ namespace SpyMod.Spy.Content
             projectileProximityBeamController.attackRange = 20f;
             projectileProximityBeamController.inheritDamageType = true;
             projectileProximityBeamController.damageCoefficient = 1.2f;
-            projectileProximityBeamController.procCoefficient = 0.5f;
+            projectileProximityBeamController.procCoefficient = 1f;
             projectileProximityBeamController.bounces = 0;
             projectileProximityBeamController.lightningType = RoR2.Orbs.LightningOrb.LightningType.Ukulele;
 
