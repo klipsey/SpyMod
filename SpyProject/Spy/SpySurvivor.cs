@@ -497,21 +497,18 @@ namespace SpyMod.Spy
             }
             CharacterBody victimBody = self.body;
             CharacterBody attackerBody = null;
-            TeamIndex teamIndex = TeamIndex.None;
             Vector3 vector = Vector3.zero;
-            bool flag = false;
             if (damageInfo.attacker)
             {
                 attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
                 if (attackerBody)
                 {
-                    teamIndex = attackerBody.teamComponent.teamIndex;
                     vector = attackerBody.corePosition - damageInfo.position;
                 }
             }
-            if (damageInfo.damage > 0)
+            if (damageInfo.damage > 0 && !damageInfo.rejected && victimBody)
             {
-                if (victimBody && victimBody.baseNameToken == "KENKO_SPY_NAME")
+                if (victimBody.baseNameToken == "KENKO_SPY_NAME")
                 {
                     SpyController spyController = victimBody.GetComponent<SpyController>();
                     if (spyController)
@@ -527,28 +524,29 @@ namespace SpyMod.Spy
 
                             DamageInfo stealthInfo = new DamageInfo();
                             stealthInfo.damage = victimBody.healthComponent.health * 0.4f;
-                            stealthInfo.attacker = victimBody.gameObject;
+                            stealthInfo.attacker = null;
                             stealthInfo.canRejectForce = true;
                             stealthInfo.crit = false;
                             stealthInfo.inflictor = null;
                             stealthInfo.damageColorIndex = DamageColorIndex.Default;
-                            stealthInfo.damageType = DamageType.Generic;
-                            stealthInfo.force = Vector2.zero;
+                            stealthInfo.damageType = DamageType.BypassArmor | DamageType.Silent | DamageType.NonLethal;
+                            stealthInfo.force = Vector3.zero;
                             stealthInfo.rejected = false;
                             stealthInfo.position = victimBody.corePosition;
                             stealthInfo.procChainMask = default(ProcChainMask);
                             stealthInfo.procCoefficient = 0f;
                             victimBody.healthComponent.TakeDamage(stealthInfo);
+
                             Util.CleanseBody(victimBody, true, false, false, true, true, true);
                             victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
                             victimBody.AddBuff(RoR2Content.Buffs.Cloak);
                             victimBody.AddBuff(RoR2Content.Buffs.CloakSpeed);
                             victimBody.AddBuff(SpyBuffs.armorBuff);
-                            flag = true;
                         }
                     }
                 }
-                if (attackerBody && attackerBody.baseNameToken == "KENKO_SPY_NAME" && victimBody)
+
+                if (attackerBody && attackerBody.baseNameToken == "KENKO_SPY_NAME" && !damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
                 {
                     if (attackerBody.canPerformBackstab && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT && (damageInfo.procChainMask.HasProc(ProcType.Backstab) || BackstabManager.IsBackstab(-vector, victimBody)))
                     {
@@ -557,37 +555,43 @@ namespace SpyMod.Spy
                             damageInfo.crit = true;
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
                             damageInfo.damageType |= DamageType.BypassArmor;
+                            damageInfo.damageType |= DamageType.Silent;
                             Util.PlaySound("sfx_spy_crit", attackerBody.gameObject);
+
                             DamageInfo executeDamage = new DamageInfo();
                             executeDamage.damage = 0f;
-                            executeDamage.attacker = damageInfo.attacker;
-                            executeDamage.canRejectForce = damageInfo.canRejectForce;
-                            executeDamage.crit = false;
-                            executeDamage.inflictor = damageInfo.inflictor;
+                            executeDamage.attacker = null;
+                            executeDamage.canRejectForce = true;
+                            executeDamage.crit = true;
+                            executeDamage.inflictor = null;
                             executeDamage.damageColorIndex = DamageColorIndex.WeakPoint;
                             executeDamage.damageType = damageInfo.damageType;
-                            executeDamage.dotIndex = damageInfo.dotIndex;
-                            executeDamage.force = damageInfo.force;
-                            executeDamage.rejected = damageInfo.rejected;
-                            executeDamage.position = damageInfo.position;
-                            executeDamage.procChainMask = damageInfo.procChainMask;
+                            executeDamage.force = Vector3.zero;
+                            executeDamage.rejected = false;
+                            executeDamage.position = victimBody.corePosition;
+                            executeDamage.procChainMask = default(ProcChainMask);
                             executeDamage.procCoefficient = 0f;
                             executeDamage.AddModdedDamageType(DamageTypes.SpyExecute);
-                            if(victimBody.isChampion || victimBody.isBoss)
+
+                            if (victimBody.healthComponent)
                             {
-                                executeDamage.damage = damageInfo.damage * 2f;
-                                victimBody.healthComponent.TakeDamage(executeDamage);
-                            }
-                            else if (victimBody.isElite)
-                            {
-                                if (damageInfo.damage * 2f > victimBody.healthComponent.fullHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
-                                else executeDamage.damage += victimBody.healthComponent.fullHealth * 0.3f;
-                                victimBody.healthComponent.TakeDamage(executeDamage);
-                            }
-                            else
-                            {
-                                executeDamage.damage += victimBody.healthComponent.fullCombinedHealth;
-                                victimBody.healthComponent.TakeDamage(executeDamage);
+                                if (victimBody.isChampion || victimBody.isBoss)
+                                {
+                                    executeDamage.damage = damageInfo.damage * 2f;
+
+                                    victimBody.healthComponent.TakeDamage(executeDamage);
+                                }
+                                else if (victimBody.isElite)
+                                {
+                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
+                                    else executeDamage.damage += victimBody.healthComponent.fullHealth * 0.3f;
+                                    victimBody.healthComponent.TakeDamage(executeDamage);
+                                }
+                                else
+                                {
+                                    executeDamage.damage += victimBody.healthComponent.fullCombinedHealth;
+                                    victimBody.healthComponent.TakeDamage(executeDamage);
+                                }
                             }
                         }
                         else
@@ -598,7 +602,6 @@ namespace SpyMod.Spy
                 }
             }
             orig.Invoke(self, damageInfo);
-            if(flag && victimBody) victimBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 1f);
         }
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {

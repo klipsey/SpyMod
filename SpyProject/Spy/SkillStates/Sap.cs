@@ -25,7 +25,7 @@ namespace SpyMod.Spy.SkillStates
         public float speedCoefficient = 7f;
         private Vector3 cachedForward;
 
-        private bool isSap = false;
+        private bool isFlip = false;
 
         public override void OnEnter()
         {
@@ -52,7 +52,7 @@ namespace SpyMod.Spy.SkillStates
             }
             else
             {
-                isSap = true;
+                isFlip = true;
                 base.characterMotor.disableAirControlUntilCollision = false;
 
                 base.PlayCrossfade("FullBody, Override", "Flip", "Flip.playbackRate", jumpDuration, 0.1f);
@@ -105,7 +105,7 @@ namespace SpyMod.Spy.SkillStates
         {
             base.FixedUpdate();
 
-            if(this.isSap)
+            if(this.isFlip)
             {
                 if (base.isAuthority && base.fixedAge >= this.jumpDuration)
                 {
@@ -134,7 +134,7 @@ namespace SpyMod.Spy.SkillStates
 
         public override void OnExit()
         {
-            if (isSap)
+            if (isFlip)
             {
                 base.PlayAnimation("FullBody, Override", "BufferEmpty");
                 base.characterMotor.airControl = previousAirControl;
@@ -149,8 +149,7 @@ namespace SpyMod.Spy.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            if (this.isSap) return InterruptPriority.Skill;
-            else return InterruptPriority.Frozen;
+            return InterruptPriority.Frozen;
         }
     }
 }

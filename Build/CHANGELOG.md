@@ -1,3 +1,7 @@
+# 0.6.2
+
+- Fixed hard crash...
+
 # 0.6.1
 
 - ReadMe and bug fixes

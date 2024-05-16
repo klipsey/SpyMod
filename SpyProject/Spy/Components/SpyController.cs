@@ -60,7 +60,6 @@ namespace SpyMod.Spy.Components
         }
         public bool IsStopWatchOut()
         {
-            if (characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility)) return true;
             return stopwatchOut;
         }
         public void EnableWatchLayer()
