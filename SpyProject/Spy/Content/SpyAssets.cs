@@ -237,7 +237,7 @@ namespace SpyMod.Spy.Content
             projectileProximityBeamController.listClearInterval = 6f;
             projectileProximityBeamController.minAngleFilter = 0f;
             projectileProximityBeamController.maxAngleFilter = 180f;
-            projectileProximityBeamController.attackRange = 20f;
+            projectileProximityBeamController.attackRange = 5f;
             projectileProximityBeamController.inheritDamageType = true;
             projectileProximityBeamController.damageCoefficient = 1.2f;
             projectileProximityBeamController.procCoefficient = 1f;

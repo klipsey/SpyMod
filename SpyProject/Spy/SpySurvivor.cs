@@ -306,7 +306,7 @@ namespace SpyMod.Spy
                 activationStateMachineName = "Weapon2",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
-                baseRechargeInterval = 7f,
+                baseRechargeInterval = 8f,
                 baseMaxStock = 1,
 
                 rechargeStock = 1,
@@ -560,11 +560,11 @@ namespace SpyMod.Spy
 
                             DamageInfo executeDamage = new DamageInfo();
                             executeDamage.damage = 0f;
-                            executeDamage.attacker = null;
+                            executeDamage.attacker = attackerBody.gameObject;
                             executeDamage.canRejectForce = true;
                             executeDamage.crit = true;
                             executeDamage.inflictor = null;
-                            executeDamage.damageColorIndex = DamageColorIndex.WeakPoint;
+                            executeDamage.damageColorIndex = DamageColorIndex.Sniper;
                             executeDamage.damageType = damageInfo.damageType;
                             executeDamage.force = Vector3.zero;
                             executeDamage.rejected = false;
@@ -608,7 +608,7 @@ namespace SpyMod.Spy
             if (damageReport.attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
                 if (damageReport.attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
-                damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute) && damageReport.damageInfo.procChainMask.HasProc(ProcType.Backstab))
+                damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
                 {
                     SpyController spy = damageReport.attackerBody.GetComponent<SpyController>();
                     if (spy && damageReport.attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();
