@@ -1,3 +1,7 @@
+# 0.7.2
+
+- Added proper emote compat
+
 # 0.7.1
 
 - Fixed head floating forever

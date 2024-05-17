@@ -19,7 +19,8 @@ using SpyMod.Spy.SkillStates;
 using HG;
 using EntityStates;
 using R2API.Networking.Interfaces;
-using System.Security.Principal;
+using EmotesAPI;
+using System.Runtime.CompilerServices;
 
 namespace SpyMod.Spy
 {
@@ -46,7 +47,7 @@ namespace SpyMod.Spy
             bodyColor = SpyAssets.spyColor,
             sortPosition = 5.99f,
 
-            crosshair = Assets.LoadCrosshair("Standard"),
+            crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 100f,
@@ -151,6 +152,7 @@ namespace SpyMod.Spy
             AdditionalBodySetup();
 
             characterPrefab = bodyPrefab;
+
             AddHooks();
         }
 
@@ -562,7 +564,19 @@ namespace SpyMod.Spy
             On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(HealthComponent_TakeDamage);
             RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            if(SpyPlugin.emotesInstalled) Emotes();
         }
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        private static void Emotes()
+        {
+            On.RoR2.SurvivorCatalog.Init += (orig) =>
+            {
+                orig();
+                var skele = SpyAssets.mainAssetBundle.LoadAsset<GameObject>("spy_emoteskeleton");
+                CustomEmotesAPI.ImportArmature(SpySurvivor.characterPrefab, skele);
+            };
+        }
+
 
         private static void LoadoutPanelController_Rebuild(On.RoR2.UI.LoadoutPanelController.orig_Rebuild orig, LoadoutPanelController self)
         {
