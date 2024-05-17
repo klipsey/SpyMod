@@ -1,7 +1,7 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "0.7.0",
+    "version_number": "0.7.1",
     "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Adds the Spy survivor now with alt abilities! Multiplayer compatible.",
     "dependencies": [

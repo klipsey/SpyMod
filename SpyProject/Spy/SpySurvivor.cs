@@ -87,6 +87,11 @@ namespace SpyMod.Spy
                 {
                     childName = "Tie",
                     dontHotpoo = true,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "Visor",
+                    dontHotpoo = true,
                 }
 
         };

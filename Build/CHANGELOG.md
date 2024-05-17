@@ -1,3 +1,7 @@
+# 0.7.1
+
+- Fixed head floating forever
+
 # 0.7.0
 
 - Added new ability The Ambassador
