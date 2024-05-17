@@ -11,6 +11,7 @@ using RoR2.UI;
 using R2API;
 using R2API.Networking;
 using UnityEngine.Networking;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using SpyMod.Spy.Components;
 using SpyMod.Spy.Content;
@@ -122,6 +123,8 @@ namespace SpyMod.Spy
             base.InitializeCharacter();
 
             SpyCrosshair.Init(assetBundle);
+
+            Modules.CameraParams.InitializeParams();
 
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
             childLocator.FindChild("Knife").gameObject.SetActive(false);
@@ -253,12 +256,45 @@ namespace SpyMod.Spy
                 forceSprintDuringState = false,
             });
 
-            Skills.AddPrimarySkills(bodyPrefab, Shoot);
+
+
+            SpySkillDef Shoot2 = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
+            {
+                skillName = "The Ambassador",
+                skillNameToken = SPY_PREFIX + "PRIMARY_REVOLVER2_NAME",
+                skillDescriptionToken = SPY_PREFIX + "PRIMARY_REVOLVER2_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpyAmbassador"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(Shoot2)),
+
+                activationStateMachineName = "Weapon",
+                interruptPriority = InterruptPriority.Any,
+
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                rechargeStock = 0,
+                requiredStock = 1,
+                stockToConsume = 0,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                beginSkillCooldownOnSkillEnd = false,
+                mustKeyPress = false,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = true,
+                forceSprintDuringState = false,
+            });
+
+            Skills.AddPrimarySkills(bodyPrefab, Shoot, Shoot2);
         }
 
         private void AddSecondarySkills()
         {
-            SkillDef Knife = Skills.CreateSkillDef(new SkillDefInfo
+            SpySkillDef Knife = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
             {
                 skillName = "Stab",
                 skillNameToken = SPY_PREFIX + "SECONDARY_KNIFE_NAME",
@@ -289,7 +325,38 @@ namespace SpyMod.Spy
                 forceSprintDuringState = false,
             });
 
-            Skills.AddSecondarySkills(bodyPrefab, Knife);
+            SpySkillDef Knife2 = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
+            {
+                skillName = "The Big Earner",
+                skillNameToken = SPY_PREFIX + "SECONDARY_KNIFE2_NAME",
+                skillDescriptionToken = SPY_PREFIX + "SECONDARY_KNIFE2_DESCRIPTION",
+                keywordTokens = new string[] { Tokens.spyBigEarnerKeyword, Tokens.agileKeyword },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpyStab2"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(ChargeKnife)),
+
+                activationStateMachineName = "Weapon",
+                interruptPriority = InterruptPriority.Skill,
+
+                baseMaxStock = 1,
+                baseRechargeInterval = 7f,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                beginSkillCooldownOnSkillEnd = true,
+                mustKeyPress = true,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+            });
+
+            Skills.AddSecondarySkills(bodyPrefab, Knife, Knife2);
         }
 
         private void AddUtilitySkills()
@@ -333,9 +400,40 @@ namespace SpyMod.Spy
         {
             SkillDef Watch = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "Watch",
+                skillName = "Cloak",
                 skillNameToken = SPY_PREFIX + "SPECIAL_WATCH_NAME",
                 skillDescriptionToken = SPY_PREFIX + "SPECIAL_WATCH_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpyCloak"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(Cloak)),
+                activationStateMachineName = "Watch",
+                interruptPriority = EntityStates.InterruptPriority.Any,
+
+                baseRechargeInterval = 0f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = true,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+            });
+
+            SkillDef Watch2 = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Deadman's Watch",
+                skillNameToken = SPY_PREFIX + "SPECIAL_WATCH2_NAME",
+                skillDescriptionToken = SPY_PREFIX + "SPECIAL_WATCH2_DESCRIPTION",
                 keywordTokens = new string[] { },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyWatch"),
 
@@ -362,7 +460,7 @@ namespace SpyMod.Spy
                 forceSprintDuringState = false,
             });
 
-            Skills.AddSpecialSkills(bodyPrefab, Watch);
+            Skills.AddSpecialSkills(bodyPrefab, Watch, Watch2);
         }
         #endregion skills
 
@@ -481,7 +579,12 @@ namespace SpyMod.Spy
             {
                 if(self.baseNameToken == "KENKO_SPY_NAME")
                 {
-                    if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 40f;
+                    SpyController spy = self.gameObject.GetComponent<SpyController>();
+                    if(spy)
+                    {
+                        if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 40f;
+                        if (self.HasBuff(SpyBuffs.spyBigEarnerBuff)) self.moveSpeed += (self.GetBuffCount(SpyBuffs.spyBigEarnerBuff));
+                    }
                 }
             }
         }
@@ -513,7 +616,7 @@ namespace SpyMod.Spy
                     SpyController spyController = victimBody.GetComponent<SpyController>();
                     if (spyController)
                     {
-                        if (spyController.IsStopWatchOut())
+                        if (spyController.IsStopWatchOut() && spyController.isSpecialDeadman)
                         {
                             if (self.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
                             {
@@ -523,13 +626,21 @@ namespace SpyMod.Spy
                             damageInfo.rejected = true;
 
                             DamageInfo stealthInfo = new DamageInfo();
-                            stealthInfo.damage = victimBody.healthComponent.health * 0.4f;
+                            if (damageInfo.damage >= (victimBody.healthComponent.fullCombinedHealth) * SpyConfig.cloakHealthCost.Value)
+                            {
+                                stealthInfo.damage = (victimBody.healthComponent.fullCombinedHealth) * SpyConfig.cloakHealthCost.Value;
+                                stealthInfo.damageType = DamageType.BypassArmor | DamageType.Silent | DamageType.NonLethal;
+                            }
+                            else
+                            {
+                                stealthInfo.damage = damageInfo.damage;
+                                stealthInfo.damageType = DamageType.Silent | DamageType.NonLethal;
+                            }
                             stealthInfo.attacker = null;
                             stealthInfo.canRejectForce = true;
                             stealthInfo.crit = false;
                             stealthInfo.inflictor = null;
                             stealthInfo.damageColorIndex = DamageColorIndex.Default;
-                            stealthInfo.damageType = DamageType.BypassArmor | DamageType.Silent | DamageType.NonLethal;
                             stealthInfo.force = Vector3.zero;
                             stealthInfo.rejected = false;
                             stealthInfo.position = victimBody.corePosition;
@@ -538,7 +649,7 @@ namespace SpyMod.Spy
                             victimBody.healthComponent.TakeDamage(stealthInfo);
 
                             Util.CleanseBody(victimBody, true, false, false, true, true, true);
-                            victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
+                            if(victimBody.HasBuff(SpyBuffs.spyWatchDebuff)) victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);
                             victimBody.AddBuff(RoR2Content.Buffs.Cloak);
                             victimBody.AddBuff(RoR2Content.Buffs.CloakSpeed);
                             victimBody.AddBuff(SpyBuffs.armorBuff);
@@ -552,7 +663,8 @@ namespace SpyMod.Spy
                     {
                         if (damageInfo.HasModdedDamageType(DamageTypes.SpyBackStab))
                         {
-                            damageInfo.crit = true;
+                            if (damageInfo.crit) damageInfo.damage *= 1.5f;
+                            else damageInfo.crit = true;
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
                             damageInfo.damageType |= DamageType.BypassArmor;
                             damageInfo.damageType |= DamageType.Silent;
@@ -605,17 +717,59 @@ namespace SpyMod.Spy
         }
         private static void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {
-            if (damageReport.attackerBody && damageReport.attackerMaster && damageReport.victim)
+            CharacterBody attackerBody = damageReport.attackerBody;
+            if (attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
-                if (damageReport.attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
+                if (attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
                 damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
                 {
-                    SpyController spy = damageReport.attackerBody.GetComponent<SpyController>();
-                    if (spy && damageReport.attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();
-                    if (NetworkServer.active)
+                    SpyController spy = attackerBody.GetComponent<SpyController>();
+                    if(spy)
                     {
-                        damageReport.attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                        if (spy.isDiamondBack)
+                        {
+                            if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();
+                            if (NetworkServer.active)
+                            {
+                                attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                            }
+                        }
+
+                        if(spy.isBigEarner)
+                        {
+                            if(attackerBody.skillLocator.secondary.stock < attackerBody.skillLocator.secondary.maxStock) attackerBody.skillLocator.secondary.AddOneStock();
+                            if(!SpyConfig.bigEarnerFullyResets.Value) spy.ResetChainStabPeriod();
+                            int num = 5;
+                            float num2 = 2f;
+                            attackerBody.ClearTimedBuffs(SpyBuffs.spyBigEarnerBuff);
+                            for(int i = 0; i < num; i++)
+                            {
+                                attackerBody.AddTimedBuff(SpyBuffs.spyBigEarnerBuff, num2 * (i + 1) / num);
+                            }
+
+                            attackerBody.healthComponent.AddBarrier((attackerBody.healthComponent.fullHealth + attackerBody.healthComponent.fullShield) * 0.1f);
+
+                            EffectData effectData = new EffectData();
+                            effectData.origin = attackerBody.corePosition;
+                            CharacterMotor characterMotor = attackerBody.characterMotor;
+                            bool flag = false;
+                            if ((bool)characterMotor)
+                            {
+                                Vector3 moveDirection = characterMotor.moveDirection;
+                                if (moveDirection != Vector3.zero)
+                                {
+                                    effectData.rotation = Util.QuaternionSafeLookRotation(moveDirection);
+                                    flag = true;
+                                }
+                            }
+                            if (!flag)
+                            {
+                                effectData.rotation = attackerBody.transform.rotation;
+                            }
+                            EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/MoveSpeedOnKillActivate"), effectData, transmit: true);
+                        }
                     }
+
                     if (damageReport.victim.gameObject.TryGetComponent<NetworkIdentity>(out var identity))
                     {
                         new SyncStabExplosion(identity.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);
@@ -630,27 +784,25 @@ namespace SpyMod.Spy
             if (hud.targetBodyObject && hud.targetMaster && hud.targetMaster.bodyPrefab == SpySurvivor.characterPrefab)
             {
                 if (!hud.targetMaster.hasAuthority) return;
-                #region die
-                /*
                 Transform skillsContainer = hud.equipmentIcons[0].gameObject.transform.parent;
 
                 // ammo display for atomic
                 Transform healthbarContainer = hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster").Find("BarRoots").Find("LevelDisplayCluster");
 
-                GameObject atomicTracker = GameObject.Instantiate(healthbarContainer.gameObject, hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster"));
-                atomicTracker.name = "AmmoTracker";
-                atomicTracker.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
+                GameObject stealthTracker = GameObject.Instantiate(healthbarContainer.gameObject, hud.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas").Find("BottomLeftCluster"));
+                stealthTracker.name = "AmmoTracker";
+                stealthTracker.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
 
-                GameObject.DestroyImmediate(atomicTracker.transform.GetChild(0).gameObject);
-                MonoBehaviour.Destroy(atomicTracker.GetComponentInChildren<LevelText>());
-                MonoBehaviour.Destroy(atomicTracker.GetComponentInChildren<ExpBar>());
+                GameObject.DestroyImmediate(stealthTracker.transform.GetChild(0).gameObject);
+                MonoBehaviour.Destroy(stealthTracker.GetComponentInChildren<LevelText>());
+                MonoBehaviour.Destroy(stealthTracker.GetComponentInChildren<ExpBar>());
 
-                atomicTracker.transform.Find("LevelDisplayRoot").Find("ValueText").gameObject.SetActive(false);
-                GameObject.DestroyImmediate(atomicTracker.transform.Find("ExpBarRoot").gameObject);
+                stealthTracker.transform.Find("LevelDisplayRoot").Find("ValueText").gameObject.SetActive(false);
+                GameObject.DestroyImmediate(stealthTracker.transform.Find("ExpBarRoot").gameObject);
 
-                atomicTracker.transform.Find("LevelDisplayRoot").GetComponent<RectTransform>().anchoredPosition = new Vector2(-12f, 0f);
+                stealthTracker.transform.Find("LevelDisplayRoot").GetComponent<RectTransform>().anchoredPosition = new Vector2(-12f, 0f);
 
-                RectTransform rect = atomicTracker.GetComponent<RectTransform>();
+                RectTransform rect = stealthTracker.GetComponent<RectTransform>();
                 rect.localScale = new Vector3(0.8f, 0.8f, 1f);
                 rect.anchorMin = new Vector2(0f, 0f);
                 rect.anchorMax = new Vector2(0f, 0f);
@@ -675,15 +827,14 @@ namespace SpyMod.Spy
                 rect.localPosition = new Vector3(100f, 2f, 0f);
                 rect.rotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
 
-                Stealth atomicTrackerComponent = atomicTracker.AddComponent<Stealth>();
+                CloakHudController stealthComponent = stealthTracker.AddComponent<CloakHudController>();
 
-                atomicTrackerComponent.targetHUD = hud;
-                atomicTrackerComponent.targetText = atomicTracker.transform.Find("LevelDisplayRoot").Find("PrefixText").gameObject.GetComponent<LanguageTextMeshController>();
-                atomicTrackerComponent.durationDisplay = chargeBarAmmo;
-                atomicTrackerComponent.durationBar = chargeBarAmmo.transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>();
-                atomicTrackerComponent.durationBarRed = chargeBarAmmo.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>();
-                */
-                #endregion
+                stealthComponent.targetHUD = hud;
+                stealthComponent.targetText = stealthTracker.transform.Find("LevelDisplayRoot").Find("PrefixText").gameObject.GetComponent<LanguageTextMeshController>();
+                stealthComponent.durationDisplay = chargeBarAmmo;
+                stealthComponent.durationBar = chargeBarAmmo.transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>();
+                stealthComponent.durationBarColor = chargeBarAmmo.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>();
+
                 if (!hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("SpyCrosshair"))
                 {
                     GameObject seamstressCrosshair = UnityEngine.Object.Instantiate(SpyCrosshair.spyCrosshair, hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas"));

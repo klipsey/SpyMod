@@ -20,10 +20,10 @@ namespace SpyMod.Spy.SkillStates
         public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
         public static GameObject critTracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerCaptainShotgun");
 
-        private float duration;
-        private string muzzleString;
-        private bool isCrit;
-        private int diamondbackStacks;
+        protected float duration;
+        protected string muzzleString;
+        protected bool isCrit;
+        protected int diamondbackStacks;
 
         protected virtual GameObject tracerPrefab => this.isCrit ? Shoot.critTracerEffectPrefab : Shoot.tracerEffectPrefab;
         public string shootSoundString = "Play_bandit2_R_fire";
@@ -57,8 +57,6 @@ namespace SpyMod.Spy.SkillStates
             }
 
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
-
-            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", 1.2f / this.attackSpeedStat);
         }
 
         public override void OnExit()
@@ -66,10 +64,11 @@ namespace SpyMod.Spy.SkillStates
             base.OnExit();
         }
 
-        private void Fire()
+        public void Fire()
         {
-            EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);
+            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", 1.2f / this.attackSpeedStat);
 
+            EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);
 
             Util.PlaySound(this.shootSoundString, this.gameObject);
 

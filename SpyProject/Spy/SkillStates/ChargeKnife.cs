@@ -18,8 +18,7 @@ namespace SpyMod.Spy.SkillStates
             this.FindModelChild("Knife").gameObject.SetActive(true);
             if (this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
             {
-                this.spyController.hasPlayed = false;
-                this.spyController.DeactivateCritLightning();
+                this.spyController.DeactivateCritLightning(true);
             }
         }
 

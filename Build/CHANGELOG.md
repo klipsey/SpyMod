@@ -1,3 +1,28 @@
+# 0.7.0
+
+- Added new ability The Ambassador
+
+- Added new ability The Big Earner
+
+- Added new ability Cloak
+
+- Deadmans Watch swapped with Cloak as the alt
+
+- New cloak vfx
+
+- New sfx
+
+- Networked
+
+- Deadmans watch now caps damage taken instead of forcing the max amount
+
+- Sapper is more accurate
+
+# 0.6.3
+
+- I broke stuff again but it should be fixed now
+- Nerfed sapper
+
 # 0.6.2
 
 - Fixed hard crash...

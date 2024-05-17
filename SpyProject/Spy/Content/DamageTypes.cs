@@ -20,11 +20,13 @@ namespace SpyMod.Spy.Content
         public static DamageAPI.ModdedDamageType Default;
         public static DamageAPI.ModdedDamageType SpyBackStab;
         public static DamageAPI.ModdedDamageType SpyExecute;
+        public static DamageAPI.ModdedDamageType BigEarner;
         internal static void Init()
         {
             Default = DamageAPI.ReserveDamageType();
             SpyBackStab = DamageAPI.ReserveDamageType();
             SpyExecute = DamageAPI.ReserveDamageType();
+            BigEarner = DamageAPI.ReserveDamageType();
             Hook();
         }
         private static void Hook()

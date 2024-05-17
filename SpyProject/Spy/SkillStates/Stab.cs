@@ -40,6 +40,7 @@ namespace SpyMod.Spy.SkillStates
             swingEffectPrefab = SpyAssets.knifeSwingEffect;
             
             moddedDamageTypeHolder.Add(DamageTypes.SpyBackStab);
+            if (this.spyController.isBigEarner) moddedDamageTypeHolder.Add(DamageTypes.BigEarner);
             hitEffectPrefab = SpyAssets.knifeHitEffect;
 
             impactSound = SpyAssets.knifeImpactSoundDef.index;

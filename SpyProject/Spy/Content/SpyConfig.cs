@@ -6,11 +6,20 @@ namespace SpyMod.Spy.Content
     public static class SpyConfig
     {
         public static ConfigEntry<bool> forceUnlock;
-        public static ConfigEntry<bool> gainAtomicGaugeDuringAtomicBlast;
 
+        public static ConfigEntry<float> revolverDamageCoefficient;
+        public static ConfigEntry<float> ambassadorDamageCoefficient;
+        public static ConfigEntry<float> stabDamageCoefficient;
+        public static ConfigEntry<float> maxCloakDefault;
+        public static ConfigEntry<float> cloakHealthCost;
+        public static ConfigEntry<float> maxCloakDead;
+        public static ConfigEntry<float> bigEarnerHealthPunishment;
+        public static ConfigEntry<bool> bigEarnerFullyResets;
+        public static ConfigEntry<float> sapperRange;
         public static void Init()
         {
-            string section = "Spy";
+            string section = "01 - General";
+            string section2 = "02 - Stats";
 
             //add more here or else you're cringe
             forceUnlock = Config.BindAndOptions(
@@ -19,11 +28,25 @@ namespace SpyMod.Spy.Content
                 false,
                 "Unlock Spy.", true);
 
-            gainAtomicGaugeDuringAtomicBlast = Config.BindAndOptions(
-                section,
-                "Gain Gauge During Atomic",
-                false,
-                "Lets you fill Atomic Core while it drains.", false);
+            revolverDamageCoefficient = Config.BindAndOptionsSlider(section2, "Revolver Damage", SpyStaticValues.revolverDamageCoefficient, "", 0.01f, 5f, true);
+
+            ambassadorDamageCoefficient = Config.BindAndOptionsSlider(section2, "Ambassador Damage", SpyStaticValues.ambassadorDamageCoefficient, "", 0.01f, 5f, true);
+
+            stabDamageCoefficient = Config.BindAndOptionsSlider(section2, "Stab Damage", SpyStaticValues.stabDamageCoefficient, "", 0.01f, 5f, true);
+
+            maxCloakDefault = Config.BindAndOptionsSlider(section2, "Cloak Max Cloak Duration", SpyStaticValues.maxCloakDurationDefault, "", 1f, 500f, true);
+
+            cloakHealthCost = Config.BindAndOptionsSlider(section2, "Deadmans Cloak Max Damage Taken", SpyStaticValues.cloakHealthCost, "EX: 0.25 = 25% HP max", 0.01f, 0.99f, true);
+
+            maxCloakDead = Config.BindAndOptionsSlider(section2, "Deadmans Cloak Duration", SpyStaticValues.maxCloakDurationDead, "", 1f, 500f, true);
+
+            bigEarnerHealthPunishment = Config.BindAndOptionsSlider(section2, "Big Earner Health Punishment", SpyStaticValues.bigEarnerHealthPunishment, "EX: 0.25 = 25% max HP", 0.01f, 0.99f, true);
+
+            bigEarnerFullyResets = Config.BindAndOptions(section2, "Big Earner Fully Resets", false, "Grants an actual reset on backstab", true);
+
+            sapperRange = Config.BindAndOptionsSlider(section2, "Sapper Range", SpyStaticValues.sapperRange, "", 1f, 500f, true);
+
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace SpyMod.Spy.SkillStates
         private Vector3 cachedForward;
 
         private bool isFlip = false;
+        private bool sapped = false;
 
         public override void OnEnter()
         {
@@ -68,7 +69,52 @@ namespace SpyMod.Spy.SkillStates
                     origin = base.characterBody.footPosition
                 }, true);
             }
+        }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if(this.isFlip)
+            {
+                if(base.fixedAge >= this.jumpDuration / 2f && !sapped)
+                {
+                    sapped = true;
+                    SapEnemy();
+                }
+                if (base.isAuthority && base.fixedAge >= this.jumpDuration)
+                {
+                    this.outer.SetNextStateToMain();
+                }
+            }
+            else
+            {
+                base.characterMotor.velocity = Vector3.zero;
+                base.characterMotor.rootMotion = this.slipVector * (this.moveSpeedStat * this.speedCoefficient * Time.fixedDeltaTime) * Mathf.Cos(base.fixedAge / this.duration * 1.57079637f);
+
+                if (base.isAuthority)
+                {
+                    if (base.characterDirection)
+                    {
+                        base.characterDirection.forward = this.cachedForward;
+                    }
+                }
+
+                if (base.fixedAge >= this.duration / 2f && !sapped)
+                {
+                    sapped = true;
+                    SapEnemy();
+                }
+
+                if (base.isAuthority && base.fixedAge >= this.duration)
+                {
+                    this.outer.SetNextStateToMain();
+                }
+            }
+        }
+
+        private void SapEnemy()
+        {
             HurtBox[] hurtBoxes = new SphereSearch
             {
                 origin = base.transform.position,
@@ -76,7 +122,7 @@ namespace SpyMod.Spy.SkillStates
                 mask = LayerIndex.entityPrecise.mask
             }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(base.characterBody.teamComponent.teamIndex)).OrderCandidatesByDistance().FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
 
-            if(hurtBoxes.Length > 0) 
+            if (hurtBoxes.Length > 0)
             {
                 CharacterBody victim = hurtBoxes[0].healthComponent.body;
                 bool alive = hurtBoxes[0].healthComponent.alive;
@@ -100,38 +146,6 @@ namespace SpyMod.Spy.SkillStates
                 victim.healthComponent.TakeDamage(damageInfo);
             }
         }
-
-        public override void FixedUpdate()
-        {
-            base.FixedUpdate();
-
-            if(this.isFlip)
-            {
-                if (base.isAuthority && base.fixedAge >= this.jumpDuration)
-                {
-                    this.outer.SetNextStateToMain();
-                }
-            }
-            else
-            {
-                base.characterMotor.velocity = Vector3.zero;
-                base.characterMotor.rootMotion = this.slipVector * (this.moveSpeedStat * this.speedCoefficient * Time.fixedDeltaTime) * Mathf.Cos(base.fixedAge / this.duration * 1.57079637f);
-
-                if (base.isAuthority)
-                {
-                    if (base.characterDirection)
-                    {
-                        base.characterDirection.forward = this.cachedForward;
-                    }
-                }
-
-                if (base.isAuthority && base.fixedAge >= this.duration)
-                {
-                    this.outer.SetNextStateToMain();
-                }
-            }
-        }
-
         public override void OnExit()
         {
             if (isFlip)

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3628421766
+CRC: 3686533981
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a689f806c469297efd5862b2e7e779ea
+    Hash: fa481de7446e9266dd2480295d1db655
   TypeTreeHash:
     serializedVersion: 2
     Hash: 42d2694ece3e6464c0822cad42100938
@@ -89,14 +89,16 @@ Assets:
 - Assets/Spy/VFX/Badass/BigExplosion.prefab
 - Assets/Spy/VFX/CritLightning.prefab
 - Assets/Spy/VFX/Badass/MetalHitEffect.prefab
-- Assets/Spy/Animations/Sprint.anim
 - Assets/Spy/Projectiles/CoinImpactHit.prefab
 - Assets/Spy/Animations/TrickStab.anim
 - Assets/Spy/HUD/Textures/texBulletIndicator.png
 - Assets/Spy/Animations/Shoot.anim
+- Assets/Spy/Icons/Skill/texSpyCloak.png
+- Assets/Spy/Animations/Shoot2.anim
 - Assets/Spy/VFX/matShockwave2.mat
 - Assets/Spy/VFX/Badass/StoneHitEffect.prefab
 - Assets/Spy/Projectiles/CoinTracer.prefab
+- Assets/Spy/Icons/Skill/texSpyAmbassador.png
 - Assets/Spy/Animations/maskSpyAim.mask
 - Assets/Spy/Icons/Skill/texSpyWatch.png
 - Assets/Spy/Projectiles/CoinProjectile.prefab
@@ -119,6 +121,7 @@ Assets:
 - Assets/Spy/Animations/CSSIdle.anim
 - Assets/Spy/Projectiles/texAlphaGradient6Mask.png
 - Assets/Spy/Materials/matVisor.mat
+- Assets/Spy/Animations/Sprint.anim
 - Assets/Spy/Animations/RunR.anim
 - Assets/Spy/Animations/WatchOut.anim
 - Assets/Spy/HUD/WeaponChargeBar.prefab
@@ -137,6 +140,7 @@ Assets:
 - Assets/Spy/Animations/JumpSprint.anim
 - Assets/Spy/Animations/maskSpyLeftArm.mask
 - Assets/Spy/Animations/Jump.anim
+- Assets/Spy/Icons/Skill/texSpyStab2.png
 - Assets/Spy/Animations/DashF.anim
 - Assets/Spy/Animations/Stab.anim
 - Assets/Spy/HUD/Textures/texChargeRing.png

@@ -2,6 +2,8 @@
 using UnityEngine;
 using SpyMod.Modules;
 using RoR2.Projectile;
+using RoR2.UI;
+using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using R2API;
@@ -39,6 +41,11 @@ namespace SpyMod.Spy.Content
         internal static GameObject sapperExpiredEffect;
 
         internal static GameObject lightningEffect;
+
+        internal static GameObject headshotOverlay;
+        internal static GameObject headshotVisualizer;
+
+        internal static GameObject spyCloakEffect;
         //Models
         internal static Mesh sapperMesh;
         //Projectiles
@@ -48,8 +55,11 @@ namespace SpyMod.Spy.Content
         internal static NetworkSoundEventDef knifeImpactSoundDef;
 
         //Colors
-
         internal static Color spyColor = new Color(98f / 255f, 116 / 255f, 111 / 255f);
+
+        //Crosshair
+        internal static GameObject defaultCrosshair;
+        internal static GameObject watchCrosshair;
         public static void Init(AssetBundle assetBundle)
         {
             mainAssetBundle = assetBundle;
@@ -65,6 +75,8 @@ namespace SpyMod.Spy.Content
             CreateSounds();
 
             CreateProjectiles();
+
+            CreateUI();
         }
 
         private static void CleanChildren(Transform startingTrans)
@@ -94,6 +106,13 @@ namespace SpyMod.Spy.Content
             lightningEffect = mainAssetBundle.LoadAsset<GameObject>("CritLightning");
 
             bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
+
+            spyCloakEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab").WaitForCompletion().InstantiateClone("SpyCloak", false);
+            spyCloakEffect.gameObject.GetComponent<EffectComponent>().applyScale = true;
+            Component.DestroyImmediate(spyCloakEffect.gameObject.GetComponent<ShakeEmitter>());
+            GameObject.DestroyImmediate(spyCloakEffect.transform.Find("Core").Find("Sparks").gameObject);
+            spyCloakEffect.transform.Find("Core").Find("Smoke, Edge Circle").localScale = Vector3.one * 0.4f;
+            Modules.Content.CreateAndAddEffectDef(spyCloakEffect);
 
             Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
             Material bloodMat2 = Addressables.LoadAssetAsync<Material>("RoR2/Base/moon2/matBloodSiphon.mat").WaitForCompletion();
@@ -237,7 +256,7 @@ namespace SpyMod.Spy.Content
             projectileProximityBeamController.listClearInterval = 6f;
             projectileProximityBeamController.minAngleFilter = 0f;
             projectileProximityBeamController.maxAngleFilter = 180f;
-            projectileProximityBeamController.attackRange = 5f;
+            projectileProximityBeamController.attackRange = SpyConfig.sapperRange.Value;
             projectileProximityBeamController.inheritDamageType = true;
             projectileProximityBeamController.damageCoefficient = 1.2f;
             projectileProximityBeamController.procCoefficient = 1f;
@@ -255,6 +274,23 @@ namespace SpyMod.Spy.Content
 
         }
         #endregion
+
+        private static void CreateUI()
+        {
+            defaultCrosshair = Assets.LoadCrosshair("Standard");
+            watchCrosshair = Assets.LoadCrosshair("SimpleDot");
+
+            headshotOverlay = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Railgunner/RailgunnerScopeLightOverlay.prefab").WaitForCompletion().InstantiateClone("SpyHeadshotOverlay", false);
+            SniperTargetViewer viewer = headshotOverlay.GetComponentInChildren<SniperTargetViewer>();
+            headshotOverlay.transform.Find("ScopeOverlay").gameObject.SetActive(false);
+
+            headshotVisualizer = viewer.visualizerPrefab.InstantiateClone("SpyHeadshotVisualizer", false);
+            Image headshotImage = headshotVisualizer.transform.Find("Scaler/Rectangle").GetComponent<Image>();
+            headshotVisualizer.transform.Find("Scaler/Outer").gameObject.SetActive(false);
+            headshotImage.color = Color.red;
+
+            viewer.visualizerPrefab = headshotVisualizer;
+        }
 
         #region helpers
         private static GameObject CreateImpactExplosionEffect(string effectName, Material bloodMat, Material decal, float scale = 1f)
