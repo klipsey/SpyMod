@@ -5,6 +5,8 @@ using SpyMod.Spy;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine.Networking;
+using UnityEngine;
 
 namespace SpyMod.Spy.Achievements
 {
@@ -18,32 +20,39 @@ namespace SpyMod.Spy.Achievements
         {
             base.OnInstall();
 
-            TeleporterInteraction.onTeleporterChargedGlobal += Check;
+            On.RoR2.HealthComponent.TakeDamage += new On.RoR2.HealthComponent.hook_TakeDamage(Check);
         }
 
         public override void OnUninstall()
         {
             base.OnUninstall();
 
-            TeleporterInteraction.onTeleporterChargedGlobal -= Check;
+            On.RoR2.HealthComponent.TakeDamage -= new On.RoR2.HealthComponent.hook_TakeDamage(Check);
         }
 
-        private void Check(TeleporterInteraction teleporter)
+        private void Check(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
-            if (Run.instance is null) return;
-            bool noItems = true;
-            if (localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.Lunar) > 0 || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.VoidTier2) > 0
-                || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.Tier1) > 0 || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.Tier2) > 0
-                || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.Tier3) > 0 || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.VoidTier1) > 0
-                || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.VoidTier3) > 0 || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.Boss) > 0
-                || localUser.cachedBody.inventory.GetTotalItemCountOfTier(ItemTier.VoidBoss) > 0)
+            orig.Invoke(self, damageInfo);
+            if (!NetworkServer.active)
             {
-                noItems = false;
+                return;
             }
-            if (Run.instance.time <= 180f && noItems)
+            if (!self.alive || self.godMode || self.ospTimer > 0f)
             {
-                base.Grant();
+                return;
             }
+            if (damageInfo.attacker)
+            {
+                CharacterBody attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                if(attackerBody)
+                {
+                    if (damageInfo.procChainMask.HasProc(ProcType.Backstab) && damageInfo.crit == true && attackerBody.canPerformBackstab)
+                    {
+                        base.Grant();
+                    }
+                }
+            }
+
         }
     }
 }

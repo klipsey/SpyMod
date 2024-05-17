@@ -20,6 +20,9 @@ namespace SpyMod.Spy.Content
         //Materials
         internal static Material commandoMat;
         internal static Material sapperMat;
+        internal static Material spyMonsoonMat;
+        internal static Material spyVisorMonsoonMat;
+
         //Shader
         internal static Shader hotpoo = Resources.Load<Shader>("Shaders/Deferred/HGStandard");
 
@@ -38,14 +41,21 @@ namespace SpyMod.Spy.Content
         internal static GameObject knifeSwingEffect;
         internal static GameObject knifeHitEffect;
 
+        internal static GameObject knifeSwingEffect2;
+        internal static GameObject knifeHitEffect2;
+
         internal static GameObject sapperExpiredEffect;
 
         internal static GameObject lightningEffect;
+        internal static GameObject lightningEffectAlt;
 
         internal static GameObject headshotOverlay;
         internal static GameObject headshotVisualizer;
 
         internal static GameObject spyCloakEffect;
+
+        public static GameObject defaultMuzzleTrail;
+
         //Models
         internal static Mesh sapperMesh;
         //Projectiles
@@ -94,6 +104,9 @@ namespace SpyMod.Spy.Content
         private static void CreateMaterials()
         {
             sapperMat = mainAssetBundle.LoadAsset<Material>("matSapper");
+
+            spyMonsoonMat = mainAssetBundle.LoadAsset<Material>("matSpyMonsoon");
+            spyVisorMonsoonMat = mainAssetBundle.LoadAsset<Material>("matVisorMonsoon");
         }
 
         private static void CreateModels()
@@ -104,7 +117,7 @@ namespace SpyMod.Spy.Content
         private static void CreateEffects()
         {
             lightningEffect = mainAssetBundle.LoadAsset<GameObject>("CritLightning");
-
+            lightningEffectAlt = mainAssetBundle.LoadAsset<GameObject>("CritLightning2");
             bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
 
             spyCloakEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab").WaitForCompletion().InstantiateClone("SpyCloak", false);
@@ -113,6 +126,19 @@ namespace SpyMod.Spy.Content
             GameObject.DestroyImmediate(spyCloakEffect.transform.Find("Core").Find("Sparks").gameObject);
             spyCloakEffect.transform.Find("Core").Find("Smoke, Edge Circle").localScale = Vector3.one * 0.4f;
             Modules.Content.CreateAndAddEffectDef(spyCloakEffect);
+
+            GameObject obj = new GameObject();
+            defaultMuzzleTrail = obj.InstantiateClone("PassiveMuzzleTrail", false);
+            TrailRenderer trail = defaultMuzzleTrail.AddComponent<TrailRenderer>();
+            trail.startWidth = 0.045f;
+            trail.endWidth = 0f;
+            trail.time = 0.5f;
+            trail.emitting = true;
+            trail.numCornerVertices = 0;
+            trail.numCapVertices = 0;
+            trail.material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matSmokeTrail.mat").WaitForCompletion();
+            trail.startColor = Color.white;
+            trail.endColor = Color.gray;
 
             Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
             Material bloodMat2 = Addressables.LoadAssetAsync<Material>("RoR2/Base/moon2/matBloodSiphon.mat").WaitForCompletion();
@@ -137,6 +163,12 @@ namespace SpyMod.Spy.Content
             knifeHitEffect.AddComponent<NetworkIdentity>();
             Modules.Content.CreateAndAddEffectDef(knifeHitEffect);
 
+            knifeHitEffect2 = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("KnifeAltHitEffect");
+            knifeHitEffect2.AddComponent<NetworkIdentity>();
+            knifeHitEffect2.transform.Find("Particles").Find("TriangleSparksLarge").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+            knifeHitEffect2.transform.Find("Particles").Find("TriangleSparks").gameObject.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", Color.red);
+            Modules.Content.CreateAndAddEffectDef(knifeHitEffect2);
+
             sapperExpiredEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion().InstantiateClone("SapperExpiredEffect");
             sapperExpiredEffect.AddComponent<NetworkIdentity>();
             sapperExpiredEffect.GetComponent<EffectComponent>().soundName = "sfx_spy_sapper_remove";
@@ -146,6 +178,11 @@ namespace SpyMod.Spy.Content
             knifeSwingEffect.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Huntress/matHuntressSwingTrail.mat").WaitForCompletion();
             var swing = knifeSwingEffect.transform.GetChild(0).GetComponent<ParticleSystem>().main;
             swing.startLifetimeMultiplier *= 2f;
+
+            knifeSwingEffect2 = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Merc/MercSwordSlash.prefab").WaitForCompletion().InstantiateClone("SpyAltSwordSwing");
+            knifeSwingEffect2.transform.GetChild(0).gameObject.GetComponent<ParticleSystemRenderer>().material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Imp/matImpSwipe.mat").WaitForCompletion();
+            var swing2 = knifeSwingEffect2.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+            swing2.startLifetimeMultiplier *= 2f;
 
             revolverTracer = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerCommandoShotgun").InstantiateClone("SpyShotgunTracer", true);
 

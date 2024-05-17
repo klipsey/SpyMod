@@ -12,7 +12,11 @@ namespace SpyMod.Spy.Content
 
         public static void Init()
         {
-            if(false == true)
+            masterySkinUnlockableDef = Modules.Content.CreateAndAddUnlockableDef(SpyMasteryAchievement.unlockableIdentifier,
+                Modules.Tokens.GetAchievementNameToken(SpyMasteryAchievement.unlockableIdentifier),
+                SpySurvivor.instance.assetBundle.LoadAsset<Sprite>("texMonsoonSkin"));
+
+            if (!SpyConfig.forceUnlock.Value)
             {
                 characterUnlockableDef = Modules.Content.CreateAndAddUnlockableDef(SpyUnlockAchievement.unlockableIdentifier,
                 Modules.Tokens.GetAchievementNameToken(SpyUnlockAchievement.unlockableIdentifier),

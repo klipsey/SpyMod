@@ -37,11 +37,19 @@ namespace SpyMod.Spy.SkillStates
             hitSoundString = "";
             muzzleString = "SwingMuzzle1";
             playbackRateParam = "Swing.playbackRate";
-            swingEffectPrefab = SpyAssets.knifeSwingEffect;
             
             moddedDamageTypeHolder.Add(DamageTypes.SpyBackStab);
             if (this.spyController.isBigEarner) moddedDamageTypeHolder.Add(DamageTypes.BigEarner);
-            hitEffectPrefab = SpyAssets.knifeHitEffect;
+            if (this.spyController.altSkinNameToken == this.spyController.currentSkinNameToken)
+            {
+                hitEffectPrefab = SpyAssets.knifeHitEffect2;
+                swingEffectPrefab = SpyAssets.knifeSwingEffect2;
+            }
+            else
+            {
+                hitEffectPrefab = SpyAssets.knifeHitEffect;
+                swingEffectPrefab = SpyAssets.knifeSwingEffect;
+            }
 
             impactSound = SpyAssets.knifeImpactSoundDef.index;
 

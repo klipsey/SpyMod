@@ -1,9 +1,9 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "0.7.2",
+    "version_number": "1.0.0",
     "website_url": "https://github.com/klipsey/SpyMod",
-    "description": "Adds the Spy survivor now with alt abilities and emotes! Multiplayer compatible.",
+    "description": "Adds the Spy survivor now with alt abilities, emotes, and monsoon skin! Multiplayer compatible.",
     "dependencies": [
         "bbepis-BepInExPack-5.4.1905",
         "RiskofThunder-R2API_Core-5.0.3",

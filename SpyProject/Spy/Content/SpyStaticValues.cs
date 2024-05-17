@@ -8,7 +8,7 @@ namespace SpyMod.Spy.Content
     {
         public static float revolverDamageCoefficient = 3.2f;
 
-        public static float ambassadorDamageCoefficient = 2.6f;
+        public static float ambassadorDamageCoefficient = 2.3f;
 
         public static float stabDamageCoefficient = 5f;
 
@@ -23,5 +23,7 @@ namespace SpyMod.Spy.Content
         public static float maxCloakDurationDefault = 8f;
 
         public static float maxCloakDurationDead = 6f;
+
+        public static float maxChainStabCombo = 10f;
     }
 }

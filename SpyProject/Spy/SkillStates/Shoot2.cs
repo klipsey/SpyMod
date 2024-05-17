@@ -14,7 +14,7 @@ namespace SpyMod.Spy.SkillStates
     {
         public float damageCoefficient = SpyStaticValues.revolverDamageCoefficient;
         public static float procCoefficient = 1f;
-        public static float baseDuration = 0.7f;
+        public static float baseDuration = 0.9f;
         public static float force = 200f;
         public static float recoil = 2f;
         public static float range = 2000f;
@@ -82,6 +82,7 @@ namespace SpyMod.Spy.SkillStates
                 }
                 else if (this.inputBank.skill1.down && this.fireTimer >= this.duration)
                 {
+                    base.characterBody.SetAimTimer(2f);
                     this.Fire();
                 }
             }

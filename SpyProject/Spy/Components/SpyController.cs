@@ -19,7 +19,6 @@ namespace SpyMod.Spy.Components
         private CharacterModel characterModel;
         private Animator animator;
         private SkillLocator skillLocator;
-        private OverlayController overlayController;
         public bool isDiamondBack => skillLocator.primary.skillNameToken == SpySurvivor.SPY_PREFIX + "PRIMARY_REVOLVER_NAME";
         public bool isAmbassador => skillLocator.primary.skillNameToken == SpySurvivor.SPY_PREFIX + "PRIMARY_REVOLVER2_NAME";
         public bool isDefaultKnife => skillLocator.secondary.skillNameToken == SpySurvivor.SPY_PREFIX + "SECONDARY_KNIFE_NAME";
@@ -28,6 +27,11 @@ namespace SpyMod.Spy.Components
         public bool isSpecialDeadman => skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_WATCH2_NAME";
         public float cloakRecharge => skillLocator.special.rechargeStopwatch;
         public float maxCloakRecharge => skillLocator.special.finalRechargeInterval;
+
+        public string currentSkinNameToken => this.skinController.skins[this.skinController.currentSkinIndex].nameToken;
+
+        public string altSkinNameToken => SpySurvivor.SPY_PREFIX + "MASTERY_SKIN_NAME";
+
         public float maxCloakTimer = 0f;
         private bool hasPlayed = false;
         private bool isCloaked = false;
@@ -40,10 +44,15 @@ namespace SpyMod.Spy.Components
         private float gracePeriod = 0f;
         public float cloakTimer = 0f;
 
+        private int chainStabComboCounter = 0;
+
         private uint playID1;
 
         private ParticleSystem handElectricityEffect;
+        private ParticleSystem chainStabCombo;
+        private ParticleSystem chainStabComboHand;
         private GameObject spinInstance;
+        private GameObject muzzleTrail;
 
         public Action onStealthChange;
 
@@ -56,7 +65,28 @@ namespace SpyMod.Spy.Components
             this.characterModel = modelLocator.modelBaseTransform.GetComponentInChildren<CharacterModel>();
             this.skillLocator = this.GetComponent<SkillLocator>();
             this.skinController = modelLocator.modelTransform.gameObject.GetComponent<ModelSkinController>();
-            this.handElectricityEffect = this.childLocator.FindChild("CritLightning").gameObject.GetComponent<ParticleSystem>();
+
+            this.Invoke("ApplySkin", 0.3f);
+        }
+
+        public void ApplySkin()
+        {
+            if(this.skinController)
+            {
+                if (this.currentSkinNameToken == this.altSkinNameToken)
+                {
+                    this.handElectricityEffect = this.childLocator.FindChild("CritLightning2").gameObject.GetComponent<ParticleSystem>();
+                    this.chainStabCombo = this.childLocator.FindChild("ChainStabCombo2").gameObject.GetComponent<ParticleSystem>();
+                    this.chainStabComboHand = this.childLocator.FindChild("ChainStabComboHand2").gameObject.GetComponent<ParticleSystem>();
+                }
+                else
+                {
+                    this.handElectricityEffect = this.childLocator.FindChild("CritLightning").gameObject.GetComponent<ParticleSystem>();
+                    this.chainStabCombo = this.childLocator.FindChild("ChainStabCombo").gameObject.GetComponent<ParticleSystem>();
+                    this.chainStabComboHand = this.childLocator.FindChild("ChainStabComboHand").gameObject.GetComponent<ParticleSystem>();
+                }
+            }
+
         }
         private void Start()
         {
@@ -81,6 +111,20 @@ namespace SpyMod.Spy.Components
                 characterBody.baseMaxHealth *= 1 - SpyConfig.bigEarnerHealthPunishment.Value;
                 characterBody.baseMaxShield *= 1 - SpyConfig.bigEarnerHealthPunishment.Value;
                 characterBody.baseRegen *= 1 - SpyConfig.bigEarnerHealthPunishment.Value;
+            }
+        }
+        private void Update()
+        {
+            if(this.chainStabComboHand)
+            {
+                if (this.chainStabComboHand.isPlaying)
+                {
+                    Vector3 what = this.childLocator.FindChild("Gun").gameObject.transform.position;
+                    what.y += 0.06f;
+                    what.z -= 0.04f;
+                    what.x -= 0.025f;
+                    this.chainStabComboHand.gameObject.transform.position = what;
+                }
             }
         }
         private void FixedUpdate()
@@ -121,6 +165,10 @@ namespace SpyMod.Spy.Components
             {
                 this.skillLocator.secondary.DeductStock(1);
                 hasPunishedChainStab = true;
+                chainStabComboCounter = 0;
+                if(muzzleTrail) GameObject.Destroy(muzzleTrail);
+                if (this.chainStabCombo.isPlaying) this.chainStabCombo.Stop();
+                if (this.chainStabComboHand.isPlaying) this.chainStabComboHand.Stop();
             }
 
             if (!this.characterBody.HasBuff(SpyBuffs.spyDiamondbackBuff))
@@ -131,8 +179,29 @@ namespace SpyMod.Spy.Components
         }
         public void ResetChainStabPeriod()
         {
+            chainStabComboCounter++;
             hasPunishedChainStab = false;
-            gracePeriod = SpyStaticValues.bigEarnerGracePeriod;
+            gracePeriod = SpyStaticValues.bigEarnerGracePeriod + chainStabComboCounter / 2f;
+            if(muzzleTrail) GameObject.Destroy(muzzleTrail.gameObject);
+            Transform muzzleTransform = this.childLocator.FindChild("Gun");
+
+            muzzleTrail = GameObject.Instantiate(SpyAssets.defaultMuzzleTrail, muzzleTransform);
+            Color color;
+            if (this.currentSkinNameToken == this.altSkinNameToken) color = Color.Lerp(Color.yellow, Color.red, chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
+            else  color = Color.Lerp(new Color(100f / 255f, 215f / 255f, 233f / 255f), new Color(20f / 255f, 255f/ 255f, 170f / 255f), chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
+            muzzleTrail.GetComponent<TrailRenderer>().startColor = color;
+            muzzleTrail.GetComponent<TrailRenderer>().endColor = color;
+            muzzleTrail.GetComponent<TrailRenderer>().startWidth = Mathf.Lerp(0.045f,  1.2f, chainStabComboCounter / SpyStaticValues.maxChainStabCombo);
+
+            if (!this.chainStabCombo.isPlaying && chainStabComboCounter >= SpyStaticValues.maxChainStabCombo) chainStabCombo.Play();
+
+            float remap = Util.Remap(chainStabComboCounter, 0f, 10f, 1f, 2f);
+            var main2 = chainStabComboHand.main;
+            main2.startLifetime = remap;
+            main2.startSpeed = remap;
+            main2.startSize = remap;
+
+            if (!this.chainStabComboHand.isPlaying) chainStabComboHand.Play();
         }
         public void SpinGun()
         {
@@ -219,19 +288,25 @@ namespace SpyMod.Spy.Components
 
         public void ActivateCritLightning()
         {
-            if (!this.handElectricityEffect.isPlaying) this.handElectricityEffect.Play();
-            if (!hasPlayed)
+            if (this.handElectricityEffect)
             {
-                this.playID1 = Util.PlaySound("sfx_scout_atomic_duration", this.gameObject);
-                hasPlayed = true;
+                if (!this.handElectricityEffect.isPlaying) this.handElectricityEffect.Play();
+                if (!hasPlayed)
+                {
+                    this.playID1 = Util.PlaySound("sfx_scout_atomic_duration", this.gameObject);
+                    hasPlayed = true;
+                }
             }
         }
         
         public void DeactivateCritLightning(bool willReturn = false)
         {
-            if(willReturn) hasPlayed = false;
-            if (this.handElectricityEffect.isPlaying) this.handElectricityEffect.Stop();
-            AkSoundEngine.StopPlayingID(this.playID1);
+            if(this.handElectricityEffect)
+            {
+                if (willReturn) hasPlayed = false;
+                if (this.handElectricityEffect.isPlaying) this.handElectricityEffect.Stop();
+                AkSoundEngine.StopPlayingID(this.playID1);
+            }
         }
 
         private void Inventory_onItemAddedClient(ItemIndex itemIndex)

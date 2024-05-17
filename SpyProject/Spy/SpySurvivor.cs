@@ -492,12 +492,25 @@ namespace SpyMod.Spy
             //pass in meshes as they are named in your assetbundle
             //currently not needed as with only 1 skin they will simply take the default meshes
             //uncomment this when you have another skin
-            //defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
-            //    "meshHenrySword",
-            //    "meshHenryGun",
-            //    "meshHenry");
+            defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
+                "meshSpy",
+                "meshRevolver",
+                "meshKnife",
+                "meshWatch",
+                "meshTie",
+                "meshVisor");
 
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
+
+            defaultSkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
+{
+                new SkinDef.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("Tie"),
+                    shouldActivate = true,
+                }
+};
+
             skins.Add(defaultSkin);
             #endregion
 
@@ -505,37 +518,42 @@ namespace SpyMod.Spy
             #region MasterySkin
 
             ////creating a new skindef as we did before
-            //SkinDef masterySkin = Modules.Skins.CreateSkinDef(HENRY_PREFIX + "MASTERY_SKIN_NAME",
-            //    assetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-            //    defaultRendererinfos,
-            //    prefabCharacterModel.gameObject,
-            //    HenryUnlockables.masterySkinUnlockableDef);
+            SkinDef masterySkin = Modules.Skins.CreateSkinDef(SPY_PREFIX + "MASTERY_SKIN_NAME",
+                assetBundle.LoadAsset<Sprite>("texMonsoonSkin"),
+                defaultRendererinfos,
+                prefabCharacterModel.gameObject,
+                SpyUnlockables.masterySkinUnlockableDef);
 
             ////adding the mesh replacements as above. 
             ////if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            //masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
-            //    "meshHenrySwordAlt",
-            //    null,//no gun mesh replacement. use same gun mesh
-            //    "meshHenryAlt");
+            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(assetBundle, defaultRendererinfos,
+                "meshSpyAlt",
+                "meshRevolverAlt",//no gun mesh replacement. use same gun mesh
+                "meshKnifeAlt",
+                "meshWatchAlt",
+                null,
+                "meshVisorAlt");
 
             ////masterySkin has a new set of RendererInfos (based on default rendererinfos)
             ////you can simply access the RendererInfos' materials and set them to the new materials for your skin.
-            //masterySkin.rendererInfos[0].defaultMaterial = assetBundle.LoadMaterial("matHenryAlt");
-            //masterySkin.rendererInfos[1].defaultMaterial = assetBundle.LoadMaterial("matHenryAlt");
-            //masterySkin.rendererInfos[2].defaultMaterial = assetBundle.LoadMaterial("matHenryAlt");
+            masterySkin.rendererInfos[0].defaultMaterial = SpyAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[1].defaultMaterial = SpyAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[2].defaultMaterial = SpyAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[3].defaultMaterial = SpyAssets.spyMonsoonMat;
+            masterySkin.rendererInfos[5].defaultMaterial = SpyAssets.spyVisorMonsoonMat;
 
             ////here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
-            //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
-            //{
-            //    new SkinDef.GameObjectActivation
-            //    {
-            //        gameObject = childLocator.FindChildGameObject("GunModel"),
-            //        shouldActivate = false,
-            //    }
-            //};
+            masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
+            {
+                new SkinDef.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("Tie"),
+                    shouldActivate = false,
+                }
+            };
             ////simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
-            //skins.Add(masterySkin);
+            skins.Add(masterySkin);
 
             #endregion
 
@@ -684,6 +702,7 @@ namespace SpyMod.Spy
                         {
                             if (damageInfo.crit) damageInfo.damage *= 1.5f;
                             else damageInfo.crit = true;
+
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
                             damageInfo.damageType |= DamageType.BypassArmor;
                             damageInfo.damageType |= DamageType.Silent;
@@ -748,7 +767,7 @@ namespace SpyMod.Spy
                         if (spy.isDiamondBack)
                         {
                             if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();
-                            if (NetworkServer.active)
+                            if (NetworkServer.active && attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5)
                             {
                                 attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
                             }

@@ -1,6 +1,11 @@
-# 0.7.2
+# 1.0.0
 
 - Added proper emote compat
+- Added VFX for killstreaks with the big earner
+- Added Monsoon Skin which comes with unique killstreak vfx
+- Fixed the knife model having 100,000 verts
+- Added unlock achievement
+- New Icon
 
 # 0.7.1
 
