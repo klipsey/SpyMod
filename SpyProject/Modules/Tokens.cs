@@ -8,15 +8,21 @@ namespace SpyMod.Modules
 
         public const string spyCritPrefix = "<color=#62746f>Espionage</color>";
 
-        public const string spyBigEarnerPrefix = "<color=#62746f>Getaway</color>";
+        public const string spyBigEarnerPrefix = "<color=#62746f>Opportunist</color>";
+
+        public const string spyBackstabPrefix = "<style=cIsHealth>Backstab</style>";
 
         public static string agileKeyword = KeywordText("Agile", "The skill can be used while sprinting.");
 
-        public static string spyCritKeyword = KeywordText("Espionage", "<style=cIsDamage>Backstab</style> kills with your <color=#62746f>Knife</color> guarantee a <style=cIsDamage>Critical Strike</style> for <color=#62746f>The Diamondback</color>. " +
-            " Getting a <style=cIsDamage>Critical Strike</style> with an <color=#62746f>Espionage</color> stack increases the <style=cIsDamage>damage</style> by <style=cIsDamage>50%</style> instead. Max 5 stacks.");
+        public static string spyCritKeyword = KeywordText("Espionage", $"Your next shot has <style=cIsDamage>100% Crit Chance</style>. " +
+            $"Rolling a <style=cIsDamage>Crit</style> with <color=#62746f>Espionage</color> stacks increases <style=cIsDamage>damage by 2x</style> instead. " +
+            $"<style=cIsHealth>Backstabs</style> will always grant <color=#62746f>Espionage</color> stacks on champion enemies.");
        
-        public static string spyBigEarnerKeyword = KeywordText("Getaway", $"Your <style=cIsHealth>max health</style> and <style=cIsHealing>health regneration</style> are <style=cDeath>permanently reduced</style> by <style=cIsHealth>{SpyConfig.bigEarnerHealthPunishment.Value * 100f}</style> with this skill equipped. " +
-            "<style=cIsDamage>Backstab</style> kills let you recast <color=#62746f>The Big Earner</color> for a short period as well as granting decaying <style=cIsUtility>movement speed</style> and <style=cIsBarrier>barrier</style>. ");
+        public static string spyBigEarnerKeyword = KeywordText("Opportunist", $"Your <style=cIsHealth>HP</style> and <style=cIsHealing>health regneration</style> are <style=cDeath>permanently reduced by {SpyConfig.bigEarnerHealthPunishment.Value * 100f}%</style>. " +
+            "<style=cIsHealth>Backstabs</style> that don't kill champion enemies grant <style=cIsUtility>movement speed</style> and <style=cIsHealing>barrier</style>. ");
+        
+        public static string spyBackstabKeyword = KeywordText("Backstab", $"Deals <style=cIsDamage>2x damage</style> against champion enemies and <style=cIsHealth>30% HP</style> or more to elites.");
+
         public static string DamageText(string text)
         {
             return $"<style=cIsDamage>{text}</style>";

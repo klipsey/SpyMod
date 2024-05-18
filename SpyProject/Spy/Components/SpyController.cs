@@ -187,7 +187,7 @@ namespace SpyMod.Spy.Components
 
             muzzleTrail = GameObject.Instantiate(SpyAssets.defaultMuzzleTrail, muzzleTransform);
             Color color;
-            if (this.currentSkinNameToken == this.altSkinNameToken) color = Color.Lerp(Color.yellow, Color.red, chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
+            if (this.currentSkinNameToken == this.altSkinNameToken) color = Color.Lerp(Color.yellow, new Color(255f / 255f, 165f / 255f, 0f / 255f), chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
             else  color = Color.Lerp(new Color(100f / 255f, 215f / 255f, 233f / 255f), new Color(20f / 255f, 255f/ 255f, 170f / 255f), chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
             muzzleTrail.GetComponent<TrailRenderer>().startColor = color;
             muzzleTrail.GetComponent<TrailRenderer>().endColor = color;

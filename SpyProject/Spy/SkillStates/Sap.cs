@@ -25,6 +25,8 @@ namespace SpyMod.Spy.SkillStates
         public float speedCoefficient = 7f;
         private Vector3 cachedForward;
 
+        private Quaternion slideRotation;
+
         private bool isFlip = false;
         private bool sapped = false;
 
@@ -45,11 +47,31 @@ namespace SpyMod.Spy.SkillStates
                 float num2 = Vector3.Dot(this.slipVector, rhs2);
                 anim.SetFloat("dashF", num);
                 anim.SetFloat("dashR", num2);
+                this.slideRotation = Quaternion.LookRotation(this.slipVector, this.cachedForward);
 
                 base.PlayCrossfade("FullBody, Override", "Dash", "Dash.playbackRate", this.duration * 1.5f, 0.05f);
                 base.PlayAnimation("Gesture, Override", "BufferEmpty");
 
                 Util.PlaySound("sfx_driver_dash", this.gameObject);
+
+                if (EntityStates.BrotherMonster.BaseSlideState.slideEffectPrefab && base.characterBody)
+                {
+                    Vector3 position = base.characterBody.corePosition;
+                    Quaternion rotation = Quaternion.identity;
+                    Transform transform = base.FindModelChild("Base");
+
+                    if (transform)
+                    {
+                        position = transform.position;
+                    }
+
+                    if (base.characterDirection)
+                    {
+                        rotation = Util.QuaternionSafeLookRotation(this.slideRotation * base.characterDirection.forward, Vector3.up);
+                    }
+
+                    EffectManager.SimpleEffect(EntityStates.BrotherMonster.BaseSlideState.slideEffectPrefab, position, rotation, false);
+                }
             }
             else
             {

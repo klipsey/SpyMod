@@ -130,7 +130,7 @@ namespace SpyMod.Spy
 
             SpyCrosshair.Init(assetBundle);
 
-            Modules.CameraParams.InitializeParams();
+            CameraParams.InitializeParams();
 
             ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
             childLocator.FindChild("Knife").gameObject.SetActive(false);
@@ -208,7 +208,7 @@ namespace SpyMod.Spy
                 skillNameToken = SPY_PREFIX + "PASSIVE_NAME",
                 skillDescriptionToken = SPY_PREFIX + "PASSIVE_DESCRIPTION",
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyPassive"),
-                keywordTokens = new string[] { },
+                keywordTokens = new string[] { Tokens.spyBackstabKeyword  },
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Idle)),
                 activationStateMachineName = "",
                 baseMaxStock = 1,
@@ -337,7 +337,7 @@ namespace SpyMod.Spy
                 skillName = "The Big Earner",
                 skillNameToken = SPY_PREFIX + "SECONDARY_KNIFE2_NAME",
                 skillDescriptionToken = SPY_PREFIX + "SECONDARY_KNIFE2_DESCRIPTION",
-                keywordTokens = new string[] { Tokens.spyBigEarnerKeyword, Tokens.agileKeyword },
+                keywordTokens = new string[] { Tokens.agileKeyword, Tokens.spyBigEarnerKeyword },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyStab2"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(ChargeKnife)),
@@ -725,16 +725,40 @@ namespace SpyMod.Spy
 
                             if (victimBody.healthComponent)
                             {
-                                if (victimBody.isChampion || victimBody.isBoss)
+                                SpyController spy = attackerBody.GetComponent<SpyController>();
+                                if (victimBody.isChampion || victimBody.isBoss && spy)
                                 {
                                     executeDamage.damage = damageInfo.damage * 2f;
 
+                                    if(spy.isDiamondBack)
+                                    {
+                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                    }
+
+                                    if(spy.isBigEarner)
+                                    {
+                                        int num = 5;
+                                        float num2 = 2f;
+                                        attackerBody.ClearTimedBuffs(SpyBuffs.spyBigEarnerBuff);
+                                        for (int i = 0; i < num; i++)
+                                        {
+                                            attackerBody.AddTimedBuff(SpyBuffs.spyBigEarnerBuff, num2 * (i + 1) / num);
+                                        }
+
+                                        attackerBody.healthComponent.AddBarrier((attackerBody.healthComponent.fullHealth + attackerBody.healthComponent.fullShield) * 0.2f);
+                                    }
+
                                     victimBody.healthComponent.TakeDamage(executeDamage);
                                 }
-                                else if (victimBody.isElite)
+                                else if (victimBody.isElite && spy)
                                 {
                                     if (damageInfo.damage * 2f > victimBody.healthComponent.fullHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
                                     else executeDamage.damage += victimBody.healthComponent.fullHealth * 0.3f;
+                                    if (spy.isDiamondBack)
+                                    {
+                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                    }
                                     victimBody.healthComponent.TakeDamage(executeDamage);
                                 }
                                 else
@@ -852,7 +876,7 @@ namespace SpyMod.Spy
                 rect.localPosition = new Vector3(120f, -40f, 0f);
 
                 GameObject chargeBarAmmo = GameObject.Instantiate(SpyAssets.mainAssetBundle.LoadAsset<GameObject>("WeaponChargeBar"));
-                chargeBarAmmo.name = "AtomicGauge";
+                chargeBarAmmo.name = "StealthMeter";
                 chargeBarAmmo.transform.SetParent(hud.transform.Find("MainContainer").Find("MainUIArea").Find("CrosshairCanvas").Find("CrosshairExtras"));
 
                 rect = chargeBarAmmo.GetComponent<RectTransform>();

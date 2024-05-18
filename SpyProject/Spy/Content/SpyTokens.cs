@@ -28,7 +28,7 @@ namespace SpyMod.Spy.Content
             desc = desc + "< ! > Build up stacks of Espionage with Spy's knife and unleash crits with The Diamondback." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Stab is a devestating ability that can instantly kill weaker enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Sap can be a great tool to get into Backstab range while stunning nearby enemies." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Your Deadman's Watch is a powerful tool but be careful to not hold it out for too long." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Cloak can be a great way to both engage and escape enemies but requires proper resource management." + Environment.NewLine + Environment.NewLine;
 
             string lore = "Your Mother!";
             string outro = "Seduce me.";
@@ -47,36 +47,38 @@ namespace SpyMod.Spy.Content
 
             #region Passive
             Language.Add(prefix + "PASSIVE_NAME", "Backstab");
-            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#62746f>Spy</color> can <style=cIsHealth>Backstab</style> enemies with his <color=#62746f>Knife</color> <style=cIsDamage>Critically Striking</style> and instantly <style=cIsHealth>killing</style> weaker enemies.");
+            Language.Add(prefix + "PASSIVE_DESCRIPTION", $"<color=#62746f>Spy</color> can <style=cIsHealth>Backstab</style> enemies with his <color=#62746f>Knife</color>, " +
+                $"causing a <style=cIsDamage>Critical Strike</style> that instantly <style=cIsHealth>kills</style> weaker enemies.");
             #endregion
 
             #region Primary
-            Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "The Diamondback");
-            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", Tokens.spyCritPrefix + $". Fire a bullet for <style=cIsDamage>{100f * SpyConfig.revolverDamageCoefficient.Value}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "Diamondback");
+            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyConfig.revolverDamageCoefficient.Value}% damage</style>. " +
+                $"<style=cIsHealth>Backstab</style> kills grant <color=#62746f>Espionage</color>. Max 5 stacks.");
 
-            Language.Add(prefix + "PRIMARY_REVOLVER2_NAME", "The Ambassador");
-            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyConfig.ambassadorDamageCoefficient.Value}% damage</style>. Landing a headshot <style=cIsDamage>Critically Strikes</style>.");
+            Language.Add(prefix + "PRIMARY_REVOLVER2_NAME", "Ambassador");
+            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyConfig.ambassadorDamageCoefficient.Value}% damage</style>. Landing a headshot deals <style=cIsDamage>2x damage</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_KNIFE_NAME", "Stab");
             Language.Add(prefix + "SECONDARY_KNIFE_DESCRIPTION", $"Prepare your <color=#62746f>Knife</color>. Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>.");
 
-            Language.Add(prefix + "SECONDARY_KNIFE2_NAME", "The Big Earner");
-            Language.Add(prefix + "SECONDARY_KNIFE2_DESCRIPTION", Tokens.spyBigEarnerPrefix + $". Prepare your <color=#62746f>Knife</color>. Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>.");
-
+            Language.Add(prefix + "SECONDARY_KNIFE2_NAME", "Big Earner");
+            Language.Add(prefix + "SECONDARY_KNIFE2_DESCRIPTION", Tokens.spyBigEarnerPrefix + $". Prepare your <color=#62746f>Knife</color>. Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>. " +
+                $"<style=cIsHealth>Backstab</style> kills grant <style=cIsUtility>movement speed</style> and <style=cIsHealing>barrier</style> as well as <style=cIsUtility>resetting this abilities cooldown</style> for a short period.");
             #endregion
 
             #region Utility 
             Language.Add(prefix + "UTILITY_FLIP_NAME", "Sap");
             Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. Plant a <color=#62746f>Sapper</color> on a nearby " +
-                $"enemy, <style=cIsUtility>shocking</style> them and nearby enemies for 5 seconds.");
+                $"enemy, <style=cIsUtility>shocking</style> them and nearby enemies for <style=cIsUtility>5 seconds</style>.");
 
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_WATCH_NAME", "Cloak");
-            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds </style>. " +
+            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds</style>. " +
                 $"While <style=cIsUtility>cloaked</style>, <color=#62746f>Spy</color> cannot shoot.");
 
             Language.Add(prefix + "SPECIAL_WATCH2_NAME", "Deadman's Watch");

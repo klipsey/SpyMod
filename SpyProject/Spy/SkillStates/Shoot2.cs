@@ -45,16 +45,7 @@ namespace SpyMod.Spy.SkillStates
             base.characterBody.SetAimTimer(2f);
             this.muzzleString = "GunMuzzle";
 
-            this.isCrit = base.RollCrit();
-
-            this.diamondbackStacks = this.characterBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff);
-
-            if (this.diamondbackStacks > 0)
-            {
-                if (NetworkServer.active) this.characterBody.RemoveBuff(SpyBuffs.spyDiamondbackBuff);
-                if (this.isCrit) damageCoefficient *= 1.5f;
-                else this.isCrit = true;
-            }
+            this.isCrit = RollCrit();
 
             this.shootSoundString = this.isCrit ? "sfx_spy_revolver_shoot_crit" : "sfx_spy_revolver_shoot";
             if (base.isAuthority)
@@ -134,8 +125,7 @@ namespace SpyMod.Spy.SkillStates
                 {
                     if (BulletAttack.IsSniperTargetHit(hitInfo))
                     {
-                        if (damageInfo.crit) damageInfo.damage *= 1.5f;
-                        else damageInfo.crit = true;
+                        damageInfo.damage *= 2f;
                         damageInfo.damageColorIndex = DamageColorIndex.Sniper;
                         EffectData effectData = new EffectData
                         {

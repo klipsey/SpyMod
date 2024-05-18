@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1096965732
+CRC: 2075359542
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4950f5ac458ff235617ffc8fdc812a3a
+    Hash: 7b906bf13ba7ca5ea0adf70f0b04bea9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 42d2694ece3e6464c0822cad42100938
@@ -82,10 +82,10 @@ Assets:
 - Assets/Spy/Projectiles/texRampCrocoDiseaseDark.png
 - Assets/Spy/Animations/animSpyCSS.controller
 - Assets/Spy/VFX/CritLightningMonsoon.prefab
-- Assets/Spy/Animations/AimYaw.anim
+- Assets/Spy/Animations/RunR.anim
 - Assets/Spy/VFX/BloodSpurtEffect.prefab
 - Assets/Spy/HUD/ChargeBar.prefab
-- Assets/Spy/Meshes/meshKnife.mesh
+- Assets/Spy/Meshes/meshWatchAlt.mesh
 - Assets/Spy/VFX/CritLightning.prefab
 - Assets/Spy/Animations/ChargeStab.anim
 - Assets/Spy/VFX/matShockwave.mat
@@ -94,9 +94,8 @@ Assets:
 - Assets/Spy/VFX/Badass/MetalHitEffect.prefab
 - Assets/Spy/Projectiles/CoinImpactHit.prefab
 - Assets/Spy/Animations/TrickStab.anim
-- Assets/Spy/Meshes/meshVisorAlt.mesh
+- Assets/Spy/Meshes/meshVisor.mesh
 - Assets/Spy/HUD/Textures/texBulletIndicator.png
-- Assets/Spy/Meshes/meshRevolverAlt.mesh
 - Assets/Spy/Animations/Shoot.anim
 - Assets/Spy/Icons/Skill/texSpyCloak.png
 - Assets/Spy/Animations/Shoot2.anim
@@ -105,10 +104,7 @@ Assets:
 - Assets/Spy/Projectiles/CoinTracer.prefab
 - Assets/Spy/Icons/Skill/texSpyAmbassador.png
 - Assets/Spy/Animations/maskSpyAim.mask
-- Assets/Spy/Meshes/meshVisor.mesh
-- Assets/Spy/Meshes/meshRevolver.mesh
 - Assets/Spy/Icons/Skill/texSpyWatch.png
-- Assets/Spy/Meshes/meshWatch.mesh
 - Assets/Spy/Projectiles/CoinProjectile.prefab
 - Assets/Spy/Animations/DashR.anim
 - Assets/Spy/Animations/IdleIn.anim
@@ -117,36 +113,38 @@ Assets:
 - Assets/Spy/Materials/matSpy.mat
 - Assets/Spy/Textures/texSpyMonsoon.png
 - Assets/Spy/spy_emoteskeleton.prefab
-- Assets/Spy/Animations/SprintFast.anim
 - Assets/Spy/Animations/animSpy.controller
 - Assets/Spy/Textures/texSpyNormal.png
 - Assets/Spy/Animations/DashL.anim
+- Assets/Spy/Meshes/meshSpyAlt.mesh
 - Assets/Spy/Textures/texSpy.png
-- Assets/Spy/Meshes/meshKnifeAlt.mesh
 - Assets/Spy/Icons/Skill/texSpyStab.png
 - Assets/Spy/VFX/texShockwave.png
-- Assets/Spy/Meshes/meshSpyAlt.mesh
 - Assets/Spy/Projectiles/CoinOrbEffect.prefab
-- Assets/Spy/Animations/RunB.anim
 - Assets/Spy/Animations/CSSIdle.anim
 - Assets/Spy/Projectiles/texAlphaGradient6Mask.png
 - Assets/Spy/Textures/texSpyMonsoonEmission.png
 - Assets/Spy/Materials/matVisor.mat
-- Assets/Spy/Animations/AimPitch.anim
-- Assets/Spy/Animations/Sprint.anim
-- Assets/Spy/Animations/RunR.anim
+- Assets/Spy/Meshes/meshVisorAlt.mesh
 - Assets/Spy/Animations/WatchOut.anim
 - Assets/Spy/mdlSpy.prefab
+- Assets/Spy/Animations/SprintFast.anim
 - Assets/Spy/HUD/WeaponChargeBar.prefab
 - Assets/Spy/VFX/texSpyStreak.png
 - Assets/Spy/Animations/Idle.anim
 - Assets/Spy/VFX/matSpyDefault.mat
+- Assets/Spy/Animations/AimYaw.anim
 - Assets/Spy/Icons/texDefaultSkin.png
-- Assets/Spy/Meshes/meshWatchAlt.mesh
+- Assets/Spy/Animations/RunF.anim
+- Assets/Spy/Meshes/meshKnifeAlt.mesh
+- Assets/Spy/Meshes/meshKnife.mesh
 - Assets/Spy/VFX/Badass/TinyExplosion.prefab
 - Assets/Spy/VFX/Badass/SandHitEffect.prefab
+- Assets/Spy/Animations/AimPitch.anim
 - Assets/Spy/HUD/ChargeRing.prefab
+- Assets/Spy/Animations/Sprint.anim
 - Assets/Spy/Animations/DashB.anim
+- Assets/Spy/Meshes/meshSpy.mesh
 - Assets/Spy/Textures/texSpyEmission.png
 - Assets/Spy/VFX/texBlackLightning.png
 - Assets/Spy/Projectiles/texRampCoin.png
@@ -161,11 +159,13 @@ Assets:
 - Assets/Spy/Animations/DashF.anim
 - Assets/Spy/Animations/Stab.anim
 - Assets/Spy/HUD/Textures/texChargeRing.png
+- Assets/Spy/Animations/RunB.anim
 - Assets/Spy/Projectiles/DriverStunGrenadeImpact.prefab
 - Assets/Spy/Animations/LightImpact.anim
 - Assets/Spy/VFX/matSpyStreak.mat
 - Assets/Spy/Icons/Skill/texSpyPassive.png
 - Assets/Spy/Projectiles/mdlSapper.prefab
+- Assets/Spy/Meshes/meshRevolver.mesh
 - Assets/Spy/Meshes/meshTie.mesh
 - Assets/Spy/Projectiles/DriverStunGrenadeGhost.prefab
 - Assets/Spy/Icons/Skill/texSpyRevolver.png
@@ -173,16 +173,16 @@ Assets:
 - Assets/Spy/Materials/matSapper.mat
 - Assets/Spy/VFX/Badass/WoodHitEffect.prefab
 - Assets/Spy/VFX/Badass/SmallExplosion.prefab
-- Assets/Spy/Animations/RunL.anim
 - Assets/Spy/Animations/Ascend.anim
 - Assets/Spy/Animations/animSpyEmotes.controller
 - Assets/Spy/Materials/matSpyMonsoon.mat
 - Assets/Spy/HUD/Textures/texSniperBulletIndicator.png
 - Assets/Spy/Icons/texMonsoonSkin.png
+- Assets/Spy/Meshes/meshWatch.mesh
 - Assets/Spy/Animations/maskSpyImpact.mask
+- Assets/Spy/Meshes/meshRevolverAlt.mesh
 - Assets/Spy/Animations/Descend.anim
-- Assets/Spy/Animations/RunF.anim
-- Assets/Spy/Meshes/meshSpy.mesh
+- Assets/Spy/Animations/RunL.anim
 - Assets/Spy/VFX/matBlackLightning.mat
 - Assets/Spy/SpyDisplay.prefab
 - Assets/Spy/Animations/maskSpyGesture.mask

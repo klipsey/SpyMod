@@ -46,7 +46,7 @@ namespace SpyMod.Spy.SkillStates
             if(this.diamondbackStacks > 0)
             {
                 if (NetworkServer.active) this.characterBody.RemoveBuff(SpyBuffs.spyDiamondbackBuff);
-                if (this.isCrit) damageCoefficient *= 1.5f;
+                if (this.isCrit) damageCoefficient *= SpyStaticValues.diamondBackCritBonus;
                 else this.isCrit = true;
             }
 

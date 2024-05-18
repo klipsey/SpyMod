@@ -1,6 +1,6 @@
 # Spy
 
-[![SpyIcon.png](https://i.postimg.cc/y6Q6Sr4G/SpyIcon.png)](https://postimg.cc/7bzrF9L1)
+[![Spy-Con512.png](https://i.postimg.cc/mk6qTZYz/Spy-Con512.png)](https://postimg.cc/XBdx8bD4)
 
 [![Screenshot-2024-05-17-041509.png](https://i.postimg.cc/MGkwj1rK/Screenshot-2024-05-17-041509.png)](https://postimg.cc/75NdFJkp)
 

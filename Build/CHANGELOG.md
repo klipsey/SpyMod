@@ -1,3 +1,14 @@
+# 1.0.2
+
+- Token cleanup
+- Walk and Sprint cleanup 
+
+# 1.0.1
+
+- Spy no longer looks like he's crankin one out while sprinting
+- Added damage falloff to The Ambassador and remove the 100% crit chance on headshot for 2x damage instead
+- Buffed big earner and the diamondback to work on bosses without kills (no reset for big earner on hit)
+
 # 1.0.0
 
 - Added proper emote compat
