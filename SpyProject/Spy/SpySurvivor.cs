@@ -619,7 +619,7 @@ namespace SpyMod.Spy
                     SpyController spy = self.gameObject.GetComponent<SpyController>();
                     if(spy)
                     {
-                        if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 200f;
+                        if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 100f;
                         if (self.HasBuff(SpyBuffs.spyBigEarnerBuff)) self.moveSpeed += (self.GetBuffCount(SpyBuffs.spyBigEarnerBuff));
                     }
                 }
@@ -794,7 +794,7 @@ namespace SpyMod.Spy
             if (attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
                 if (attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
-                damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
+                damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyBackStab) || damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
                 {
                     SpyController spy = attackerBody.GetComponent<SpyController>();
                     if(spy)

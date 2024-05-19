@@ -10,12 +10,15 @@ namespace SpyMod.Spy.SkillStates
 {
     public class Cloak : BaseSpySkillState
     {
-        private float duration = 1f;
+        private float baseDuration = 1f;
+        private float duration;
         private bool willWait = false;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
+
+            duration = baseDuration / attackSpeedStat;
 
             if (!this.spyController.IsStopWatchOut())
             {
@@ -25,6 +28,7 @@ namespace SpyMod.Spy.SkillStates
                     {
                         characterBody.AddBuff(SpyBuffs.spyWatchDebuff);
                         characterBody.AddBuff(RoR2Content.Buffs.Cloak);
+                        characterBody.AddBuff(RoR2Content.Buffs.CloakSpeed);
                         characterBody.AddBuff(SpyBuffs.armorBuff);
                     }
                     this.spyController.EnableWatchLayer();
