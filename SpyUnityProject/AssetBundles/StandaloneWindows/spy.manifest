@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2075359542
+CRC: 165606951
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7b906bf13ba7ca5ea0adf70f0b04bea9
+    Hash: c05ec5b9b107374e3a05481edff2e16c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 42d2694ece3e6464c0822cad42100938
@@ -165,6 +165,7 @@ Assets:
 - Assets/Spy/VFX/matSpyStreak.mat
 - Assets/Spy/Icons/Skill/texSpyPassive.png
 - Assets/Spy/Projectiles/mdlSapper.prefab
+- Assets/Spy/mdlSpyDecoy.prefab
 - Assets/Spy/Meshes/meshRevolver.mesh
 - Assets/Spy/Meshes/meshTie.mesh
 - Assets/Spy/Projectiles/DriverStunGrenadeGhost.prefab

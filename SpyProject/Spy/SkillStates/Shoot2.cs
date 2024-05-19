@@ -125,7 +125,8 @@ namespace SpyMod.Spy.SkillStates
                 {
                     if (BulletAttack.IsSniperTargetHit(hitInfo))
                     {
-                        damageInfo.damage *= 2f;
+                        if (damageInfo.crit) damageInfo.damage *= 1.5f;
+                        else damageInfo.crit = true;
                         damageInfo.damageColorIndex = DamageColorIndex.Sniper;
                         EffectData effectData = new EffectData
                         {

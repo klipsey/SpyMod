@@ -54,6 +54,8 @@ namespace SpyMod
 
             new SpyMod.Spy.SpySurvivor().Initialize();
 
+            new SpyMod.Spy.SpyDecoy().Initialize();
+
             // make a content pack and add it. this has to be last
             new Modules.ContentPacks().Initialize();
 

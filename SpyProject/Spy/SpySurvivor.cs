@@ -503,13 +503,13 @@ namespace SpyMod.Spy
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
 
             defaultSkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
-{
+            {
                 new SkinDef.GameObjectActivation
                 {
                     gameObject = childLocator.FindChildGameObject("Tie"),
                     shouldActivate = true,
                 }
-};
+            };
 
             skins.Add(defaultSkin);
             #endregion
@@ -619,7 +619,7 @@ namespace SpyMod.Spy
                     SpyController spy = self.gameObject.GetComponent<SpyController>();
                     if(spy)
                     {
-                        if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 40f;
+                        if (self.HasBuff(SpyBuffs.armorBuff)) self.armor += 200f;
                         if (self.HasBuff(SpyBuffs.spyBigEarnerBuff)) self.moveSpeed += (self.GetBuffCount(SpyBuffs.spyBigEarnerBuff));
                     }
                 }
@@ -663,9 +663,9 @@ namespace SpyMod.Spy
                             damageInfo.rejected = true;
 
                             DamageInfo stealthInfo = new DamageInfo();
-                            if (damageInfo.damage >= (victimBody.healthComponent.fullCombinedHealth) * SpyConfig.cloakHealthCost.Value)
+                            if (damageInfo.damage >= (victimBody.healthComponent.combinedHealth) * SpyConfig.cloakHealthCost.Value)
                             {
-                                stealthInfo.damage = (victimBody.healthComponent.fullCombinedHealth) * SpyConfig.cloakHealthCost.Value;
+                                stealthInfo.damage = (victimBody.healthComponent.combinedHealth) * SpyConfig.cloakHealthCost.Value;
                                 stealthInfo.damageType = DamageType.BypassArmor | DamageType.Silent | DamageType.NonLethal;
                             }
                             else
@@ -684,6 +684,17 @@ namespace SpyMod.Spy
                             stealthInfo.procChainMask = default(ProcChainMask);
                             stealthInfo.procCoefficient = 0f;
                             victimBody.healthComponent.TakeDamage(stealthInfo);
+
+                            MasterSummon masterSummon = new MasterSummon();
+                            masterSummon.masterPrefab = SpyDecoy.decoyMasterPrefab;
+                            masterSummon.ignoreTeamMemberLimit = true;
+                            masterSummon.teamIndexOverride = TeamIndex.Player;
+                            masterSummon.summonerBodyObject = victimBody.gameObject;
+                            masterSummon.position = victimBody.previousPosition;
+                            masterSummon.rotation = Util.QuaternionSafeLookRotation(victimBody.characterDirection.forward);
+
+                            CharacterMaster decoyMaster;
+                            decoyMaster = masterSummon.Perform();
 
                             Util.CleanseBody(victimBody, true, false, false, true, true, true);
                             if(victimBody.HasBuff(SpyBuffs.spyWatchDebuff)) victimBody.RemoveBuff(SpyBuffs.spyWatchDebuff);

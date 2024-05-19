@@ -15,7 +15,7 @@ namespace SpyMod.Modules
         public static string agileKeyword = KeywordText("Agile", "The skill can be used while sprinting.");
 
         public static string spyCritKeyword = KeywordText("Espionage", $"Your next shot has <style=cIsDamage>100% Crit Chance</style>. " +
-            $"Rolling a <style=cIsDamage>Crit</style> with <color=#62746f>Espionage</color> stacks increases <style=cIsDamage>damage by 2x</style> instead. " +
+            $"Rolling a <style=cIsDamage>Critical Strike</style> with <color=#62746f>Espionage</color> stacks increases <style=cIsDamage>damage by 2x</style> instead. " +
             $"<style=cIsHealth>Backstabs</style> will always grant <color=#62746f>Espionage</color> stacks on champion enemies.");
        
         public static string spyBigEarnerKeyword = KeywordText("Opportunist", $"Your <style=cIsHealth>HP</style> and <style=cIsHealing>health regneration</style> are <style=cDeath>permanently reduced by {SpyConfig.bigEarnerHealthPunishment.Value * 100f}%</style>. " +

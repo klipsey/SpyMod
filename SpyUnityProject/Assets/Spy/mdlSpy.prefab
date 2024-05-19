@@ -18775,6 +18775,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480644423734584}
   - component: {fileID: 9100480644423734583}
+  - component: {fileID: 7634305995427574506}
+  - component: {fileID: 1950126602381582795}
   m_Layer: 0
   m_Name: Cloak.l.003
   m_TagString: Untagged
@@ -18858,6 +18860,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &7634305995427574506
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480644423734585}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1950126602381582795
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480644423734585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480644454110655
 GameObject:
   m_ObjectHideFlags: 0
@@ -19176,6 +19208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480644823141550}
   - component: {fileID: 9100480644823141549}
+  - component: {fileID: 1125379311712439}
+  - component: {fileID: 6192871690596494000}
   m_Layer: 0
   m_Name: Cloak.l
   m_TagString: Untagged
@@ -19259,6 +19293,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &1125379311712439
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480644823141551}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &6192871690596494000
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480644823141551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480644824720309
 GameObject:
   m_ObjectHideFlags: 0
@@ -19446,7 +19510,21 @@ MonoBehaviour:
   - {fileID: 9100480645466678472}
   - {fileID: 9100480645655855817}
   - {fileID: 9100480645342542005}
-  componentsToDisableOnRagdoll: []
+  - {fileID: 9100480644823141550}
+  - {fileID: 9100480644423734584}
+  - {fileID: 9100480646346429408}
+  - {fileID: 9100480645686657824}
+  - {fileID: 9100480645686413511}
+  - {fileID: 9100480645177508336}
+  - {fileID: 9100480645726939626}
+  componentsToDisableOnRagdoll:
+  - {fileID: 9100480644823141549}
+  - {fileID: 9100480644423734583}
+  - {fileID: 9100480646346429439}
+  - {fileID: 9100480645686657855}
+  - {fileID: 9100480645686413510}
+  - {fileID: 9100480645177508303}
+  - {fileID: 9100480645726939625}
 --- !u!1 &9100480644896530011
 GameObject:
   m_ObjectHideFlags: 0
@@ -20521,6 +20599,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480645177508336}
   - component: {fileID: 9100480645177508303}
+  - component: {fileID: 5952903106740894974}
+  - component: {fileID: 3378794721236061055}
   m_Layer: 0
   m_Name: Cloak.r.006
   m_TagString: Untagged
@@ -20604,6 +20684,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &5952903106740894974
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645177508337}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &3378794721236061055
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645177508337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480645239657448
 GameObject:
   m_ObjectHideFlags: 0
@@ -22685,6 +22795,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480645686413511}
   - component: {fileID: 9100480645686413510}
+  - component: {fileID: 4194850590505340781}
+  - component: {fileID: 8842766287579152061}
   m_Layer: 0
   m_Name: Cloak.r.003
   m_TagString: Untagged
@@ -22768,6 +22880,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &4194850590505340781
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645686413512}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &8842766287579152061
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645686413512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480645686657825
 GameObject:
   m_ObjectHideFlags: 0
@@ -22778,6 +22920,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480645686657824}
   - component: {fileID: 9100480645686657855}
+  - component: {fileID: 4924309991981814617}
+  - component: {fileID: 2008583852956557385}
   m_Layer: 0
   m_Name: Cloak.r
   m_TagString: Untagged
@@ -22861,6 +23005,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &4924309991981814617
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645686657825}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &2008583852956557385
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645686657825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480645696895714
 GameObject:
   m_ObjectHideFlags: 0
@@ -22934,6 +23108,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480645726939626}
   - component: {fileID: 9100480645726939625}
+  - component: {fileID: 8548101387181796350}
+  - component: {fileID: 402331227830042904}
   m_Layer: 0
   m_Name: Tie
   m_TagString: Untagged
@@ -23017,6 +23193,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &8548101387181796350
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645726939627}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &402331227830042904
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480645726939627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.1275564
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480645756833796
 GameObject:
   m_ObjectHideFlags: 0
@@ -28712,6 +28918,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9100480646346429408}
   - component: {fileID: 9100480646346429439}
+  - component: {fileID: 7594521517087665993}
+  - component: {fileID: 360139640946075625}
   m_Layer: 0
   m_Name: Cloak.l.006
   m_TagString: Untagged
@@ -28795,6 +29003,36 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 20
+--- !u!54 &7594521517087665993
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480646346429409}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &360139640946075625
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100480646346429409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.07086464, z: 0}
 --- !u!1 &9100480646350212547
 GameObject:
   m_ObjectHideFlags: 0

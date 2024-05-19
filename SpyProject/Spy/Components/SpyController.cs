@@ -244,7 +244,6 @@ namespace SpyMod.Spy.Components
         }
         public void EnterStealth()
         {
-
             if(this.isSpecialDeadman)
             {
                 DisableWatchLayer();

@@ -1,3 +1,10 @@
+# 1.0.3
+
+- Configs
+- Fixed deadringer being your entire hp bar worth of damage
+- Reverted Ambassador changes to crit again (damage falloff still persists)
+- Added Ragdoll Decoy
+
 # 1.0.2
 
 - Token cleanup

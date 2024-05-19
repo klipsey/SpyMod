@@ -55,7 +55,13 @@ namespace SpyMod.Modules
                 }
             }
         }
-
+        internal static void CreateDecoySkillFamilies(GameObject targetPrefab)
+        {
+            foreach (GenericSkill obj in targetPrefab.GetComponentsInChildren<GenericSkill>())
+            {
+                UnityEngine.Object.DestroyImmediate(obj);
+            }
+        }
         public static GenericSkill CreateGenericSkillWithSkillFamily(GameObject targetPrefab, string familyName, bool hidden = false)
         {
             GenericSkill skill = targetPrefab.AddComponent<GenericSkill>();

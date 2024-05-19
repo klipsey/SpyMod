@@ -17,6 +17,7 @@ namespace SpyMod.Spy.Content
             Modules.Content.AddEntityState(typeof(SwapWatch));
             Modules.Content.AddEntityState(typeof(Cloak));
             Modules.Content.AddEntityState(typeof(Sap));
+            Modules.Content.AddEntityState(typeof(DecoySpawn));
         }
     }
 }
