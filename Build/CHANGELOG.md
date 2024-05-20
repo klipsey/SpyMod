@@ -1,3 +1,7 @@
+# 1.0.6
+
+- Accidently removed Spy's ability to backstab  LMAO
+
 # 1.0.5
 
 - Fixed the stupid anims breaking when attacking with knife or shooting

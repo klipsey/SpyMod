@@ -151,6 +151,7 @@ namespace SpyMod.Modules
             bodyComponent._defaultCrosshairPrefab = bodyInfo.crosshair;
             bodyComponent.hideCrosshair = false;
             bodyComponent.preferredPodPrefab = bodyInfo.podPrefab;
+            bodyComponent.preferredInitialStateType = bodyInfo.initialStateType;
 
             //stats
             bodyComponent.baseMaxHealth = bodyInfo.maxHealth;
@@ -209,6 +210,7 @@ namespace SpyMod.Modules
             bodyComponent.sprintingSpeedMultiplier = 1.45f;
 
             bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
+            bodyComponent.bodyFlags |= CharacterBody.BodyFlags.HasBackstabPassive;
             bodyComponent.rootMotionInMainState = false;
 
             bodyComponent.hullClassification = HullClassification.Human;
