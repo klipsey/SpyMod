@@ -1,3 +1,9 @@
+# 1.0.4
+
+- Decreased Cloak armor but gave it movement speed
+- Hopefully fixed Big Earner not resetting on kill
+- Item displays!
+
 # 1.0.3
 
 - Configs

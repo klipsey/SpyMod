@@ -118,7 +118,6 @@ namespace SpyMod.Spy.Content
         {
             lightningEffect = mainAssetBundle.LoadAsset<GameObject>("CritLightning");
             lightningEffectAlt = mainAssetBundle.LoadAsset<GameObject>("CritLightning2");
-            bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
 
             spyCloakEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab").WaitForCompletion().InstantiateClone("SpyCloak", false);
             spyCloakEffect.gameObject.GetComponent<EffectComponent>().applyScale = true;
@@ -140,8 +139,11 @@ namespace SpyMod.Spy.Content
             trail.startColor = Color.white;
             trail.endColor = Color.gray;
 
+            bloodExplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/ImpBoss/ImpBossBlink.prefab").WaitForCompletion().InstantiateClone("DriverBloodExplosion", false);
+
             Material bloodMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matBloodHumanLarge.mat").WaitForCompletion();
             Material bloodMat2 = Addressables.LoadAssetAsync<Material>("RoR2/Base/moon2/matBloodSiphon.mat").WaitForCompletion();
+
 
             bloodExplosionEffect.transform.Find("Particles/LongLifeNoiseTrails").GetComponent<ParticleSystemRenderer>().material = bloodMat;
             bloodExplosionEffect.transform.Find("Particles/LongLifeNoiseTrails, Bright").GetComponent<ParticleSystemRenderer>().material = bloodMat;

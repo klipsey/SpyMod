@@ -99,7 +99,7 @@ namespace SpyMod.Spy
 
         public override UnlockableDef characterUnlockableDef => SpyUnlockables.characterUnlockableDef;
 
-        public override ItemDisplaysBase itemDisplays => new SpyItemDisplay();
+        public override ItemDisplaysBase itemDisplays => new SpyItemDisplays();
         public override AssetBundle assetBundle { get; protected set; }
         public override GameObject bodyPrefab { get; protected set; }
         public override CharacterBody prefabCharacterBody { get; protected set; }
@@ -717,6 +717,7 @@ namespace SpyMod.Spy
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
                             damageInfo.damageType |= DamageType.BypassArmor;
                             damageInfo.damageType |= DamageType.Silent;
+                            damageInfo.AddModdedDamageType(DamageTypes.SpyExecute);
                             Util.PlaySound("sfx_spy_crit", attackerBody.gameObject);
 
                             DamageInfo executeDamage = new DamageInfo();
@@ -793,8 +794,7 @@ namespace SpyMod.Spy
             CharacterBody attackerBody = damageReport.attackerBody;
             if (attackerBody && damageReport.attackerMaster && damageReport.victim)
             {
-                if (attackerBody.baseNameToken == "KENKO_SPY_NAME" &&
-                damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyBackStab) || damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
+                if (attackerBody.baseNameToken == "KENKO_SPY_NAME" && damageReport.damageInfo.HasModdedDamageType(DamageTypes.SpyExecute))
                 {
                     SpyController spy = attackerBody.GetComponent<SpyController>();
                     if(spy)
