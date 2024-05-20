@@ -12,7 +12,7 @@ namespace SpyMod.Spy.SkillStates
         {
             RefreshState();
             base.OnEnter();
-            base.PlayCrossfade("Gesture, Override", "ChargeStab", "Swing.playbackRate", 0.3f, 0.1f);
+            base.PlayCrossfade("Gesture, Override", "ChargeStab", "Swing.playbackRate", 0.3f, 0.05f);
             Util.PlaySound("sfx_spy_knife_equip", this.gameObject);
             this.FindModelChild("Revolver").gameObject.SetActive(false);
             this.FindModelChild("Knife").gameObject.SetActive(true);
@@ -28,7 +28,7 @@ namespace SpyMod.Spy.SkillStates
 
             if (base.isAuthority)
             {
-                if (!this.inputBank.skill2.down && base.fixedAge >= 0.1f)
+                if (!this.inputBank.skill2.down)
                 {
                     this.outer.SetNextState(new Stab());
                     return;

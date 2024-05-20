@@ -96,7 +96,7 @@ namespace SpyMod.Spy.SkillStates
 
         protected override void PlayAttackAnimation()
         {
-            PlayCrossfade("Gesture, Override", "Stab", playbackRateParam, duration * 1.2f, 0.05f);
+            PlayCrossfade("Gesture, Override", "Stab", playbackRateParam, duration * 1.5f, 0.1f);
         }
     }
 }

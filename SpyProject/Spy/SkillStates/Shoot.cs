@@ -66,7 +66,7 @@ namespace SpyMod.Spy.SkillStates
 
         public void Fire()
         {
-            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", 1.1f / this.attackSpeedStat);
+            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", this.duration * 1.5f);
 
             EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);
 

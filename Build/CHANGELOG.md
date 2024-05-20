@@ -1,3 +1,7 @@
+# 1.0.5
+
+- Fixed the stupid anims breaking when attacking with knife or shooting
+
 # 1.0.4
 
 - Decreased Cloak armor but gave it movement speed
