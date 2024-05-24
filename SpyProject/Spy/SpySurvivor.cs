@@ -682,7 +682,7 @@ namespace SpyMod.Spy
                             stealthInfo.rejected = false;
                             stealthInfo.position = victimBody.corePosition;
                             stealthInfo.procChainMask = default(ProcChainMask);
-                            stealthInfo.procCoefficient = 0f;
+                            stealthInfo.procCoefficient = 0.25f;
                             victimBody.healthComponent.TakeDamage(stealthInfo);
 
                             MasterSummon masterSummon = new MasterSummon();
@@ -740,12 +740,15 @@ namespace SpyMod.Spy
                                 SpyController spy = attackerBody.GetComponent<SpyController>();
                                 if (victimBody.isChampion || victimBody.isBoss && spy)
                                 {
-                                    executeDamage.damage = damageInfo.damage * 2f;
+                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullCombinedHealth * 0.1f) executeDamage.damage = damageInfo.damage * 2f;
+                                    else executeDamage.damage += victimBody.healthComponent.fullCombinedHealth * 0.1f;
 
-                                    if(spy.isDiamondBack)
+                                    if (spy.isDiamondBack)
                                     {
-                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
-                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                        for(int i = attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff); i < 3; i++)
+                                        {
+                                            if(attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5) attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                        }
                                     }
 
                                     if(spy.isBigEarner)
@@ -765,11 +768,11 @@ namespace SpyMod.Spy
                                 }
                                 else if (victimBody.isElite && spy)
                                 {
-                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
-                                    else executeDamage.damage += victimBody.healthComponent.fullHealth * 0.3f;
+                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullCombinedHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
+                                    else executeDamage.damage += victimBody.healthComponent.fullCombinedHealth * 0.3f;
                                     if (spy.isDiamondBack)
                                     {
-                                        attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                        if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5) attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
                                     }
                                     victimBody.healthComponent.TakeDamage(executeDamage);
                                 }
@@ -802,9 +805,12 @@ namespace SpyMod.Spy
                         if (spy.isDiamondBack)
                         {
                             if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();
-                            if (NetworkServer.active && attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5)
+                            if (NetworkServer.active)
                             {
-                                attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                for (int i = 0; i < 2; i++)
+                                {
+                                    if(attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5) attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
+                                }
                             }
                         }
 

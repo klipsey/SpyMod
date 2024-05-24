@@ -10,7 +10,7 @@ namespace SpyMod.Spy.Content
 
         public static float diamondBackCritBonus = 2f;
 
-        public static float ambassadorDamageCoefficient = 2.3f;
+        public static float ambassadorDamageCoefficient = 2f;
 
         public static float stabDamageCoefficient = 5f;
 

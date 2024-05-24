@@ -6,9 +6,6 @@ namespace SpyMod.Spy.Content
     public static class SpyConfig
     {
         public static ConfigEntry<bool> forceUnlock;
-
-        public static ConfigEntry<float> revolverDamageCoefficient;
-        public static ConfigEntry<float> ambassadorDamageCoefficient;
         public static ConfigEntry<float> stabDamageCoefficient;
         public static ConfigEntry<float> maxCloakDefault;
         public static ConfigEntry<float> cloakHealthCost;
@@ -27,10 +24,6 @@ namespace SpyMod.Spy.Content
                 "Unlock Spy",
                 false,
                 "Unlock Spy.", true);
-
-            revolverDamageCoefficient = Config.BindAndOptionsSlider(section2, "Revolver Damage", SpyStaticValues.revolverDamageCoefficient, "", 0.01f, 5f, true);
-
-            ambassadorDamageCoefficient = Config.BindAndOptionsSlider(section2, "Ambassador Damage", SpyStaticValues.ambassadorDamageCoefficient, "", 0.01f, 5f, true);
 
             stabDamageCoefficient = Config.BindAndOptionsSlider(section2, "Stab Damage", SpyStaticValues.stabDamageCoefficient, "", 0.01f, 5f, true);
 

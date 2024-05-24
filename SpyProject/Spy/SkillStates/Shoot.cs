@@ -51,10 +51,7 @@ namespace SpyMod.Spy.SkillStates
             }
 
             this.shootSoundString = this.isCrit ? "sfx_spy_revolver_shoot_crit" : "sfx_spy_revolver_shoot";
-            if (base.isAuthority)
-            {
-                this.Fire();
-            }
+            this.Fire();
 
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
         }

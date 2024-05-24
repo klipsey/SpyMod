@@ -1,3 +1,21 @@
+# 1.0.9
+
+- Oops
+
+# 1.0.8
+
+- Nerfed ambassador base damage
+- Backstab's execute has a 0.25 proc coefficient instead of none
+- Hopefully fixed backstabs not counting in multiplayer for the unlock
+- Ambassador animation and sound fix
+
+# 1.0.7
+
+- Diamondback now gains 3 crits on normal enemies and 5 on elites+
+- Backstabs now do a miniumum of 10% max health damage to bosses
+- Fixed token for ambassador
+- Fixed anim for ambassador
+
 # 1.0.6
 
 - Accidently removed Spy's ability to backstab  LMAO

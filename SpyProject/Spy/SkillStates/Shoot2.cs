@@ -65,22 +65,23 @@ namespace SpyMod.Spy.SkillStates
             base.FixedUpdate();
             this.fireTimer += Time.fixedDeltaTime;
 
-            if (base.isAuthority)
-            {
                 if (!this.inputBank.skill1.down && this.fireTimer >= this.duration)
                 {
-                    this.outer.SetNextStateToMain();
+                    if(base.isAuthority)
+                    {
+                        this.outer.SetNextStateToMain();
+
+                    }
                 }
                 else if (this.inputBank.skill1.down && this.fireTimer >= this.duration)
                 {
                     base.characterBody.SetAimTimer(2f);
                     this.Fire();
                 }
-            }
         }
         public void Fire()
         {
-            this.PlayAnimation("Gesture, Override", "Shoot2", "Shoot.playbackRate", 1.2f / this.attackSpeedStat);
+            this.PlayAnimation("Gesture, Override", "Shoot2", "Shoot.playbackRate", this.duration * 1.5f);
 
             this.fireTimer = 0f;
             EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);

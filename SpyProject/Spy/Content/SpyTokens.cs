@@ -53,11 +53,11 @@ namespace SpyMod.Spy.Content
 
             #region Primary
             Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "Diamondback");
-            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyConfig.revolverDamageCoefficient.Value}% damage</style>. " +
+            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.revolverDamageCoefficient}% damage</style>. " +
                 $"<style=cIsHealth>Backstab</style> kills grant <color=#62746f>Espionage</color>. Max 5 stacks.");
 
             Language.Add(prefix + "PRIMARY_REVOLVER2_NAME", "Ambassador");
-            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyConfig.ambassadorDamageCoefficient.Value}% damage</style>. Landing a headshot <style=cIsDamage>Critically Strikes</style>.");
+            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.ambassadorDamageCoefficient}% damage</style>. Landing a headshot <style=cIsDamage>Critically Strikes</style>.");
             #endregion
 
             #region Secondary

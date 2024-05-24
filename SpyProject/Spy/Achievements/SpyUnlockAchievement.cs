@@ -33,10 +33,6 @@ namespace SpyMod.Spy.Achievements
         private void Check(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             orig.Invoke(self, damageInfo);
-            if (!NetworkServer.active)
-            {
-                return;
-            }
             if (!self.alive || self.godMode || self.ospTimer > 0f)
             {
                 return;
