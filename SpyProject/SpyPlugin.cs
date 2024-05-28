@@ -19,7 +19,7 @@ namespace SpyMod
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
     [BepInDependency(NetworkingAPI.PluginGUID)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
-
+    [BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
     public class SpyPlugin : BaseUnityPlugin
     {
         // if you do not change this, you are giving permission to deprecate the mod-
@@ -35,6 +35,8 @@ namespace SpyMod
         public static SpyPlugin instance;
 
         public static bool emotesInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI");
+
+        public static bool scepterInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter");
         void Awake()
         {
             instance = this;

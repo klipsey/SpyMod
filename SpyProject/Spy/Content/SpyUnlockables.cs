@@ -15,13 +15,14 @@ namespace SpyMod.Spy.Content
             masterySkinUnlockableDef = Modules.Content.CreateAndAddUnlockableDef(SpyMasteryAchievement.unlockableIdentifier,
                 Modules.Tokens.GetAchievementNameToken(SpyMasteryAchievement.unlockableIdentifier),
                 SpySurvivor.instance.assetBundle.LoadAsset<Sprite>("texMonsoonSkin"));
-
-            if (!SpyConfig.forceUnlock.Value)
+            /*
+            if (true == false)
             {
                 characterUnlockableDef = Modules.Content.CreateAndAddUnlockableDef(SpyUnlockAchievement.unlockableIdentifier,
                 Modules.Tokens.GetAchievementNameToken(SpyUnlockAchievement.unlockableIdentifier),
                 SpySurvivor.instance.assetBundle.LoadAsset<Sprite>("texSpyIcon"));
             }
+            */
         }
     }
 }

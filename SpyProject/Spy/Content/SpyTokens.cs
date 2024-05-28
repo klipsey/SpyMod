@@ -85,15 +85,24 @@ namespace SpyMod.Spy.Content
             Language.Add(prefix + "SPECIAL_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for <style=cIsUtility>{SpyConfig.maxCloakDead.Value} seconds</style>" +
                 $" at the cost of up to <style=cIsHealth>{100f * SpyConfig.cloakHealthCost.Value}% HP</style>. " +
                 $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot.");
+
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_NAME", "Cloak");
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds</style>. " +
+                $"While <style=cIsUtility>cloaked</style>, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("Decloak instantly."));
+
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_NAME", "Deadman's Watch");
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for <style=cIsUtility>{SpyConfig.maxCloakDead.Value} seconds</style>" +
+                $" at the cost of up to <style=cIsHealth>{100f * SpyConfig.cloakHealthCost.Value}% HP</style>. " +
+                $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("<style=cIsHealth>Backstab</style> kills <style=cIsUtility>reset</style> <color=#62746f>Deadman's Watch</color> and the <style=cIsHealth>HP</style> cost is removed."));
             #endregion
 
             #region Achievements
             Language.Add(Tokens.GetAchievementNameToken(SpyMasteryAchievement.identifier), "Spy: Mastery");
             Language.Add(Tokens.GetAchievementDescriptionToken(SpyMasteryAchievement.identifier), "As Spy, beat the game or obliterate on Monsoon.");
-
+            /*
             Language.Add(Tokens.GetAchievementNameToken(SpyUnlockAchievement.identifier), "Dressed to Kill");
             Language.Add(Tokens.GetAchievementDescriptionToken(SpyUnlockAchievement.identifier), "Get a Backstab.");
-
+            */
             #endregion
 
             #endregion

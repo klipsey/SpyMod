@@ -37,6 +37,10 @@ namespace SpyMod.Spy
 
         internal static GameObject characterPrefab;
 
+        public static SkillDef cloakScepterSkillDef;
+
+        public static SkillDef deadmanScepterSkillDef;
+
         public override BodyInfo bodyInfo => new BodyInfo
         {
             bodyName = bodyName,
@@ -192,6 +196,7 @@ namespace SpyMod.Spy
             AddSecondarySkills();
             AddUtilitySkills();
             AddSpecialSkills();
+            if (SpyPlugin.scepterInstalled) InitializeScepter();
         }
 
         private void AddPassiveSkills()
@@ -414,8 +419,8 @@ namespace SpyMod.Spy
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyCloak"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Cloak)),
-                activationStateMachineName = "Watch",
-                interruptPriority = EntityStates.InterruptPriority.Any,
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 0f,
                 baseMaxStock = 1,
@@ -426,7 +431,7 @@ namespace SpyMod.Spy
 
                 resetCooldownTimerOnUse = false,
                 fullRestockOnAssign = true,
-                dontAllowPastMaxStocks = false,
+                dontAllowPastMaxStocks = true,
                 mustKeyPress = true,
                 beginSkillCooldownOnSkillEnd = false,
 
@@ -445,7 +450,7 @@ namespace SpyMod.Spy
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyWatch"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SwapWatch)),
-                activationStateMachineName = "Watch",
+                activationStateMachineName = "Weapon",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 10f,
@@ -468,6 +473,74 @@ namespace SpyMod.Spy
             });
 
             Skills.AddSpecialSkills(bodyPrefab, Watch, Watch2);
+        }
+
+        private void InitializeScepter()
+        {
+            cloakScepterSkillDef = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Cloak Scepter",
+                skillNameToken = SPY_PREFIX + "SPECIAL_SCEPTER_WATCH_NAME",
+                skillDescriptionToken = SPY_PREFIX + "SPECIAL_SCEPTER_WATCH_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpyCloak"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(CloakScepter)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+
+                baseRechargeInterval = 0f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = true,
+                mustKeyPress = true,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+            });
+
+            deadmanScepterSkillDef = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Deadman's Watch Scepter",
+                skillNameToken = SPY_PREFIX + "SPECIAL_SCEPTER_WATCH2_NAME",
+                skillDescriptionToken = SPY_PREFIX + "SPECIAL_SCEPTER_WATCH2_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSpyWatch"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SwapWatchScepter)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+
+                baseRechargeInterval = 10f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = true,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = false,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+            });
+
+            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(cloakScepterSkillDef, bodyName, SkillSlot.Special, 0);
+            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(deadmanScepterSkillDef, bodyName, SkillSlot.Special, 1);
         }
         #endregion skills
 
@@ -682,8 +755,12 @@ namespace SpyMod.Spy
                             stealthInfo.rejected = false;
                             stealthInfo.position = victimBody.corePosition;
                             stealthInfo.procChainMask = default(ProcChainMask);
-                            stealthInfo.procCoefficient = 0.25f;
-                            victimBody.healthComponent.TakeDamage(stealthInfo);
+                            stealthInfo.procCoefficient = 0f;
+
+                            if (victimBody.skillLocator.special.skillNameToken != SPY_PREFIX + "SPECIAL_SCEPTER_WATCH2_NAME")
+                            {
+                                victimBody.healthComponent.TakeDamage(stealthInfo);
+                            }
 
                             MasterSummon masterSummon = new MasterSummon();
                             masterSummon.masterPrefab = SpyDecoy.decoyMasterPrefab;
@@ -732,7 +809,7 @@ namespace SpyMod.Spy
                             executeDamage.rejected = false;
                             executeDamage.position = victimBody.corePosition;
                             executeDamage.procChainMask = default(ProcChainMask);
-                            executeDamage.procCoefficient = 0f;
+                            executeDamage.procCoefficient = 0.25f;
                             executeDamage.AddModdedDamageType(DamageTypes.SpyExecute);
 
                             if (victimBody.healthComponent)
@@ -802,6 +879,10 @@ namespace SpyMod.Spy
                     SpyController spy = attackerBody.GetComponent<SpyController>();
                     if(spy)
                     {
+                        if(attackerBody.skillLocator.special.skillNameToken == SPY_PREFIX + "SPECIAL_SCEPTER_WATCH2_NAME")
+                        {
+                            attackerBody.skillLocator.special.Reset();
+                        }
                         if (spy.isDiamondBack)
                         {
                             if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) <= 0) spy.ActivateCritLightning();

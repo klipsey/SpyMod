@@ -36,9 +36,14 @@ namespace SpyMod.Spy.SkillStates
             }
         }
 
+        public override void OnExit()
+        {
+            base.OnExit();
+        }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Pain;
         }
     }
 }

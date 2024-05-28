@@ -23,8 +23,8 @@ namespace SpyMod.Spy.Components
         public bool isAmbassador => skillLocator.primary.skillNameToken == SpySurvivor.SPY_PREFIX + "PRIMARY_REVOLVER2_NAME";
         public bool isDefaultKnife => skillLocator.secondary.skillNameToken == SpySurvivor.SPY_PREFIX + "SECONDARY_KNIFE_NAME";
         public bool isBigEarner => skillLocator.secondary.skillNameToken == SpySurvivor.SPY_PREFIX + "SECONDARY_KNIFE2_NAME";
-        public bool isDefaultCloak => skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_WATCH_NAME";
-        public bool isSpecialDeadman => skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_WATCH2_NAME";
+        public bool isDefaultCloak => skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_WATCH_NAME" || skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_SCEPTER_WATCH_NAME";
+        public bool isSpecialDeadman => skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_WATCH2_NAME" || skillLocator.special.skillNameToken == SpySurvivor.SPY_PREFIX + "SPECIAL_SCEPTER_WATCH2_NAME";
         public float cloakRecharge => skillLocator.special.rechargeStopwatch;
         public float maxCloakRecharge => skillLocator.special.finalRechargeInterval;
 
@@ -39,6 +39,7 @@ namespace SpyMod.Spy.Components
         private bool hasSpun = true;
         private bool hasPunishedChainStab = true;
         private bool hasPlayedRecharge = true;
+        public bool pauseTimer = false;
 
         private float spinTimer = 0f;
         private float gracePeriod = 0f;
@@ -132,7 +133,7 @@ namespace SpyMod.Spy.Components
             spinTimer -= Time.fixedDeltaTime;
             gracePeriod -= Time.fixedDeltaTime;
 
-            if(isCloaked)
+            if(isCloaked && !pauseTimer)
             {
                 cloakTimer -= Time.fixedDeltaTime;
                 this.onStealthChange?.Invoke();

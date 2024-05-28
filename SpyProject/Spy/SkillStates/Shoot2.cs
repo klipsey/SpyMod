@@ -144,6 +144,8 @@ namespace SpyMod.Spy.SkillStates
             }
 
             base.characterBody.AddSpreadBloom(1.25f);
+
+            this.duration = Shoot2.baseDuration / this.attackSpeedStat;
         }
         public override void OnExit()
         {

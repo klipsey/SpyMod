@@ -13,13 +13,21 @@ namespace SpyMod.Spy.SkillStates
         private float baseDuration = 1f;
         private float duration;
         private bool willWait = false;
+
+        protected virtual bool sceptered
+        {
+            get
+            {
+                return false;
+            }
+        }
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
 
-            duration = baseDuration / attackSpeedStat;
-
+            if (!sceptered) duration = baseDuration / attackSpeedStat;
+            else duration = 0f;
             if (!this.spyController.IsStopWatchOut())
             {
                 if(this.spyController.cloakTimer >= (this.spyController.maxCloakTimer * 0.2f))
@@ -39,6 +47,7 @@ namespace SpyMod.Spy.SkillStates
             {
                 Util.PlaySound("sfx_spy_uncloak_alt", base.gameObject);
                 willWait = true;
+                this.spyController.pauseTimer = true;
             }
         }
 
@@ -58,6 +67,7 @@ namespace SpyMod.Spy.SkillStates
 
             if (willWait)
             {
+                this.spyController.pauseTimer = false;
                 this.spyController.ExitStealth();
                 this.spyController.DisableWatchLayer();
             }

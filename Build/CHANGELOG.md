@@ -1,3 +1,17 @@
+# 1.1.2
+
+- Added Ancient Scepter support for Cloak and Deadman's Watch
+- Fixed the 0.25 proc coefficient being on the self damage for spy instead of his knife 
+
+# 1.1.1
+
+- Hopefully fixed spy backstab cloak bug
+- Removed unlock condition for now
+
+# 1.1.0
+
+- Stealth sound fixed
+
 # 1.0.9
 
 - Oops
