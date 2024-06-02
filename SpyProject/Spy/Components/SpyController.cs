@@ -87,7 +87,6 @@ namespace SpyMod.Spy.Components
                     this.chainStabComboHand = this.childLocator.FindChild("ChainStabComboHand").gameObject.GetComponent<ParticleSystem>();
                 }
             }
-
         }
         private void Start()
         {
