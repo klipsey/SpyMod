@@ -49,7 +49,7 @@ namespace SpyMod.Spy
 
             characterPortrait = assetBundle.LoadAsset<Texture>("texSpyIcon"),
             bodyColor = SpyAssets.spyColor,
-            sortPosition = 5.99f,
+            sortPosition = 7f,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -239,7 +239,7 @@ namespace SpyMod.Spy
         {
             SpySkillDef Shoot = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
             {
-                skillName = "The Diamondback",
+                skillName = "Diamondback",
                 skillNameToken = SPY_PREFIX + "PRIMARY_REVOLVER_NAME",
                 skillDescriptionToken = SPY_PREFIX + "PRIMARY_REVOLVER_DESCRIPTION",
                 keywordTokens = new string[] { Tokens.spyCritKeyword },
@@ -272,7 +272,7 @@ namespace SpyMod.Spy
 
             SpySkillDef Shoot2 = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
             {
-                skillName = "The Ambassador",
+                skillName = "Ambassador",
                 skillNameToken = SPY_PREFIX + "PRIMARY_REVOLVER2_NAME",
                 skillDescriptionToken = SPY_PREFIX + "PRIMARY_REVOLVER2_DESCRIPTION",
                 keywordTokens = new string[] { },
@@ -339,7 +339,7 @@ namespace SpyMod.Spy
 
             SpySkillDef Knife2 = Skills.CreateSkillDef<SpySkillDef>(new SkillDefInfo
             {
-                skillName = "The Big Earner",
+                skillName = "Big Earner",
                 skillNameToken = SPY_PREFIX + "SECONDARY_KNIFE2_NAME",
                 skillDescriptionToken = SPY_PREFIX + "SECONDARY_KNIFE2_DESCRIPTION",
                 keywordTokens = new string[] { Tokens.agileKeyword, Tokens.spyBigEarnerKeyword },
@@ -450,7 +450,7 @@ namespace SpyMod.Spy
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpyWatch"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SwapWatch)),
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Watch",
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
 
                 baseRechargeInterval = 10f,

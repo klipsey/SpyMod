@@ -73,7 +73,6 @@ namespace SpyMod.Spy.Content
             Language.Add(prefix + "UTILITY_FLIP_NAME", "Sap");
             Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. Plant a <color=#62746f>Sapper</color> on a nearby " +
                 $"enemy, <style=cIsUtility>shocking</style> them and nearby enemies for <style=cIsUtility>5 seconds</style>.");
-
             #endregion
 
             #region Special
@@ -90,7 +89,7 @@ namespace SpyMod.Spy.Content
             Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds</style>. " +
                 $"While <style=cIsUtility>cloaked</style>, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("Decloak instantly."));
 
-            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_NAME", "Deadman's Watch");
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_NAME", "Deadman's Watch Scepter");
             Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for <style=cIsUtility>{SpyConfig.maxCloakDead.Value} seconds</style>" +
                 $" at the cost of up to <style=cIsHealth>{100f * SpyConfig.cloakHealthCost.Value}% HP</style>. " +
                 $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("<style=cIsHealth>Backstab</style> kills <style=cIsUtility>reset</style> <color=#62746f>Deadman's Watch</color> and the <style=cIsHealth>HP</style> cost is removed."));

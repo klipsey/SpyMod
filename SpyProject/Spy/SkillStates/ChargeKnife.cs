@@ -28,7 +28,7 @@ namespace SpyMod.Spy.SkillStates
 
             if (base.isAuthority)
             {
-                if (!this.inputBank.skill2.down && base.fixedAge >= 0.05)
+                if (!IsKeyDownAuthority() && base.fixedAge >= 0.05)
                 {
                     this.outer.SetNextState(new Stab());
                     return;

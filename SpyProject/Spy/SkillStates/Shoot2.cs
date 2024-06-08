@@ -48,10 +48,8 @@ namespace SpyMod.Spy.SkillStates
             this.isCrit = RollCrit();
 
             this.shootSoundString = this.isCrit ? "sfx_spy_revolver_shoot_crit" : "sfx_spy_revolver_shoot";
-            if (base.isAuthority)
-            {
-                this.Fire();
-            }
+
+            this.Fire();
 
             this.overlayController = HudOverlayManager.AddOverlay(this.gameObject, new OverlayCreationParams
             {
@@ -65,19 +63,18 @@ namespace SpyMod.Spy.SkillStates
             base.FixedUpdate();
             this.fireTimer += Time.fixedDeltaTime;
 
-                if (!this.inputBank.skill1.down && this.fireTimer >= this.duration)
+            if (!this.inputBank.skill1.down && this.fireTimer >= this.duration)
+            {
+                if(base.isAuthority)
                 {
-                    if(base.isAuthority)
-                    {
-                        this.outer.SetNextStateToMain();
-
-                    }
+                    this.outer.SetNextStateToMain();
                 }
-                else if (this.inputBank.skill1.down && this.fireTimer >= this.duration)
-                {
-                    base.characterBody.SetAimTimer(2f);
-                    this.Fire();
-                }
+            }
+            else if (this.inputBank.skill1.down && this.fireTimer >= this.duration)
+            {
+                base.characterBody.SetAimTimer(2f);
+                this.Fire();
+            }
         }
         public void Fire()
         {

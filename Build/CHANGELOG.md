@@ -1,3 +1,11 @@
+# 1.1.4
+
+- Actually checked to see if last update worked lol
+
+# 1.1.3
+
+- Hopefully fixed primary and secondary alts being always highlighted
+
 # 1.1.2
 
 - Added Ancient Scepter support for Cloak and Deadman's Watch
