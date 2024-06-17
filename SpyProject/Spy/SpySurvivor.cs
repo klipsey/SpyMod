@@ -897,7 +897,13 @@ namespace SpyMod.Spy
 
                         if(spy.isBigEarner)
                         {
-                            if(attackerBody.skillLocator.secondary.stock < attackerBody.skillLocator.secondary.maxStock) attackerBody.skillLocator.secondary.AddOneStock();
+                            if (attackerBody.skillLocator.secondary.stock < attackerBody.skillLocator.secondary.maxStock)
+                            {
+                                if (damageReport.attacker.TryGetComponent<NetworkIdentity>(out var identityStab))
+                                {
+                                    new SyncResetStab(identityStab.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);
+                                }
+                            }
                             if(!SpyConfig.bigEarnerFullyResets.Value) spy.ResetChainStabPeriod();
                             int num = 5;
                             float num2 = 2f;

@@ -43,6 +43,7 @@ namespace SpyMod
 
             NetworkingAPI.RegisterMessageType<Spy.Components.SyncStabExplosion>();
             NetworkingAPI.RegisterMessageType<Spy.Components.SyncStealth>();
+            NetworkingAPI.RegisterMessageType<Spy.Components.SyncResetStab>();
 
             //easy to use logger
             Log.Init(Logger);
