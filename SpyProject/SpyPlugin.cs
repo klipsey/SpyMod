@@ -52,8 +52,6 @@ namespace SpyMod
             Modules.Language.Init();
 
             // character initialization
-            SpyAssets.Init(Assets.LoadAssetBundle("spy"));
-            StartCoroutine(SpyAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
 
             new SpyMod.Spy.SpySurvivor().Initialize();
 

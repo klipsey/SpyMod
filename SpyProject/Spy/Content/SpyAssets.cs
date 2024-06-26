@@ -73,9 +73,7 @@ namespace SpyMod.Spy.Content
         public static void Init(AssetBundle assetBundle)
         {
             mainAssetBundle = assetBundle;
-        }
-        public static void InitAssets()
-        {
+
             CreateMaterials();
 
             CreateModels();
@@ -87,8 +85,8 @@ namespace SpyMod.Spy.Content
             CreateProjectiles();
 
             CreateUI();
-        }
 
+        }
         private static void CleanChildren(Transform startingTrans)
         {
             for (int num = startingTrans.childCount - 1; num >= 0; num--)
@@ -198,7 +196,7 @@ namespace SpyMod.Spy.Content
             {
                 if (i)
                 {
-                    bulletMat = UnityEngine.Object.Instantiate<Material>(i.material);
+                    bulletMat = Object.Instantiate<Material>(i.material);
                     bulletMat.SetColor("_TintColor", new Color(0.68f, 0.58f, 0.05f));
                     i.material = bulletMat;
                     i.startColor = new Color(0.68f, 0.58f, 0.05f);

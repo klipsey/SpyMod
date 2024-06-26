@@ -20,6 +20,7 @@ namespace SpyMod.Spy.SkillStates
             {
                 this.spyController.DeactivateCritLightning(true);
             }
+            this.spyController.SpinGun();
         }
 
         public override void FixedUpdate()

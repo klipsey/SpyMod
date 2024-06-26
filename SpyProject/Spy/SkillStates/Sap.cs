@@ -7,6 +7,7 @@ using SpyMod.Modules.BaseStates;
 using SpyMod.Spy.Content;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace SpyMod.Spy.SkillStates
 {
@@ -97,13 +98,14 @@ namespace SpyMod.Spy.SkillStates
         {
             base.FixedUpdate();
 
-            if(this.isFlip)
+            if (base.fixedAge >= this.duration / 2f && !sapped)
             {
-                if(base.fixedAge >= this.jumpDuration / 2f && !sapped)
-                {
-                    sapped = true;
-                    SapEnemy();
-                }
+                sapped = true;
+                SapEnemy();
+            }
+
+            if (this.isFlip)
+            {
                 if (base.isAuthority && base.fixedAge >= this.jumpDuration)
                 {
                     this.outer.SetNextStateToMain();
@@ -122,12 +124,6 @@ namespace SpyMod.Spy.SkillStates
                     }
                 }
 
-                if (base.fixedAge >= this.duration / 2f && !sapped)
-                {
-                    sapped = true;
-                    SapEnemy();
-                }
-
                 if (base.isAuthority && base.fixedAge >= this.duration)
                 {
                     this.outer.SetNextStateToMain();
@@ -137,40 +133,43 @@ namespace SpyMod.Spy.SkillStates
 
         private void SapEnemy()
         {
-            HurtBox[] hurtBoxes = new SphereSearch
+            if(NetworkServer.active)
             {
-                origin = base.transform.position,
-                radius = 20f,
-                mask = LayerIndex.entityPrecise.mask
-            }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(base.characterBody.teamComponent.teamIndex)).OrderCandidatesByDistance().FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+                HurtBox[] hurtBoxes = new SphereSearch
+                {
+                    origin = base.transform.position,
+                    radius = 20f,
+                    mask = LayerIndex.entityPrecise.mask
+                }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(base.characterBody.teamComponent.teamIndex)).OrderCandidatesByDistance().FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
 
-            if (hurtBoxes.Length > 0)
-            {
-                CharacterBody victim = hurtBoxes[0].healthComponent.body;
-                bool alive = hurtBoxes[0].healthComponent.alive;
-                Vector3 position = hurtBoxes[0].transform.position;
-                Vector3 forward = victim.corePosition - position;
-                float magnitude = forward.magnitude;
-                Quaternion rotation = ((magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform);
-                ProjectileManager.instance.FireProjectile(SpyAssets.sapperPrefab, position, rotation, base.gameObject, 1f, 100f, base.RollCrit(), DamageColorIndex.Default, null, alive ? (magnitude * 5f) : (-1f));
-                DamageInfo damageInfo = new DamageInfo();
-                damageInfo.damage = 1f;
-                damageInfo.attacker = base.gameObject;
-                damageInfo.inflictor = null;
-                damageInfo.force = Vector3.zero;
-                damageInfo.crit = false;
-                damageInfo.procChainMask = default(ProcChainMask);
-                damageInfo.procCoefficient = 1f;
-                damageInfo.position = position;
-                damageInfo.damageColorIndex = DamageColorIndex.Item;
-                damageInfo.damageType = DamageType.Shock5s;
-                Util.PlaySound("sfx_spy_sapper_plant", victim.gameObject);
-                victim.healthComponent.TakeDamage(damageInfo);
+                if (hurtBoxes.Length > 0)
+                {
+                    CharacterBody victim = hurtBoxes[0].healthComponent.body;
+                    bool alive = hurtBoxes[0].healthComponent.alive;
+                    Vector3 position = hurtBoxes[0].transform.position;
+                    Vector3 forward = victim.corePosition - position;
+                    float magnitude = forward.magnitude;
+                    Quaternion rotation = ((magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform);
+                    ProjectileManager.instance.FireProjectile(SpyAssets.sapperPrefab, position, rotation, base.gameObject, 1f, 100f, base.RollCrit(), DamageColorIndex.Default, null, alive ? (magnitude * 5f) : (-1f));
+                    DamageInfo damageInfo = new DamageInfo();
+                    damageInfo.damage = 1f;
+                    damageInfo.attacker = base.gameObject;
+                    damageInfo.inflictor = null;
+                    damageInfo.force = Vector3.zero;
+                    damageInfo.crit = false;
+                    damageInfo.procChainMask = default(ProcChainMask);
+                    damageInfo.procCoefficient = 1f;
+                    damageInfo.position = position;
+                    damageInfo.damageColorIndex = DamageColorIndex.Item;
+                    damageInfo.damageType = DamageType.Shock5s;
+                    Util.PlaySound("sfx_spy_sapper_plant", victim.gameObject);
+                    victim.healthComponent.TakeDamage(damageInfo);
+                }
             }
         }
         public override void OnExit()
         {
-            if (isFlip)
+            if (this.isFlip)
             {
                 base.PlayAnimation("FullBody, Override", "BufferEmpty");
                 base.characterMotor.airControl = previousAirControl;

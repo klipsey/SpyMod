@@ -144,7 +144,7 @@ namespace SpyMod.Spy
             SpyStates.Init();
             SpyTokens.Init();
 
-            SpyAssets.InitAssets();
+            SpyAssets.Init(assetBundle);
 
             SpyBuffs.Init(assetBundle);
 

@@ -205,6 +205,7 @@ namespace SpyMod.Spy.Components
         }
         public void SpinGun()
         {
+            if(this.spinInstance) GameObject.Destroy(this.spinInstance);
             this.spinInstance = GameObject.Instantiate(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoReloadFX.prefab").WaitForCompletion());
             this.spinInstance.transform.parent = this.childLocator.FindChild("Gun");
             this.spinInstance.transform.localRotation = Quaternion.Euler(new Vector3(0f, 80f, 0f));

@@ -32,6 +32,16 @@ namespace SpyMod.Spy.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
+
+            if (spyController.IsStopWatchOut())
+            {
+                if (base.isAuthority)
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
+            }
+
             if (this.characterBody.hasCloakBuff) spyController.ExitStealth();
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
             this.characterBody.isSprinting = false;
@@ -63,7 +73,7 @@ namespace SpyMod.Spy.SkillStates
 
         public void Fire()
         {
-            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", this.duration * 1.5f);
+            this.PlayAnimation("Gesture, Override", "Shoot", "Shoot.playbackRate", this.duration * 2f);
 
             EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);
 

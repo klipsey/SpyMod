@@ -33,10 +33,21 @@ namespace SpyMod.Spy.SkillStates
         private CameraParamsOverrideHandle camParamsOverrideHandle;
         private OverlayController overlayController;
         private float fireTimer;
+        
+        public bool holding;
         public override void OnEnter()
         {
             damageCoefficient = SpyStaticValues.ambassadorDamageCoefficient;
             base.OnEnter();
+
+            if(spyController.IsStopWatchOut())
+            {
+                if(base.isAuthority)
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
+            }
 
             if (this.characterBody.hasCloakBuff) spyController.ExitStealth();
             this.duration = Shoot.baseDuration / this.attackSpeedStat;
@@ -56,6 +67,8 @@ namespace SpyMod.Spy.SkillStates
                 prefab = SpyAssets.headshotOverlay,
                 childLocatorEntry = "ScopeContainer"
             });
+
+            holding = false;
         }
 
         public override void FixedUpdate()
@@ -63,22 +76,23 @@ namespace SpyMod.Spy.SkillStates
             base.FixedUpdate();
             this.fireTimer += Time.fixedDeltaTime;
 
-            if (!this.inputBank.skill1.down && this.fireTimer >= this.duration)
+            if (base.isAuthority && (this.inputBank.skill1.justReleased || !this.inputBank.skill1.down) && this.fireTimer >= this.duration)
             {
-                if(base.isAuthority)
-                {
-                    this.outer.SetNextStateToMain();
-                }
+                this.outer.SetNextStateToMain();
             }
-            else if (this.inputBank.skill1.down && this.fireTimer >= this.duration)
+            else if (base.isAuthority && this.inputBank.skill1.down && this.fireTimer >= this.duration)
             {
-                base.characterBody.SetAimTimer(2f);
-                this.Fire();
+                holding = true;
+                this.outer.SetNextState(new Shoot2
+                {
+                    holding = true,
+
+                });
             }
         }
         public void Fire()
         {
-            this.PlayAnimation("Gesture, Override", "Shoot2", "Shoot.playbackRate", this.duration * 1.5f);
+            this.PlayAnimation("Gesture, Override", "Shoot2", "Shoot.playbackRate", this.duration * 2f);
 
             this.fireTimer = 0f;
             EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, this.gameObject, this.muzzleString, false);
@@ -148,18 +162,33 @@ namespace SpyMod.Spy.SkillStates
         {
             base.OnExit();
 
-            this.spyController.SpinGun();
-
             if (this.overlayController != null)
             {
                 HudOverlayManager.RemoveOverlay(this.overlayController);
                 this.overlayController = null;
+            }
+
+            if (!holding)
+            {
+                this.spyController.SpinGun();
             }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(holding);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            holding = reader.ReadBoolean();
         }
     }
 }

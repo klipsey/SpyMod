@@ -1,7 +1,7 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "1.1.5",
+    "version_number": "1.1.6",
     "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Adds the Spy survivor now with alt abilities, emotes, and monsoon skin! Multiplayer compatible.",
     "dependencies": [
@@ -17,7 +17,6 @@
         "RiskofThunder-R2API_Orb-1.0.1",
         "RiskofThunder-R2API_Deployable-1.0.1",
 	"RiskofThunder-R2API_DamageType-1.0.4",
-	"RiskofThunder-R2API_Networking-1.0.2",
-	"Smooth_Salad-ShaderSwapper-1.0.1"
+	"RiskofThunder-R2API_Networking-1.0.2"
     ]
 }

@@ -1,3 +1,8 @@
+# 1.1.6
+
+- Removed scoliosis
+- Fixed exploits and bugs
+
 # 1.1.5
 
 - Networking

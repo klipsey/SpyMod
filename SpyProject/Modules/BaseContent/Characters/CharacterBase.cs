@@ -32,7 +32,7 @@ namespace SpyMod.Modules.Characters
         public virtual void Initialize()
         {
             instance = this as T;
-            assetBundle = SpyAssets.mainAssetBundle;
+            assetBundle = Assets.LoadAssetBundle("spy");
             InitializeCharacter();
         }
 
