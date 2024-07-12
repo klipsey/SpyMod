@@ -9,22 +9,19 @@ namespace SpyMod.Spy.Components
     public class SyncResetStab : INetMessage
     {
         private NetworkInstanceId netId;
-        private GameObject target;
 
         public SyncResetStab()
         {
         }
 
-        public SyncResetStab(NetworkInstanceId netId, GameObject target)
+        public SyncResetStab(NetworkInstanceId netId)
         {
             this.netId = netId;
-            this.target = target;
         }
 
         public void Deserialize(NetworkReader reader)
         {
             this.netId = reader.ReadNetworkId();
-            this.target = reader.ReadGameObject();
         }
 
         public void OnReceived()
@@ -32,13 +29,12 @@ namespace SpyMod.Spy.Components
             GameObject bodyObject = Util.FindNetworkObject(this.netId);
             if (!bodyObject) return;
 
-            bodyObject.GetComponent<CharacterBody>().skillLocator.secondary.AddOneStock();
+            bodyObject.GetComponent<CharacterBody>().skillLocator.secondary.Reset();
         }
 
         public void Serialize(NetworkWriter writer)
         {
             writer.Write(this.netId);
-            writer.Write(this.target);
         }
     }
 }

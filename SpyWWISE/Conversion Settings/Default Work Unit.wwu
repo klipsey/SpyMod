@@ -33,11 +33,7 @@
 					</PropertyList>
 					<ConversionPluginInfoList>
 						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{CECC2A9C-1BAD-42EB-9CE8-6F13FA8B03C3}" PluginName="Opus" CompanyID="0" PluginID="19">
-								<PropertyList>
-									<Property Name="Quality" Type="int32" Value="100"/>
-								</PropertyList>
-							</ConversionPlugin>
+							<ConversionPlugin Name="" ID="{27C33AFF-C3E7-4CFA-A9C1-98CCD4120A54}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
 						</ConversionPluginInfo>
 					</ConversionPluginInfoList>
 				</Conversion>

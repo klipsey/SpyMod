@@ -788,38 +788,21 @@ namespace SpyMod.Spy
                     {
                         if (damageInfo.HasModdedDamageType(DamageTypes.SpyBackStab))
                         {
-                            if (damageInfo.crit) damageInfo.damage *= 1.5f;
-                            else damageInfo.crit = true;
-
+                            float initialDamage = damageInfo.damage;
+                            if (damageInfo.crit) damageInfo.damage += initialDamage * 1.5f;
+                            damageInfo.damage *= SpyConfig.spyBackstabMultiplier.Value;
+                            damageInfo.crit = true;
                             damageInfo.procChainMask.AddProc(ProcType.Backstab);
                             damageInfo.damageType |= DamageType.BypassArmor;
                             damageInfo.damageType |= DamageType.Silent;
                             damageInfo.AddModdedDamageType(DamageTypes.SpyExecute);
                             Util.PlaySound("sfx_spy_crit", attackerBody.gameObject);
 
-                            DamageInfo executeDamage = new DamageInfo();
-                            executeDamage.damage = 0f;
-                            executeDamage.attacker = attackerBody.gameObject;
-                            executeDamage.canRejectForce = true;
-                            executeDamage.crit = true;
-                            executeDamage.inflictor = null;
-                            executeDamage.damageColorIndex = DamageColorIndex.Sniper;
-                            executeDamage.damageType = damageInfo.damageType;
-                            executeDamage.force = Vector3.zero;
-                            executeDamage.rejected = false;
-                            executeDamage.position = victimBody.corePosition;
-                            executeDamage.procChainMask = default(ProcChainMask);
-                            executeDamage.procCoefficient = 0.25f;
-                            executeDamage.AddModdedDamageType(DamageTypes.SpyExecute);
-
                             if (victimBody.healthComponent)
                             {
                                 SpyController spy = attackerBody.GetComponent<SpyController>();
                                 if (victimBody.isChampion || victimBody.isBoss && spy)
                                 {
-                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullCombinedHealth * 0.1f) executeDamage.damage = damageInfo.damage * 2f;
-                                    else executeDamage.damage += victimBody.healthComponent.fullCombinedHealth * 0.1f;
-
                                     if (spy.isDiamondBack)
                                     {
                                         for(int i = attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff); i < 3; i++)
@@ -840,23 +823,13 @@ namespace SpyMod.Spy
 
                                         attackerBody.healthComponent.AddBarrier((attackerBody.healthComponent.fullHealth + attackerBody.healthComponent.fullShield) * 0.2f);
                                     }
-
-                                    victimBody.healthComponent.TakeDamage(executeDamage);
                                 }
                                 else if (victimBody.isElite && spy)
                                 {
-                                    if (damageInfo.damage * 2f > victimBody.healthComponent.fullCombinedHealth * 0.3f) executeDamage.damage = damageInfo.damage * 2f;
-                                    else executeDamage.damage += victimBody.healthComponent.fullCombinedHealth * 0.3f;
                                     if (spy.isDiamondBack)
                                     {
                                         if (attackerBody.GetBuffCount(SpyBuffs.spyDiamondbackBuff) < 5) attackerBody.AddBuff(SpyBuffs.spyDiamondbackBuff);
                                     }
-                                    victimBody.healthComponent.TakeDamage(executeDamage);
-                                }
-                                else
-                                {
-                                    executeDamage.damage += victimBody.healthComponent.fullCombinedHealth;
-                                    victimBody.healthComponent.TakeDamage(executeDamage);
                                 }
                             }
                         }
@@ -897,13 +870,11 @@ namespace SpyMod.Spy
 
                         if(spy.isBigEarner)
                         {
-                            if (attackerBody.skillLocator.secondary.stock < attackerBody.skillLocator.secondary.maxStock)
+                            if (NetworkServer.active && damageReport.attacker.TryGetComponent<NetworkIdentity>(out var identityStab))
                             {
-                                if (damageReport.attacker.TryGetComponent<NetworkIdentity>(out var identityStab))
-                                {
-                                    new SyncResetStab(identityStab.netId, damageReport.victim.gameObject).Send(NetworkDestination.Clients);
-                                }
+                                new SyncResetStab(identityStab.netId).Send(NetworkDestination.Clients);
                             }
+
                             if(!SpyConfig.bigEarnerFullyResets.Value) spy.ResetChainStabPeriod();
                             int num = 5;
                             float num2 = 2f;

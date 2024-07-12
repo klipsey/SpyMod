@@ -1,3 +1,7 @@
+# 1.1.7
+
+- maybe fixed sound?????
+
 # 1.1.6
 
 - Removed scoliosis

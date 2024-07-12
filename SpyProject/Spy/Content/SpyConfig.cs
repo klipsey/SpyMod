@@ -13,6 +13,7 @@ namespace SpyMod.Spy.Content
         public static ConfigEntry<float> bigEarnerHealthPunishment;
         public static ConfigEntry<bool> bigEarnerFullyResets;
         public static ConfigEntry<float> sapperRange;
+        public static ConfigEntry<float> spyBackstabMultiplier;
         public static void Init()
         {
             string section = "01 - General";
@@ -39,7 +40,7 @@ namespace SpyMod.Spy.Content
 
             sapperRange = Config.BindAndOptionsSlider(section2, "Sapper Range", SpyStaticValues.sapperRange, "", 1f, 500f, true);
 
-
+            spyBackstabMultiplier = Config.BindAndOptionsSlider(section2, "Backstab Multiplier", 5f, "Change spies backstab multiplier. Default 5x.", 0f, 9999f, false);
         }
     }
 }

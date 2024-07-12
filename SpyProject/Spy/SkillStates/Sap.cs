@@ -133,38 +133,35 @@ namespace SpyMod.Spy.SkillStates
 
         private void SapEnemy()
         {
-            if(NetworkServer.active)
+            HurtBox[] hurtBoxes = new SphereSearch
             {
-                HurtBox[] hurtBoxes = new SphereSearch
-                {
-                    origin = base.transform.position,
-                    radius = 20f,
-                    mask = LayerIndex.entityPrecise.mask
-                }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(base.characterBody.teamComponent.teamIndex)).OrderCandidatesByDistance().FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
+                origin = base.transform.position,
+                radius = 20f,
+                mask = LayerIndex.entityPrecise.mask
+            }.RefreshCandidates().FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(base.characterBody.teamComponent.teamIndex)).OrderCandidatesByDistance().FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes();
 
-                if (hurtBoxes.Length > 0)
-                {
-                    CharacterBody victim = hurtBoxes[0].healthComponent.body;
-                    bool alive = hurtBoxes[0].healthComponent.alive;
-                    Vector3 position = hurtBoxes[0].transform.position;
-                    Vector3 forward = victim.corePosition - position;
-                    float magnitude = forward.magnitude;
-                    Quaternion rotation = ((magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform);
-                    ProjectileManager.instance.FireProjectile(SpyAssets.sapperPrefab, position, rotation, base.gameObject, 1f, 100f, base.RollCrit(), DamageColorIndex.Default, null, alive ? (magnitude * 5f) : (-1f));
-                    DamageInfo damageInfo = new DamageInfo();
-                    damageInfo.damage = 1f;
-                    damageInfo.attacker = base.gameObject;
-                    damageInfo.inflictor = null;
-                    damageInfo.force = Vector3.zero;
-                    damageInfo.crit = false;
-                    damageInfo.procChainMask = default(ProcChainMask);
-                    damageInfo.procCoefficient = 1f;
-                    damageInfo.position = position;
-                    damageInfo.damageColorIndex = DamageColorIndex.Item;
-                    damageInfo.damageType = DamageType.Shock5s;
-                    Util.PlaySound("sfx_spy_sapper_plant", victim.gameObject);
-                    victim.healthComponent.TakeDamage(damageInfo);
-                }
+            if (hurtBoxes.Length > 0)
+            {
+                CharacterBody victim = hurtBoxes[0].healthComponent.body;
+                bool alive = hurtBoxes[0].healthComponent.alive;
+                Vector3 position = hurtBoxes[0].transform.position;
+                Vector3 forward = victim.corePosition - position;
+                float magnitude = forward.magnitude;
+                Quaternion rotation = ((magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform);
+                ProjectileManager.instance.FireProjectile(SpyAssets.sapperPrefab, position, rotation, base.gameObject, 1f, 100f, base.RollCrit(), DamageColorIndex.Default, null, alive ? (magnitude * 5f) : (-1f));
+                DamageInfo damageInfo = new DamageInfo();
+                damageInfo.damage = 1f;
+                damageInfo.attacker = base.gameObject;
+                damageInfo.inflictor = null;
+                damageInfo.force = Vector3.zero;
+                damageInfo.crit = false;
+                damageInfo.procChainMask = default(ProcChainMask);
+                damageInfo.procCoefficient = 1f;
+                damageInfo.position = position;
+                damageInfo.damageColorIndex = DamageColorIndex.Item;
+                damageInfo.damageType = DamageType.Shock5s;
+                Util.PlaySound("sfx_spy_sapper_plant", victim.gameObject);
+                victim.healthComponent.TakeDamage(damageInfo);
             }
         }
         public override void OnExit()
