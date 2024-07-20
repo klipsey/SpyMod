@@ -1,7 +1,7 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "1.1.7",
+    "version_number": "1.1.8",
     "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Adds the Spy survivor now with alt abilities, emotes, and monsoon skin! Multiplayer compatible.",
     "dependencies": [

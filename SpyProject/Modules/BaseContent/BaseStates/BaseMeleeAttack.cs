@@ -21,7 +21,7 @@ namespace SpyMod.Modules.BaseStates
         protected DamageType damageType = DamageType.Generic;
         protected List<DamageAPI.ModdedDamageType> moddedDamageTypeHolder = new List<DamageAPI.ModdedDamageType>();
         protected float damageCoefficient = 3.5f;
-        protected float procCoefficient = 1f;
+        protected float procCoefficient = 0.5f;
         protected float pushForce = 300f;
         protected Vector3 bonusForce = Vector3.zero;
         protected float baseDuration = 1f;

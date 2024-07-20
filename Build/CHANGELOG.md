@@ -1,6 +1,11 @@
+# 1.1.8 
+
+- Networked sap and big earner stab
+- Changed backstab damage to be 5x damage + crit
+
 # 1.1.7
 
-- maybe fixed sound?????
+- Maybe fixed sound?????
 
 # 1.1.6
 

@@ -1,5 +1,4 @@
 ﻿using RoR2;
-using SpyMod.Modules;
 using System.Collections.Generic;
 
 namespace SpyMod.Modules.Characters
