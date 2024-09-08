@@ -1,3 +1,8 @@
+# 1.2.0
+
+- Sots update
+- Re added spies execute. 500% damage on backstab + crit, below 20% hp execute
+
 # 1.1.8 
 
 - Networked sap and big earner stab
