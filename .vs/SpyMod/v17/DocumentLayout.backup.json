@@ -1,0 +1,697 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\RoR2Mods\\SpyMod\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spymod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spymod.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spyconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spyconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\spysurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\spysurvivor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spytokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spytokens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\basecontent\\basestates\\basemeleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\stab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\stab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spyassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spyassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\sap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\sap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\shoot2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\shoot2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\shoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\shoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\components\\spycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\components\\spycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\basecontent\\characters\\characterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\itemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\itemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\prefabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spybuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spybuffs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spycrosshair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spycrosshair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spyitemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spyitemdisplays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\spyunlockables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\spyunlockables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\content\\damagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\components\\spycss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\components\\spycss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\components\\cloakhudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\components\\cloakhudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\itemdisplaycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\itemdisplaycheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\contentpacks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\content.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\basecontent\\achievements\\basemasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\skins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\skins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\characterassets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\mainstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spymod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spymod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\achievements\\spyunlockachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\achievements\\spyunlockachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\achievements\\spymasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\achievements\\spymasteryachievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\spycharacter\\skillstates\\decoyspawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\spycharacter\\skillstates\\decoyspawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|d:\\ror2mods\\spymod\\spyproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FEB2C1B-083B-44F2-9492-CC26077D9A66}|SpyProject\\SpyMod.csproj|solutionrelative:spyproject\\modules\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:149:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:150:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:151:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Stab.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Stab.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\Stab.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Stab.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\Stab.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAADgvyoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T22:07:25.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Skills.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Skills.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\Skills.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Skills.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\Skills.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpyConfig.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyConfig.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyConfig.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyConfig.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyConfig.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAI0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:58:18.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SpyMod.csproj",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyMod.csproj",
+              "RelativeDocumentMoniker": "SpyProject\\SpyMod.csproj",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyMod.csproj",
+              "RelativeToolTip": "SpyProject\\SpyMod.csproj",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowFEAAAB2BAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-09T21:53:14.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpySurvivor.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SpySurvivor.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SpySurvivor.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SpySurvivor.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SpySurvivor.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAswD0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CharacterBase.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\BaseContent\\Characters\\CharacterBase.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAADgv2oAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SpyTokens.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyTokens.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyTokens.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyTokens.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyTokens.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAiwGsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SpyController.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\SpyController.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Components\\SpyController.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\SpyController.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Components\\SpyController.cs",
+              "ViewState": "AgIAACwBAAAAAAAAAADwvz0BAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shoot.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Shoot.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\Shoot.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Shoot.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\Shoot.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAkwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseMeleeAttack.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\BaseContent\\BaseStates\\BaseMeleeAttack.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAQwEIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sap.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Sap.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\Sap.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Sap.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\Sap.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAYwIEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpyAssets.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyAssets.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyAssets.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyAssets.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyAssets.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ItemDisplays.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ItemDisplays.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\ItemDisplays.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ItemDisplays.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\ItemDisplays.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SpyBuffs.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyBuffs.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyBuffs.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyBuffs.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyBuffs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Shoot2.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Shoot2.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\Shoot2.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\Shoot2.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\Shoot2.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAgwBEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SpyCss.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\SpyCss.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Components\\SpyCss.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\SpyCss.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Components\\SpyCss.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SpyAI.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyAI.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyAI.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyAI.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyAI.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SpyUnlockables.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyUnlockables.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyUnlockables.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyUnlockables.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyUnlockables.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SpyStates.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyStates.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyStates.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyStates.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyStates.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SpyItemDisplays.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyItemDisplays.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyItemDisplays.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyItemDisplays.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyItemDisplays.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SpyCrosshair.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyCrosshair.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\SpyCrosshair.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\SpyCrosshair.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\SpyCrosshair.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:14.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CloakHudController.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\CloakHudController.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Components\\CloakHudController.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Components\\CloakHudController.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Components\\CloakHudController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ItemDisplayCheck.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ItemDisplayCheck.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\ItemDisplayCheck.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ItemDisplayCheck.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\ItemDisplayCheck.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAwwHQAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Prefabs.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Prefabs.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\Prefabs.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Prefabs.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\Prefabs.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACMAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ContentPacks.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ContentPacks.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\ContentPacks.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\ContentPacks.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\ContentPacks.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Content.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Content.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\Content.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Content.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\Content.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAowIIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BaseMasteryAchievement.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\BaseContent\\Achievements\\BaseMasteryAchievement.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAmwDMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DamageTypes.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\DamageTypes.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Content\\DamageTypes.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Content\\DamageTypes.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Content\\DamageTypes.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAUwEUAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Skins.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Skins.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\Skins.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Skins.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\Skins.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "MainState.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\MainState.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\MainState.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\MainState.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\MainState.cs",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SpyMod",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyMod.csproj",
+              "RelativeDocumentMoniker": "SpyProject\\SpyMod.csproj",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyMod.csproj",
+              "RelativeToolTip": "SpyProject\\SpyMod.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-09T21:53:15.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "SpyMasteryAchievement.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Achievements\\SpyMasteryAchievement.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Achievements\\SpyMasteryAchievement.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Achievements\\SpyMasteryAchievement.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Achievements\\SpyMasteryAchievement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SpyUnlockAchievement.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Achievements\\SpyUnlockAchievement.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\Achievements\\SpyUnlockAchievement.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\Achievements\\SpyUnlockAchievement.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\Achievements\\SpyUnlockAchievement.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAiwBMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CharacterAssets.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\CharacterAssets.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\CharacterAssets.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\CharacterAssets.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\CharacterAssets.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwCEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DecoySpawn.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\DecoySpawn.cs",
+              "RelativeDocumentMoniker": "SpyProject\\SpyCharacter\\SkillStates\\DecoySpawn.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\SpyCharacter\\SkillStates\\DecoySpawn.cs",
+              "RelativeToolTip": "SpyProject\\SpyCharacter\\SkillStates\\DecoySpawn.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAACwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Config.cs",
+              "DocumentMoniker": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Config.cs",
+              "RelativeDocumentMoniker": "SpyProject\\Modules\\Config.cs",
+              "ToolTip": "D:\\RoR2Mods\\SpyMod\\SpyProject\\Modules\\Config.cs",
+              "RelativeToolTip": "SpyProject\\Modules\\Config.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T21:53:15.109Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

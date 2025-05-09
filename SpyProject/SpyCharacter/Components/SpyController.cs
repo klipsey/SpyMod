@@ -92,11 +92,11 @@ namespace SpyMod.Spy.Components
         {
             if (this.isDefaultCloak)
             {
-                this.maxCloakTimer = SpyConfig.maxCloakDefault.Value;
+                this.maxCloakTimer = SpyConfig.maxCloakDurationDefault.Value;
             }
             else if (this.isSpecialDeadman)
             {
-                this.maxCloakTimer = SpyConfig.maxCloakDead.Value;
+                this.maxCloakTimer = SpyConfig.maxCloakDurationDead.Value;
             }
 
             this.cloakTimer = this.maxCloakTimer;
@@ -181,7 +181,7 @@ namespace SpyMod.Spy.Components
         {
             chainStabComboCounter++;
             hasPunishedChainStab = false;
-            gracePeriod = SpyStaticValues.bigEarnerGracePeriod + chainStabComboCounter / 2f;
+            gracePeriod = SpyConfig.bigEarnerGracePeriod.Value + chainStabComboCounter / 2f;
             if(muzzleTrail) GameObject.Destroy(muzzleTrail.gameObject);
             Transform muzzleTransform = this.childLocator.FindChild("Gun");
 
@@ -191,9 +191,9 @@ namespace SpyMod.Spy.Components
             else  color = Color.Lerp(new Color(100f / 255f, 215f / 255f, 233f / 255f), new Color(20f / 255f, 255f/ 255f, 170f / 255f), chainStabComboCounter / 10f).RGBMultiplied(0.5f).AlphaMultiplied(0.5f);
             muzzleTrail.GetComponent<TrailRenderer>().startColor = color;
             muzzleTrail.GetComponent<TrailRenderer>().endColor = color;
-            muzzleTrail.GetComponent<TrailRenderer>().startWidth = Mathf.Lerp(0.045f,  1.2f, chainStabComboCounter / SpyStaticValues.maxChainStabCombo);
+            muzzleTrail.GetComponent<TrailRenderer>().startWidth = Mathf.Lerp(0.045f,  1.2f, chainStabComboCounter / SpyConfig.maxChainStabCombo.Value);
 
-            if (!this.chainStabCombo.isPlaying && chainStabComboCounter >= SpyStaticValues.maxChainStabCombo) chainStabCombo.Play();
+            if (!this.chainStabCombo.isPlaying && chainStabComboCounter >= SpyConfig.maxChainStabCombo.Value) chainStabCombo.Play();
 
             float remap = Util.Remap(chainStabComboCounter, 0f, 10f, 1f, 2f);
             var main2 = chainStabComboHand.main;
@@ -248,7 +248,7 @@ namespace SpyMod.Spy.Components
             if(this.isSpecialDeadman)
             {
                 DisableWatchLayer();
-                cloakTimer = SpyConfig.maxCloakDead.Value;
+                cloakTimer = SpyConfig.maxCloakDurationDead.Value;
                 characterBody.skillLocator.special.stock--;
             }
 
@@ -315,7 +315,7 @@ namespace SpyMod.Spy.Components
             {
                 if(this.isDefaultCloak)
                 {
-                    this.maxCloakTimer = SpyConfig.maxCloakDefault.Value + this.characterBody.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid);
+                    this.maxCloakTimer = SpyConfig.maxCloakDurationDefault.Value + this.characterBody.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid);
                 };
             }
         }

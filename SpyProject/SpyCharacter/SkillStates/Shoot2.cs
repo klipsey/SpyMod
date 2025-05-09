@@ -12,7 +12,7 @@ namespace SpyMod.Spy.SkillStates
 {
     public class Shoot2 : BaseSpySkillState
     {
-        public float damageCoefficient = SpyStaticValues.revolverDamageCoefficient;
+        public float damageCoefficient = SpyConfig.ambassadorDamageCoefficient.Value;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.9f;
         public static float force = 200f;
@@ -37,7 +37,6 @@ namespace SpyMod.Spy.SkillStates
         public bool holding;
         public override void OnEnter()
         {
-            damageCoefficient = SpyStaticValues.ambassadorDamageCoefficient;
             base.OnEnter();
 
             if(spyController.IsStopWatchOut())
@@ -133,6 +132,10 @@ namespace SpyMod.Spy.SkillStates
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                     hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
                 };
+
+                bulletAttack.damageType.damageSource = DamageSource.Primary;
+
+
                 bulletAttack.modifyOutgoingDamageCallback = delegate (BulletAttack _bulletAttack, ref BulletAttack.BulletHit hitInfo, DamageInfo damageInfo)
                 {
                     if (BulletAttack.IsSniperTargetHit(hitInfo))

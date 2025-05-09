@@ -55,44 +55,57 @@ namespace SpyMod.Spy.Content
 
             #region Primary
             Language.Add(prefix + "PRIMARY_REVOLVER_NAME", "Diamondback");
-            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.revolverDamageCoefficient}% damage</style>. " +
+            Language.Add(prefix + "PRIMARY_REVOLVER_DESCRIPTION", $"Fire a bullet for " +
+                $"<style=cIsDamage>{100f * SpyConfig.revolverDamageCoefficient.Value}% damage</style>. " +
                 $"<style=cIsHealth>Backstab</style> kills grant <color=#62746f>Espionage</color>. Max 5 stacks.");
 
             Language.Add(prefix + "PRIMARY_REVOLVER2_NAME", "Ambassador");
-            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for <style=cIsDamage>{100f * SpyStaticValues.ambassadorDamageCoefficient}% damage</style>. Landing a headshot <style=cIsDamage>Critically Strikes</style>.");
+            Language.Add(prefix + "PRIMARY_REVOLVER2_DESCRIPTION", $"Fire a bullet for " +
+                $"<style=cIsDamage>{100f * SpyConfig.ambassadorDamageCoefficient.Value}% damage</style>." +
+                $" Landing a headshot <style=cIsDamage>Critically Strikes</style>.");
             #endregion
 
             #region Secondary
             Language.Add(prefix + "SECONDARY_KNIFE_NAME", "Stab");
-            Language.Add(prefix + "SECONDARY_KNIFE_DESCRIPTION", $"Prepare your <color=#62746f>Knife</color>. Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>.");
+            Language.Add(prefix + "SECONDARY_KNIFE_DESCRIPTION", $"Prepare your <color=#62746f>Knife</color>. Release to swing for " +
+                $"<style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>.");
 
             Language.Add(prefix + "SECONDARY_KNIFE2_NAME", "Big Earner");
-            Language.Add(prefix + "SECONDARY_KNIFE2_DESCRIPTION", Tokens.spyBigEarnerPrefix + $". Prepare your <color=#62746f>Knife</color>. Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>. " +
-                $"<style=cIsHealth>Backstab</style> kills grant <style=cIsUtility>movement speed</style> and <style=cIsHealing>barrier</style> as well as <style=cIsUtility>resetting this abilities cooldown</style> for a short period.");
+            Language.Add(prefix + "SECONDARY_KNIFE2_DESCRIPTION", Tokens.spyBigEarnerPrefix + $". Prepare your <color=#62746f>Knife</color>. " +
+                $"Release to swing for <style=cIsDamage>{100f * SpyConfig.stabDamageCoefficient.Value}% damage</style>. " +
+                $"<style=cIsHealth>Backstab</style> kills grant <style=cIsUtility>movement speed</style> and " +
+                $"<style=cIsHealing>barrier</style> as well as <style=cIsUtility>resetting this abilities cooldown</style> for a short period.");
             #endregion
 
             #region Utility 
             Language.Add(prefix + "UTILITY_FLIP_NAME", "Sap");
-            Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. Plant a <color=#62746f>Sapper</color> on a nearby " +
+            Language.Add(prefix + "UTILITY_FLIP_DESCRIPTION", $"<style=cIsUtility>Dash</style> in a direction or <style=cIsUtility>Flip</style> in the air. " +
+                $"Plant a <color=#62746f>Sapper</color> on a nearby " +
                 $"enemy, <style=cIsUtility>shocking</style> them and nearby enemies for <style=cIsUtility>5 seconds</style>.");
             #endregion
 
             #region Special
             Language.Add(prefix + "SPECIAL_WATCH_NAME", "Cloak");
-            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds</style>. " +
+            Language.Add(prefix + "SPECIAL_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to " +
+                $"<style=cIsUtility>{SpyConfig.maxCloakDurationDefault.Value} seconds</style>. " +
                 $"While <style=cIsUtility>cloaked</style>, <color=#62746f>Spy</color> cannot shoot.");
 
             Language.Add(prefix + "SPECIAL_WATCH2_NAME", "Deadman's Watch");
-            Language.Add(prefix + "SPECIAL_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for <style=cIsUtility>{SpyConfig.maxCloakDead.Value} seconds</style>" +
+            Language.Add(prefix + "SPECIAL_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. " +
+                $"Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for " +
+                $"<style=cIsUtility>{SpyConfig.maxCloakDurationDead.Value} seconds</style>" +
                 $" at the cost of up to <style=cIsHealth>{100f * SpyConfig.cloakHealthCost.Value}% HP</style>. " +
                 $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot.");
 
             Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_NAME", "Cloak");
-            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to <style=cIsUtility>{SpyConfig.maxCloakDefault.Value} seconds</style>. " +
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH_DESCRIPTION", $"Become <style=cIsUtility>cloaked</style> for up to " +
+                $"<style=cIsUtility>{SpyConfig.maxCloakDurationDefault.Value} seconds</style>. " +
                 $"While <style=cIsUtility>cloaked</style>, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("Decloak instantly."));
 
             Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_NAME", "Deadman's Watch Scepter");
-            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for <style=cIsUtility>{SpyConfig.maxCloakDead.Value} seconds</style>" +
+            Language.Add(prefix + "SPECIAL_SCEPTER_WATCH2_DESCRIPTION", $"Take out your <color=#62746f>Deadman's Watch</color>. " +
+                $"Taking <style=cIsDamage>damage</style> grants <style=cIsUtility>invisiblity</style> for " +
+                $"<style=cIsUtility>{SpyConfig.maxCloakDurationDead.Value} seconds</style>" +
                 $" at the cost of up to <style=cIsHealth>{100f * SpyConfig.cloakHealthCost.Value}% HP</style>. " +
                 $"While your <color=#62746f>Deadman's Watch</color> is out, <color=#62746f>Spy</color> cannot shoot." + Tokens.ScepterDescription("<style=cIsHealth>Backstab</style> kills <style=cIsUtility>reset</style> <color=#62746f>Deadman's Watch</color> and the <style=cIsHealth>HP</style> cost is removed."));
             #endregion

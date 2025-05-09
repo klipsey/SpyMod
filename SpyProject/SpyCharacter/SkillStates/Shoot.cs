@@ -11,7 +11,7 @@ namespace SpyMod.Spy.SkillStates
 {
     public class Shoot : BaseSpySkillState
     {
-        public float damageCoefficient = SpyStaticValues.revolverDamageCoefficient;
+        public float damageCoefficient = SpyConfig.revolverDamageCoefficient.Value;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.7f;
         public static float force = 200f;
@@ -56,7 +56,7 @@ namespace SpyMod.Spy.SkillStates
             if(this.diamondbackStacks > 0)
             {
                 if (NetworkServer.active) this.characterBody.RemoveBuff(SpyBuffs.spyDiamondbackBuff);
-                if (this.isCrit) damageCoefficient *= SpyStaticValues.diamondBackCritBonus;
+                if (this.isCrit) damageCoefficient *= SpyConfig.diamondBackCritBonus.Value;
                 else this.isCrit = true;
             }
 
@@ -113,6 +113,9 @@ namespace SpyMod.Spy.SkillStates
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                     hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
                 };
+
+                bulletAttack.damageType.damageSource = DamageSource.Primary;
+
                 bulletAttack.Fire();
             }
 

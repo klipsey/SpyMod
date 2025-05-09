@@ -160,6 +160,7 @@ namespace SpyMod.Spy.SkillStates
                 damageInfo.position = position;
                 damageInfo.damageColorIndex = DamageColorIndex.Item;
                 damageInfo.damageType = DamageType.Shock5s;
+                damageInfo.damageType.damageSource = DamageSource.Utility;
                 Util.PlaySound("sfx_spy_sapper_plant", victim.gameObject);
                 victim.healthComponent.TakeDamage(damageInfo);
             }

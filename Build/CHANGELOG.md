@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Playable for Sots v3
+
 # 1.2.0
 
 - Sots update

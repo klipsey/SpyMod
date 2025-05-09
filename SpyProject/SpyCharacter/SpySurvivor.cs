@@ -54,16 +54,27 @@ namespace SpyMod.Spy
             crosshair = Modules.CharacterAssets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 100f,
-            healthRegen = 1.2f,
-            armor = 0f,
-            damage = 12f,
-
-            damageGrowth = 2.4f,
-            healthGrowth = 100f * 0.35f,
-
-
-            jumpCount = 1,
+            damage = SpyConfig.damage.Value,
+            damageGrowth = SpyConfig.damageGrowth.Value * SpyConfig.damage.Value,
+            attackSpeed = SpyConfig.attackSpeed.Value,
+            attackSpeedGrowth = SpyConfig.attackSpeedGrowth.Value,
+            crit = SpyConfig.crit.Value,
+            critGrowth = SpyConfig.critGrowth.Value,
+            maxHealth = SpyConfig.maxHealth.Value,
+            healthGrowth = SpyConfig.healthGrowth.Value * SpyConfig.maxHealth.Value,
+            healthRegen = SpyConfig.healthRegen.Value,
+            regenGrowth = SpyConfig.regenGrowth.Value * SpyConfig.healthRegen.Value,
+            shield = SpyConfig.shield.Value,
+            shieldGrowth = SpyConfig.shieldGrowth.Value * SpyConfig.shield.Value,
+            armor = SpyConfig.armor.Value,
+            armorGrowth = SpyConfig.armorGrowth.Value * SpyConfig.armor.Value,
+            moveSpeed = SpyConfig.moveSpeed.Value,
+            moveSpeedGrowth = SpyConfig.moveSpeedGrowth.Value * SpyConfig.moveSpeed.Value,
+            jumpPower = SpyConfig.jumpPower.Value,
+            jumpPowerGrowth = SpyConfig.jumpPowerGrowth.Value * SpyConfig.jumpPower.Value,
+            acceleration = SpyConfig.acceleration.Value,
+            jumpCount = SpyConfig.jumpCount.Value,
+            autoCalculateLevelStats = SpyConfig.autoCalculateLevelStats.Value,
         };
 
         public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]

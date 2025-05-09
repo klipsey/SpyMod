@@ -16,7 +16,8 @@ namespace SpyMod.Spy.SkillStates
             hitboxGroupName = "KnifeHitbox";
 
             damageType = DamageType.Generic;
-            damageCoefficient = SpyStaticValues.stabDamageCoefficient;
+            damageSource = DamageSource.Secondary;
+            damageCoefficient = SpyConfig.stabDamageCoefficient.Value;
             procCoefficient = 1f;
             pushForce = 200f;
             bonusForce = Vector3.zero;
