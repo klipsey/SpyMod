@@ -74,5 +74,3 @@ Contact me on Discord: https://discord.gg/3NaMEsvYeD
 tsuyoikenko - Code, model, animations.
 
 TheTimeSweeper - Incredible new Henry template.
-
-rob - Creator of the glorious Henry template. Also, built Scouts animations using Driver as a base.

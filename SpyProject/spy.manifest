@@ -1,0 +1,194 @@
+ManifestFileVersion: 0
+CRC: 1577330064
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d77eadbd1808417c42e37705e1f210d2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e893368247680ef1d87d718271254f4f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67079b849227b734694872d8810229b8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2334069450a65d042a95a873e5229b20, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fef0780b96a0f12448b6dd86f9c8139b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db294d07add6b364f99a346939dd2a8a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 144
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: ChildLocator/NameTransformPair
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Spy/Animations/AimPitch.anim
+- Assets/Spy/Animations/CSSIdle.anim
+- Assets/Spy/HUD/Textures/texChargeRing.png
+- Assets/Spy/Animations/AimYaw.anim
+- Assets/Spy/Projectiles/DriverStunGrenadeImpact.prefab
+- Assets/Spy/HUD/ChargeBar.prefab
+- Assets/Spy/Projectiles/texRampCoin.png
+- Assets/Spy/Animations/Descend.anim
+- Assets/Spy/mdlSpy.prefab
+- Assets/Spy/Animations/TrickStab.anim
+- Assets/Spy/Animations/animSpy.controller
+- Assets/Spy/Projectiles/texAlphaGradient6Mask.png
+- Assets/Spy/spy_emoteskeleton.prefab
+- Assets/Spy/Animations/Stab.anim
+- Assets/Spy/Icons/texSpyIcon.png
+- Assets/Spy/Icons/Skill/texSpyRevolver.png
+- Assets/Spy/HUD/Textures/texSniperBulletIndicator.png
+- Assets/Spy/Icons/Skill/texSpyAmbassador.png
+- Assets/Spy/Textures/texSpyMonsoon.png
+- Assets/Spy/Meshes/meshSpyAlt.mesh
+- Assets/Spy/VFX/matSpyDefault.mat
+- Assets/Spy/Projectiles/CoinProjectileGhost.prefab
+- Assets/Spy/VFX/BloodSpurtEffect.prefab
+- Assets/Spy/Icons/Skill/texSpyCloak.png
+- Assets/Spy/VFX/CritLightning.prefab
+- Assets/Spy/VFX/Badass/WoodHitEffect.prefab
+- Assets/Spy/VFX/texShockwave.png
+- Assets/Spy/Animations/RunR.anim
+- Assets/Spy/Animations/Ascend.anim
+- Assets/Spy/SpyDisplay.prefab
+- Assets/Spy/Icons/texDefaultSkin.png
+- Assets/Spy/Animations/animSpyEmotes.controller
+- Assets/Spy/Meshes/meshTie.mesh
+- Assets/Spy/Materials/matSpy.mat
+- Assets/Spy/Animations/Sprint.anim
+- Assets/Spy/Projectiles/CoinProjectile.prefab
+- Assets/Spy/Animations/maskSpyAim.mask
+- Assets/Spy/Animations/IdleIn.anim
+- Assets/Spy/VFX/Badass/SmallExplosion.prefab
+- Assets/Spy/VFX/Badass/TinyExplosion.prefab
+- Assets/Spy/Projectiles/CoinImpactHit.prefab
+- Assets/Spy/Meshes/meshWatch.mesh
+- Assets/Spy/Projectiles/CoinOrbEffect.prefab
+- Assets/Spy/Animations/JumpSprint.anim
+- Assets/Spy/Meshes/meshKnifeAlt.mesh
+- Assets/Spy/Animations/RunL.anim
+- Assets/Spy/Textures/texSpyEmission.png
+- Assets/Spy/Meshes/meshRevolver.mesh
+- Assets/Spy/Animations/CSSIdleIn.anim
+- Assets/Spy/Animations/LightImpact.anim
+- Assets/Spy/mdlSpyDecoy.prefab
+- Assets/Spy/VFX/matShockwave2.mat
+- Assets/Spy/Materials/matSapper.mat
+- Assets/Spy/Projectiles/texRampCoin2.png
+- Assets/Spy/Animations/DashL.anim
+- Assets/Spy/Textures/texSapper.png
+- Assets/Spy/HUD/ChargeRing.prefab
+- Assets/Spy/Icons/Skill/texSpyFlip.png
+- Assets/Spy/Animations/DashB.anim
+- Assets/Spy/Projectiles/texRampCrocoDiseaseDark.png
+- Assets/Spy/Textures/texSpyMonsoonEmission.png
+- Assets/Spy/VFX/Badass/BigExplosion.prefab
+- Assets/Spy/Animations/ChargeStab.anim
+- Assets/Spy/Animations/maskSpyImpact.mask
+- Assets/Spy/Animations/WatchOut.anim
+- Assets/Spy/HUD/Textures/texWhite.png
+- Assets/Spy/VFX/texBlackLightning.png
+- Assets/Spy/Icons/Skill/texSpyWatch.png
+- Assets/Spy/VFX/texSpyStreak.png
+- Assets/Spy/Icons/Skill/texSpyPassive.png
+- Assets/Spy/HUD/Textures/texBulletIndicator.png
+- Assets/Spy/Animations/Jump.anim
+- Assets/Spy/Textures/texSpyNormal.png
+- Assets/Spy/Meshes/meshRevolverAlt.mesh
+- Assets/Spy/Icons/texMonsoonSkin.png
+- Assets/Spy/VFX/matSpyStreak.mat
+- Assets/Spy/Animations/Shoot2.anim
+- Assets/Spy/VFX/Badass/MetalHitEffect.prefab
+- Assets/Spy/Projectiles/meshSapper.mesh
+- Assets/Spy/VFX/Badass/SandHitEffect.prefab
+- Assets/Spy/Animations/DashR.anim
+- Assets/Spy/Animations/RunF.anim
+- Assets/Spy/Animations/RunB.anim
+- Assets/Spy/Animations/Idle.anim
+- Assets/Spy/Animations/animSpyCSS.controller
+- Assets/Spy/Meshes/meshWatchAlt.mesh
+- Assets/Spy/Textures/texSpy.png
+- Assets/Spy/Projectiles/DriverStunGrenadeGhost.prefab
+- Assets/Spy/VFX/Badass/StoneHitEffect.prefab
+- Assets/Spy/Animations/SprintFast.anim
+- Assets/Spy/Projectiles/coin.asset
+- Assets/Spy/Projectiles/CoinTracer.prefab
+- Assets/Spy/Animations/maskSpyLeftArm.mask
+- Assets/Spy/Materials/matSpyMonsoon.mat
+- Assets/Spy/Icons/Skill/texSpyStab.png
+- Assets/Spy/VFX/CritLightningMonsoon.prefab
+- Assets/Spy/VFX/matShockwave.mat
+- Assets/Spy/Icons/Skill/texSpyStab2.png
+- Assets/Spy/Meshes/meshKnife.mesh
+- Assets/Spy/Animations/maskSpyGesture.mask
+- Assets/Spy/HUD/WeaponChargeBar.prefab
+- Assets/Spy/Animations/DashF.anim
+- Assets/Spy/Animations/Shoot.anim
+- Assets/Spy/Projectiles/mdlSapper.prefab
+- Assets/Spy/VFX/matBlackLightning.mat
+- Assets/Spy/Meshes/meshSpy.mesh
+Dependencies: []

@@ -1,5 +1,4 @@
-﻿/*
-using R2API;
+﻿using R2API;
 using RoR2;
 using RoR2.Achievements;
 using SpyMod.Spy;
@@ -11,7 +10,7 @@ using UnityEngine;
 
 namespace SpyMod.Spy.Achievements
 {
-    [RegisterAchievement(identifier, unlockableIdentifier, null, null)]
+    [RegisterAchievement(identifier, unlockableIdentifier, null, 3u, null)]
     public class SpyUnlockAchievement : BaseAchievement
     {
         public const string identifier = SpySurvivor.SPY_PREFIX + "UNLOCK_ACHIEVEMENT";
@@ -53,4 +52,3 @@ namespace SpyMod.Spy.Achievements
         }
     }
 }
-*/

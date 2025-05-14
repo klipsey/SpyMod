@@ -1,3 +1,8 @@
+# 1.3.1
+
+- You're telling me this guy is played so little that no one noticed his aimPitch and aimYaw animations straight up not working for half a year.
+- Added your mom.
+
 # 1.3.0
 
 - Playable for Sots v3
