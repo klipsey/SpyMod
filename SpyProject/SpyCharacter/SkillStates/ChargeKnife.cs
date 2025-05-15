@@ -27,6 +27,8 @@ namespace SpyMod.Spy.SkillStates
         {
             base.FixedUpdate();
 
+            base.characterBody.SetAimTimer(2f);
+
             if (base.isAuthority)
             {
                 if (!IsKeyDownAuthority() && base.fixedAge >= 0.05)

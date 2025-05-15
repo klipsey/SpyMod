@@ -1,7 +1,7 @@
 {
     "name": "Spy",
     "author": "tsuyoikenko",
-    "version_number": "1.3.1",
+    "version_number": "1.3.2",
     "website_url": "https://github.com/klipsey/SpyMod",
     "description": "Adds the Spy survivor. A squishy melee assassin who excels at doing your mom with ease.",
     "dependencies": [

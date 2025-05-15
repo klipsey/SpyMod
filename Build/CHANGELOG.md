@@ -1,3 +1,11 @@
+# 1.3.2
+
+- Increased knife hitbox size
+- Added lore and outros
+- Remodel teaser??? 
+
+[![remodel.png](https://i.postimg.cc/65ps54P2/remodel.png)]()
+
 # 1.3.1
 
 - You're telling me this guy is played so little that no one noticed his aimPitch and aimYaw animations straight up not working for half a year.

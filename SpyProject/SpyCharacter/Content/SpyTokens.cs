@@ -32,9 +32,21 @@ namespace SpyMod.Spy.Content
             desc = desc + "< ! > Sap can be a great tool to get into Backstab range while stunning nearby enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Cloak can be a great way to both engage and escape enemies but requires proper resource management." + Environment.NewLine + Environment.NewLine;
 
-            string lore = "Your Mother!";
-            string outro = "Seduce me.";
-            string outroFailure = "Congratulations, you're a failure.";
+            string lore = "As the rapid development of space empires surged across the stars, so too did the silent wars that burn between them. " +
+                "Diplomatic facades masked the tension, but beneath the surface hides fierce political strife, alliances fracturing, and ideologies " +
+                "clashing in the silence of space. " + Environment.NewLine + Environment.NewLine +
+                "In this age of interstellar ambition, open conflict risked total annihilation. Leaders turned to the shadows to carry out their will instead. " +
+                "Espionage became the weapon of choice—a silent war waged in data streams, whispered codes, and stolen secrets. " +
+                "Entire civilizations were swayed not by fleets or firepower, but by a well-placed whisper, a corrupted protocol, a missing official." + Environment.NewLine + Environment.NewLine +
+                "Spies became ghosts in the machinery of empire. Masters of deception, infiltration, and subversion, they slipped between borders unnoticed, " +
+                "cutting into empires with surgical precision. Some served sovereigns. Others served ideals. A few served only themselves." + Environment.NewLine + Environment.NewLine +
+                "Their victories are never paraded. Their names are never spoken. Their missions, buried by design. And yet, the rise and fall of entire star-nations have " +
+                "turned on the actions of a few, unseen agents." + Environment.NewLine + Environment.NewLine +
+                "A good spy is never caught. The impact they leave on history is untraceable, " +
+                "but in the quiet shift of power, in the moment an empire rises or crumbles, their hand is always there, unseen... but undeniable.";
+
+            string outro = "..and so he left, another mission completed.";
+            string outroFailure = "..and so he vanished, without a trace.";
             
             Language.Add(prefix + "NAME", "Spy");
             Language.Add(prefix + "DESCRIPTION", desc);
