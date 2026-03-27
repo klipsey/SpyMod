@@ -2,6 +2,8 @@
 
 - Increased knife hitbox size
 - Added lore and outros
+- Made knife charge force spy to look forward
+- Fixed ppLocalGold error
 - Remodel teaser??? 
 
 [![remodel.png](https://i.postimg.cc/65ps54P2/remodel.png)]()
